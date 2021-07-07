@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { faGithub, faInstagram, faLinkedin, faSkype, faStrava, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBriefcase, faBusinessTime, faClock, faEnvelope, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -13,7 +11,6 @@ import { HomeComponent, SafeHtmlPipe } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Utils } from './services/Utils';
-import { BuildPlanComponent } from './build-plan/build-plan.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MonthlyCalendarComponent } from './calendar/monthly-calendar/monthly-calendar.component';
 import { VarDirective } from './services/ng-var.directive';
@@ -29,7 +26,6 @@ import { EditSubPlanModalComponent } from './calendar/edit-sub-plan-modal/edit-s
     AppComponent,
     HomeComponent,
     SafeHtmlPipe,
-    BuildPlanComponent,
     CalendarComponent,
     MonthlyCalendarComponent,
     VarDirective,
@@ -40,7 +36,6 @@ import { EditSubPlanModalComponent } from './calendar/edit-sub-plan-modal/edit-s
     EditSubPlanModalComponent
   ],
   imports: [
-    // MDBBootstrapModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
