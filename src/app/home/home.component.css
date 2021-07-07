@@ -1,0 +1,20 @@
+#hero-img {
+  opacity: .3;
+}
+
+#hero-layer {
+  z-index: -2;
+  background-color: lightgray;
+  overflow: hidden;
+}
+
+#hero-button {
+  background-color: var(--dark-turquoise);
+  color: white;
+  width: fit-content;
+}
+
+#hero-content {
+  padding-top: 330px;
+  padding-left: 150px;
+}

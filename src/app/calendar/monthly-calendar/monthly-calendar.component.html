@@ -1,0 +1,64 @@
+<h1 class="text-center fw-light mb-4 d-flex justify-content-between align-items-center" id="month-title">
+  <!-- arrow buttons to change the month -->
+  <i (click)="changeMonth(false)" class="fas fa-chevron-left fs-4"></i>
+  {{monthString}}
+  <i (click)="changeMonth(true)" class="fas fa-chevron-right fs-4"></i>
+</h1>
+<!-- calendar table starts -->
+<table class="table table-bordered mx-auto" id="calendar-table">
+  <!-- table header -->
+  <thead>
+    <tr class="table-light">
+      <th class="p-1 text-center">Sun</th>
+      <th class="p-1 text-center">Mon</th>
+      <th class="p-1 text-center">Tue</th>
+      <th class="p-1 text-center">Wed</th>
+      <th class="p-1 text-center">Thu</th>
+      <th class="p-1 text-center">Fri</th>
+      <th class="p-1 text-center">Sat</th>
+    </tr>
+  </thead>
+  <!-- table body -->
+  <tbody>
+    <!-- repeat the week row 6 times -->
+    <tr *ngFor="let week of [].constructor(6); let weekIndex = index;">
+      <!-- repeat the day cell 7 times and caluclate the day -->
+      <td *ngFor="let day of [].constructor(7); let dayIndex = index;" class="px-0 pt-2 position-relative"
+        [ngClass]="(dayIndex + 1) + (weekIndex * 7) > dateOffset ? 'hover' : ''"
+        id="cell-{{(dayIndex - dateOffset + 1) + (weekIndex * 7)}}"
+        (click)="openDetail((dayIndex - dateOffset + 1) + (weekIndex * 7), (dayIndex + 1) + (weekIndex * 7) > dateOffset)">
+        <!-- declare a date variable -->
+        <ng-container *ngVar="(dayIndex - dateOffset + 1) + (weekIndex * 7) as varDate">
+          <!-- container for the object with no plan -->
+          <ng-container
+            *ngIf="weekIndex == 0 && dayIndex < dateOffset || varDate > planDates.length; else elseTemplate">
+            <span></span>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <div class="px-2 d-flex align-items-center">
+              <!-- date -->
+              <p class="mb-0">
+                {{varDate}}
+              </p>
+              <!-- number of items(plans) -->
+              <a *ngIf="planDates[varDate - 1].plans.length > 0" (click)="openDetail(varDate)"
+                class="small item-count-text ms-auto">
+                {{planDates[varDate - 1].planCount}} item(s)
+              </a>
+            </div>
+            <!-- list for the plans -->
+            <ul class="mt-3 list-group plan-list">
+              <ng-container *ngFor="let p of planDates[varDate - 1].plans">
+                <li *ngIf="planDates[varDate - 1].plans.length > 0" (click)="openDetail(varDate)"
+                  [ngClass]="p.progress == 100 ? 'text-muted' : 'text-dark fw-normal'"
+                  class="plan-item list-group-item list-group-item-action border-start-0 border-end-0 text-truncate small rounded-0 py-1 px-2">
+                  {{p.title}}
+                </li>
+              </ng-container>
+            </ul>
+          </ng-template>
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>

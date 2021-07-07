@@ -1,0 +1,32 @@
+#add-plan-container {
+  padding: 100px 85px;
+}
+
+#add-plan-card {
+  border-radius: 10px;
+}
+
+#btn-save {
+  background-color: var(--turquoise);
+}
+
+#btn-sub-plan {
+  background-color: var(--dark-turquoise);
+}
+
+#btn-cancel {
+  background-color: var(--yellow);
+}
+
+.mb-error {
+  margin-bottom: 32px;
+}
+
+.error-message {
+  font-size: 12px;
+}
+
+.form-check .validate-success.ng-valid.ng-dirty:checked,
+.form-check .validate-success.ng-valid.ng-touched:checked {
+  background-color: #fff;
+}

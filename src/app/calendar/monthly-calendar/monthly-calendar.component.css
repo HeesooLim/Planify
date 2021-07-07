@@ -1,0 +1,40 @@
+#calendar-table {
+  table-layout: fixed;
+  height: 600px;
+}
+
+td.hover:hover {
+  background-color: rgba(220, 220, 220, 0.245);
+  cursor: pointer;
+}
+
+.plan-item.list-group-item {
+  min-height: 27px;
+  border-color: rgba(0, 0, 0, 0.055);
+}
+
+.plan-list.list-group {
+  display: block;
+  border-radius: 0;
+  max-height: 60px;
+  overflow-y: auto;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.plan-list.list-group::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.plan-list.list-group {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.item-count-text, .plan-item {
+  cursor: pointer;
+}
+
+td.selected, td.selected ul li {
+  background-color: rgba(220, 220, 220, 0.345);
+}

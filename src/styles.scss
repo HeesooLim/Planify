@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~bootstrap/dist/css/bootstrap.min.css"); */
+/* @import '~animate.css/animate.css'); */
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+@import '~animate.css/animate.css';
+
+:root {
+  --yellow: #F2AF5C;
+  --light-pink: #F2D5CE;
+  --pink: #D98F8F;
+  --light-gray: #F6F5F5;
+  --turquoise: #1687A7;
+  --dark-turquoise: #276678;
+  --slate-blue: #2A4759;
+  --blue: #658CBF;
+  --dark-blue: #3b7a8c;
+  --baby-blue: #D3E0EA;
+}
+
+body {
+  margin: 0;
+}
+
+body a {
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h3.title {
+  font-size: 4em;
+  text-align: center;
+  color: #008B8B;
+  border-bottom: 4px double gray;
+  padding-bottom: 0.2em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.bg-yellow-muted {
+  background-color: rgba(242, 174, 92, 0.2);
+}
+
+.bg-muted {
+  background-color: rgba(206, 206, 206, 0.2);
+}
+

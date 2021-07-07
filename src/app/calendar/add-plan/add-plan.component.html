@@ -1,0 +1,139 @@
+<div class="w-100 h-100" id="add-plan-container">
+  <div class="shadow-5-strong overflow-hidden d-flex" id="add-plan-card">
+    <!-- add plan form -->
+    <form [formGroup]="validationForm" (ngSubmit)="submitAddPlan(validationForm)">
+      <div class="px-5 pb-5 pt-4" id="card-form">
+        <!-- date string -->
+        <h4 class="mb-4 fw-light">{{selectedDateString}}</h4>
+        <!-- change class when the form is valid or invalid -->
+        <div [class]="
+          (dueDate?.invalid && (dueDate?.dirty || dueDate?.touched)) ||
+          (priority?.invalid && (priority?.dirty || priority?.touched)) ?
+          'mb-error' : 'mb-3'" class="d-flex align-items-end">
+          <div>
+            <!-- change the label color -->
+            <label [class]="{'text-danger': (dueDate?.invalid && (dueDate?.dirty || dueDate?.touched)),
+              'text-success': (dueDate?.valid && (dueDate?.dirty || dueDate?.touched))}" class="form-label"
+              for="dueDate">
+              Due date
+            </label>
+            <!-- due date form control -->
+            <mdb-form-control>
+              <input mdbValidate mdbInput type="datetime-local" id="dueDate" class="form-control mb-0"
+                formControlName="dueDate" required />
+              <mdb-error *ngIf="dueDate?.invalid && (dueDate?.dirty || dueDate?.touched)">
+                Due Date is required
+              </mdb-error>
+            </mdb-form-control>
+          </div>
+          <div class="ms-4">
+            <!-- change the text color -->
+            <p [class]="{'text-danger': (priority?.invalid && (priority?.dirty || priority?.touched))}"
+              class="mb-2 fw-normal">
+              Priority
+            </p>
+            <!-- radio container -->
+            <div class="d-flex position-relative ms-1">
+              <!-- radio high -->
+              <div class="form-check mb-2">
+                <input mdbRadio type="radio" id="radioHigh" value="3" class="form-check-input mt-1"
+                  formControlName="priority" required />
+                <label mdbLabel class="form-check-label" for="radioHigh">High</label>
+              </div>
+              <!-- radio medium -->
+              <div class="form-check mb-2 ms-4">
+                <input mdbRadio type="radio" id="radioMid" value="2" class="form-check-input mt-1"
+                  formControlName="priority" required />
+                <label mdbLabel class="form-check-label" for="radioMid">Medium</label>
+              </div>
+              <!-- radio low -->
+              <div class="form-check mb-2 ms-4">
+                <input mdbRadio type="radio" id="radioLow" value="1" class="form-check-input mt-1"
+                  formControlName="priority" required />
+                <label mdbLabel class="form-check-label" for="radioLow">Low</label>
+              </div>
+              <!-- form control error message -->
+              <mdb-error style="top: 35px" *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)">
+                Priority is required
+              </mdb-error>
+            </div>
+          </div>
+        </div>
+        <!-- title form control -->
+        <mdb-form-control [class]="(title?.invalid && (title?.dirty || title?.touched)) ? 'mb-error' : 'mb-3'">
+          <input mdbValidate mdbInput type="text" id="inputTitle" class="form-control" formControlName="title"
+            required />
+          <label mdbLabel class="form-label" for="inputTitle">Title</label>
+          <mdb-error *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+            Title is required
+          </mdb-error>
+        </mdb-form-control>
+        <!-- description form control -->
+        <mdb-form-control>
+          <textarea mdbInput type="text" id="inputDesc" rows="4" class="form-control"
+            formControlName="description"></textarea>
+          <label mdbLabel class="form-label" for="inputDesc">Description</label>
+        </mdb-form-control>
+      </div>
+      <!-- button container -->
+      <div class="bg-warning px-5 pb-5 pt-3 text-center">
+        <button type="submit" class="btn btn-sm text-white fw-light me-4" id="btn-save" mdbRipple>Save</button>
+        <button type="button" class="btn btn-sm text-white fw-light me-4" id="btn-sub-plan" (click)="openModal()"
+          mdbRipple>Add sub-plan</button>
+        <a class="btn btn-sm text-white fw-light" id="btn-cancel" href="/calendar" mdbRipple>Cancel</a>
+      </div>
+    </form>
+    <!-- subplan container -->
+    <div class="bg-light flex-grow-1 d-flex">
+      <div class="w-50 p-4 border-end">
+        <h4 class="mb-4 fw-light text-center">Sub-plans</h4>
+        <!-- for loop of subplan -->
+        <div *ngFor="let sp of selectedPlan.subPlans; let subIndex = index" (click)="openEditModal(subIndex)"
+          class="p-3 bg-white rounded border mb-3 text-break">
+          <!-- subplan title -->
+          <h6 class="d-flex align-items-center">
+            <i class="fas fa-exclamation me-2"
+              [ngClass]="['text-success', 'text-warning', 'text-danger'][sp.priority - 1]"></i>
+            {{sp.title}}
+            <i (click)="deleteSubPlan(subIndex)" class="fas fa-times fa-xs ms-auto"></i>
+          </h6>
+          <!-- subplan description -->
+          <p *ngIf="sp.description != ''" class="mb-0 mt-2">{{sp.description}}</p>
+        </div>
+      </div>
+      <!-- other date plan container -->
+      <div class="w-50 p-4">
+        <h4 class="mb-4 fw-light text-center d-flex justify-content-between">
+          <i class="fas fa-chevron-left" (click)="changeDate(false)"></i>
+          {{otherDateString}}
+          <i class="fas fa-chevron-right" (click)="changeDate(true)"></i>
+        </h4>
+        <!-- other date plans -->
+        <ng-container *ngIf="otherPlan.plans.length > 0; else elseTemplate">
+          <div *ngFor="let plan of otherPlan.plans" class="rounded overflow-hidden mb-3">
+            <!-- main plan container -->
+            <div class="p-3 bg-warning">
+              <!-- other plan title -->
+              <h6 class="mb-2"><i class="fas fa-exclamation me-2"
+                  [ngClass]="['text-success', 'text-warning', 'text-danger'][plan.priority - 1]"></i> {{plan.title}}
+              </h6>
+              <!-- other plan description -->
+              <p class="mb-0">
+                {{plan.description}}
+              </p>
+            </div>
+            <!-- subplan container -->
+            <div *ngFor="let sp of plan.subPlans" class="p-3 bg-info border-bottom">
+              <!-- other plan title -->
+              <h6 class="mb-0"><i class="fas fa-exclamation me-2"
+                  [ngClass]="['text-success', 'text-warning', 'text-danger'][sp.priority - 1]"></i> {{sp.title}}</h6>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <p class="mb-0 h-100 d-flex align-items-center justify-content-center">There is no plan on this day.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

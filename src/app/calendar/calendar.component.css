@@ -1,0 +1,18 @@
+#calendar-wrapper {
+  padding: 85px 55px 65px 55px;
+}
+
+#calendar {
+  width: 100%;
+  max-width: 1000px;
+}
+
+#calendar-wrapper.detail-closed {
+  width: 100%;
+  transition: 0.5s;
+}
+
+#calendar-wrapper.detail-opened {
+  width: 65%;
+  transition: 0.5s;
+}

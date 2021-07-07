@@ -1,0 +1,64 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-0 fixed-top">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="/">
+      <img src="assets/img/Planify.png" alt="" width="100">
+    </a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="toggleCollapse($event.target.parentElement.nextSibling)"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      mdbCollapse>
+      <!-- Left links -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="buildPlan">Build Plan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="calendar">Calendar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+            Disabled
+          </a>
+        </li>
+        <li class="nav-item ms-4">
+          <button class="btn btn-sm btn-outline-warning" mdbRipple>Sign in</button>
+        </li>
+      </ul>
+      <!-- Left links -->
+
+      <!-- Search form -->
+      <!-- <form class="d-flex input-group w-auto">
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Type query"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-primary" type="button">
+          Search
+        </button>
+      </form> -->
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

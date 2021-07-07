@@ -1,0 +1,10 @@
+<div class="h-100 w-100 d-flex" id="calendar-page-wrapper">
+  <!-- Pass the planDate and dateString value -->
+  <app-detail-box [planDateFromCal]=planDate [dateStringFromCal]=dateString></app-detail-box>
+  <div class="detail-closed bg-white d-flex justify-content-center position-absolute end-0" id="calendar-wrapper">
+    <div id="calendar">
+      <!-- Emit the event -->
+      <app-monthly-calendar (planEmitter)="getPlanDate($event)"></app-monthly-calendar>
+    </div>
+  </div>
+</div>

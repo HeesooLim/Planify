@@ -1,0 +1,64 @@
+<!-- header of the modal -->
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">New Sub-plan</h5>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+</div>
+<!-- add subplan form -->
+<form class="modal-body" id="sub-plan-form" [formGroup]="validationForm" (ngSubmit)="submitAddSubPlan(validationForm)">
+  <!-- radios -->
+  <div class="">
+    <p class="mb-1 fw-normal">Priority</p>
+    <div [class]="(priority?.invalid && (priority?.dirty || priority?.touched)) ? 'mb-4' : ''"
+      class="d-flex ms-2 mb-2 position-relative">
+      <!-- radio high -->
+      <div class="form-check mb-2">
+        <input mdbRadio type="radio" id="radioHigh" value="3" class="form-check-input mt-1" formControlName="priority"
+          required />
+        <label mdbLabel class="form-check-label" for="radioHigh">High</label>
+      </div>
+      <!-- radio medium -->
+      <div class="form-check mb-2 ms-4">
+        <input mdbRadio type="radio" id="radioMid" value="2" class="form-check-input mt-1" formControlName="priority"
+          required />
+        <label mdbLabel class="form-check-label" for="radioMid">Medium</label>
+      </div>
+      <!-- radio low -->
+      <div class="form-check mb-2 ms-4">
+        <input mdbRadio type="radio" id="radioLow" value="1" class="form-check-input mt-1" formControlName="priority"
+          required />
+        <label mdbLabel class="form-check-label" for="radioLow">Low</label>
+      </div>
+      <!-- radio error message -->
+      <mdb-error style="top: 30px;left: -5px;" *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)">
+        Priority is required
+      </mdb-error>
+      <!-- checkbox for isDone -->
+      <div class="form-check ms-auto">
+        <input mdbCheckbox class="form-check-input float-end" formControlName="isDone" type="checkbox" value="true"
+          id="flexCheckDefault" mdbTooltip="Mark as done" placement="top" />
+      </div>
+    </div>
+  </div>
+  <!-- plan title -->
+  <mdb-form-control [class]="(title?.invalid && (title?.dirty || title?.touched)) ? 'mb-error' : 'mb-3'">
+    <input mdbValidate mdbInput type="text" id="inputTitle" class="form-control" formControlName="title" required />
+    <label mdbLabel class="form-label" for="inputTitle">Title</label>
+    <!-- plan title error -->
+    <mdb-error *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+      Title is required
+    </mdb-error>
+  </mdb-form-control>
+  <!-- description -->
+  <mdb-form-control>
+    <textarea mdbInput type="text" id="inputDesc" rows="4" value="3" class="form-control"
+      formControlName="description"></textarea>
+    <label mdbLabel class="form-label" for="inputDesc">Description</label>
+  </mdb-form-control>
+</form>
+<!-- modal footer -->
+<div class="modal-footer">
+  <button type="submit" class="btn btn-primary" form="sub-plan-form">Add</button>
+  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+    Cancel
+  </button>
+</div>
