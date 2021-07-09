@@ -81,14 +81,16 @@ export class Utils {
     for (let i = 0; i < numOfDays; i++) {
       planDates.push(new PlanDate(year, month, i + 1));
     }
+
     // If the PlanDate's date is the same as the Plan's due date, add the plan to the PlanDate
     planDates.map(pd => {
       plans.map(p => {
-        if (pd.date == p.dueDate.getDate()) {
+        if (pd.date == new Date(p.dueDate).getDate() + 1) {
           pd.addPlan(p);
         }
       })
     });
+
     // return all PlanDates in the month
     return planDates;
   }

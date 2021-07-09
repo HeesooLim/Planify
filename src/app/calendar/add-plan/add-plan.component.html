@@ -86,15 +86,15 @@
     <!-- subplan container -->
     <div class="bg-light flex-grow-1 d-flex">
       <div class="w-50 p-4 border-end">
-        <h4 class="mb-4 fw-light text-center">Sub-plans</h4>
+        <h4 class="mb-4 fw-light text-center p-1">Sub-plans</h4>
         <!-- for loop of subplan -->
         <div *ngFor="let sp of selectedPlan.subPlans; let subIndex = index" (click)="openEditModal(subIndex)"
-          class="p-3 bg-white rounded border mb-3 text-break">
+          class="sub-plan-item shadow-3 p-3 bg-white rounded border mb-3 text-break">
           <!-- subplan title -->
           <h6 class="d-flex align-items-center">
             <i class="fas fa-exclamation me-2"
               [ngClass]="['text-success', 'text-warning', 'text-danger'][sp.priority - 1]"></i>
-            {{sp.title}}
+            <span [ngClass]="sp.isDone ? 'text-decoration-line-through' : ''">{{sp.title}}</span>
             <i (click)="deleteSubPlan(subIndex)" class="fas fa-times fa-xs ms-auto"></i>
           </h6>
           <!-- subplan description -->
@@ -103,19 +103,23 @@
       </div>
       <!-- other date plan container -->
       <div class="w-50 p-4">
-        <h4 class="mb-4 fw-light text-center d-flex justify-content-between">
+        <h4 class="mb-4 fw-light text-center d-flex justify-content-between align-items-center">
           <i class="fas fa-chevron-left" (click)="changeDate(false)"></i>
-          {{otherDateString}}
+          <span class="border shadow-sm p-1 rounded cursor-pointer"
+            (click)="navigateToOtherDate()">{{otherDateString}}</span>
           <i class="fas fa-chevron-right" (click)="changeDate(true)"></i>
         </h4>
         <!-- other date plans -->
         <ng-container *ngIf="otherPlan.plans.length > 0; else elseTemplate">
-          <div *ngFor="let plan of otherPlan.plans" class="rounded overflow-hidden mb-3">
+          <div *ngFor="let plan of otherPlan.plans" class="rounded shadow overflow-hidden mb-3">
             <!-- main plan container -->
             <div class="p-3 bg-warning">
               <!-- other plan title -->
-              <h6 class="mb-2"><i class="fas fa-exclamation me-2"
-                  [ngClass]="['text-success', 'text-warning', 'text-danger'][plan.priority - 1]"></i> {{plan.title}}
+              <h6 class="mb-2">
+                <i class="fas fa-exclamation me-2"
+                  [ngClass]="['text-success', 'text-warning', 'text-danger'][plan.priority - 1]">
+                </i>
+                <span [ngClass]="plan.progress == 100 ? 'text-decoration-line-through' : ''">{{plan.title}}</span>
               </h6>
               <!-- other plan description -->
               <p class="mb-0">
@@ -123,10 +127,13 @@
               </p>
             </div>
             <!-- subplan container -->
-            <div *ngFor="let sp of plan.subPlans" class="p-3 bg-info border-bottom">
+            <div *ngFor="let sp of plan.subPlans" class="p-3 border-bottom">
               <!-- other plan title -->
               <h6 class="mb-0"><i class="fas fa-exclamation me-2"
-                  [ngClass]="['text-success', 'text-warning', 'text-danger'][sp.priority - 1]"></i> {{sp.title}}</h6>
+                  [ngClass]="['text-success', 'text-warning', 'text-danger'][sp.priority - 1]">
+                </i>
+                <span [ngClass]="sp.isDone ? 'text-decoration-line-through' : ''">{{sp.title}}</span>
+              </h6>
             </div>
           </div>
         </ng-container>

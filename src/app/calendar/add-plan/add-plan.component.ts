@@ -210,4 +210,15 @@ export class AddPlanComponent implements OnInit {
     this.selectedPlan.subPlans.splice(spIndex, 1);
   }
 
+  /**
+   * Navigate to the selected other date's add plan page when the text is clicked.
+   *
+   * @memberof AddPlanComponent
+   */
+  navigateToOtherDate() {
+    // Navigate only when currently selected date and other plan date are different
+    if (this.selectedDate != this.otherPlanDate)
+      window.location.href = `calendar/addPlan/${this.otherPlanDate.getFullYear()}-${this.otherPlanDate.getMonth()}-${this.otherPlanDate.getDate()}`;
+  }
+
 }

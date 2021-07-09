@@ -49,8 +49,14 @@ export class EditPlanComponent implements OnInit {
       // Get the first plan found
       let planData = data[0];
 
+      // Get the dueDate as the Date object
+      let dueDate = new Date(planData.dueDate);
+
+      // Add a day to the dueDate since the date starts from 0
+      dueDate.setDate(dueDate.getDate() + 1);
+
       // Create a plan object using the data
-      this.selectedPlan = new Plan(planData._id, planData.userId, planData.title, planData.description, new Date(planData.dueDate), planData.progress, planData.priority);
+      this.selectedPlan = new Plan(planData._id, planData.userId, planData.title, planData.description, dueDate, planData.progress, planData.priority);
 
       // Add subplans to the plan
       for (let index = 0; index < data[0].subPlans.length; index++) {
@@ -182,8 +188,6 @@ export class EditPlanComponent implements OnInit {
     // Get the subplan by index
     let subPlan = this.selectedPlan.subPlans[index];
 
-    console.log("sending data to the modal: " + subPlan.isDone);
-
     // Set the subplan using the static method (data will be used in the modal)
     Utils.setSubPlan(subPlan);
 
@@ -222,5 +226,21 @@ export class EditPlanComponent implements OnInit {
     // Update the plan
     this.planService.updatePlan(this.selectedPlan).subscribe(data => {
     });
+  }
+
+  /**
+   * Navigate to the selected other date's edit plan page when the text is clicked.
+   *
+   * @param {number} index Index of the plan to edit.
+   *
+   * @memberof AddPlanComponent
+   */
+  navigateToOtherDate(index: number) {
+    let otherPlanToEdit = this.otherPlan.plans[index];
+
+    // If the IDs of the plans to edit are different, navigate to the chosen plan's edit page
+    if (otherPlanToEdit._id !== this.selectedPlan._id) {
+      window.location.href = `calendar/editPlan/${otherPlanToEdit._id}`;
+    }
   }
 }
