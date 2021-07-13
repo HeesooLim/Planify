@@ -19,7 +19,25 @@ export class DetailBoxComponent implements OnInit {
   @Input('planDateFromCal') planDate: PlanDate;
   @Input('dateStringFromCal') dateString: PlanDate;
 
+  selectedBtnIndex: number;
+
   ngOnInit(): void {
+    let menuList = <HTMLElement>document.querySelector('#menu-list');
+    let menuItems = menuList.querySelectorAll('li');
+
+    // Add event listener for each item in the menu list
+    menuItems[0].addEventListener('click', () => {
+      // call the method to add a new subplan
+      this.menuItemAction(0);
+    });
+    menuItems[1].addEventListener('click', () => {
+      // call the method to edit the plan
+      this.menuItemAction(1);
+    });
+    menuItems[2].addEventListener('click', () => {
+      // call the method to delete the plan
+      this.menuItemAction(2);
+    });
   }
 
   /**
@@ -135,6 +153,8 @@ export class DetailBoxComponent implements OnInit {
    * @memberof DetailBoxComponent
    */
   toggleMenu(btnIndex: number) {
+    this.selectedBtnIndex = btnIndex;
+
     // Change the visibility of the overlay and menu list
     this.toggleOverlay();
 
@@ -143,35 +163,51 @@ export class DetailBoxComponent implements OnInit {
 
     // Menu list element and items in it
     let menuList = <HTMLElement>document.querySelector('#menu-list');
-    let menuItems = menuList.querySelectorAll('li');
     let clientRect = menuButton.getBoundingClientRect();
 
     // Set the position of the menu list relative to the window
     menuList.style.left = `${clientRect.left + 15}px`;
     menuList.style.top = `${clientRect.top - 5}px`;
+  }
+
+  /**
+   * Depending on the index of the selected plan menu and the index of the menu,
+   * add subplan, edit or delete the plan.
+   * (This function is called in the EventListener)
+   *
+   * @param {number} menuIndex Index of the selected menu.
+   * @memberof DetailBoxComponent
+   */
+  menuItemAction(menuIndex: number) {
+    // Selected index of the menu button
+    let btnIndex = this.selectedBtnIndex;
 
     // Get the selected plan's id to edit or delete the plan
     let planId = (<PlanDate>this.planDate).plans[btnIndex]._id;
 
-    // Add event listener for each item in the menu list
-    menuItems[0].addEventListener('click', () => {
-      // To open the add subplan modal, pass the selected button's index
-      this.openModal(btnIndex);
-      // Change the visibility of the menu list and overlay
-      this.toggleOverlay();
-    });
-    menuItems[1].addEventListener('click', () => {
-      // Go to the selected plan's editPlan page
-      window.location.href = `calendar/editPlan/${planId}`;
-      // Change the visibility of the menu list and overlay
-      this.toggleOverlay();
-    });
-    menuItems[2].addEventListener('click', () => {
-      // To delete the selected plan, pass the selected button's index
-      this.deletePlan(planId);
-      // Change the visibility of the menu list and overlay
-      this.toggleOverlay();
-    });
+    switch (menuIndex) {
+      case 0:
+        // To open the add subplan modal, pass the selected button's index
+        this.openModal(btnIndex);
+        // Change the visibility of the menu list and overlay
+        this.toggleOverlay();
+        break;
+      case 1:
+        // Go to the selected plan's editPlan page
+        window.location.href = `calendar/editPlan/${planId}`;
+        // Change the visibility of the menu list and overlay
+        this.toggleOverlay();
+        break;
+      case 2:
+        // To delete the selected plan, pass the selected button's index
+        this.deletePlan(planId);
+        // Change the visibility of the menu list and overlay
+        this.toggleOverlay();
+        break;
+
+      default:
+        break;
+    }
   }
 
   /**
