@@ -61,3 +61,8 @@ h3.title {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.scroll-disabled {
+  height: 100%;
+  overflow: hidden;
+}

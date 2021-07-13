@@ -129,18 +129,67 @@ export class DetailBoxComponent implements OnInit {
   }
 
   /**
-   * Open or close the menu for each plan.
+   * Open the menu for each plan.
    *
    * @param {number} btnIndex Index of the clicked menu button.
    * @memberof DetailBoxComponent
    */
   toggleMenu(btnIndex: number) {
-    let allMenus = document.getElementsByClassName('menu-modal');
+    // Change the visibility of the overlay and menu list
+    this.toggleOverlay();
 
-    let menu = document.getElementById('menu-' + btnIndex);
-    let menuBtn = document.getElementById('btn-menu-' + btnIndex);
+    // Menu button to open the menu
+    let menuButton = document.querySelector(`#btn-menu-${btnIndex} i`);
 
-    menu.classList.toggle('d-none');
+    // Menu list element and items in it
+    let menuList = <HTMLElement>document.querySelector('#menu-list');
+    let menuItems = menuList.querySelectorAll('li');
+    let clientRect = menuButton.getBoundingClientRect();
+
+    // Set the position of the menu list relative to the window
+    menuList.style.left = `${clientRect.left + 15}px`;
+    menuList.style.top = `${clientRect.top - 5}px`;
+
+    // Get the selected plan's id to edit or delete the plan
+    let planId = (<PlanDate>this.planDate).plans[btnIndex]._id;
+
+    // Add event listener for each item in the menu list
+    menuItems[0].addEventListener('click', () => {
+      // To open the add subplan modal, pass the selected button's index
+      this.openModal(btnIndex);
+      // Change the visibility of the menu list and overlay
+      this.toggleOverlay();
+    });
+    menuItems[1].addEventListener('click', () => {
+      // Go to the selected plan's editPlan page
+      window.location.href = `calendar/editPlan/${planId}`;
+      // Change the visibility of the menu list and overlay
+      this.toggleOverlay();
+    });
+    menuItems[2].addEventListener('click', () => {
+      // To delete the selected plan, pass the selected button's index
+      this.deletePlan(planId);
+      // Change the visibility of the menu list and overlay
+      this.toggleOverlay();
+    });
+  }
+
+  /**
+   * Toggle the classes for opening or closing the menu list.
+   * - Change the visibility of the menu overlay element
+   * - Disable or enable the scroll (scroll disabled when menu opened)
+   *
+   * @memberof DetailBoxComponent
+   */
+  toggleOverlay() {
+    // Get the menu overlay element and body to toggle the class
+    let menuOverlay = document.getElementById('menu-overlay');
+    let body = document.querySelector('body');
+
+    // Toggle the class to change its visibility and disable or enable the scroll
+    // (When the menu is opened, scroll is disabled)
+    menuOverlay.classList.toggle('d-none');
+    body.classList.toggle('scroll-disabled');
   }
 
   /**

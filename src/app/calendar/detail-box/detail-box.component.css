@@ -1,23 +1,27 @@
 /* --------SCROLL BAR STYLE START-------- */
 /* width */
-ul::-webkit-scrollbar, #detail-box::-webkit-scrollbar {
+ul::-webkit-scrollbar,
+#detail-box::-webkit-scrollbar {
   width: 5px;
 }
 
 /* Track */
-ul::-webkit-scrollbar-track, #detail-box::-webkit-scrollbar-track {
+ul::-webkit-scrollbar-track,
+#detail-box::-webkit-scrollbar-track {
   background-color: lightgray;
   border-radius: 10px;
 }
 
 /* Handle */
-ul::-webkit-scrollbar-thumb, #detail-box::-webkit-scrollbar-thumb {
+ul::-webkit-scrollbar-thumb,
+#detail-box::-webkit-scrollbar-thumb {
   background: rgb(157, 157, 157);
   border-radius: 10px;
 }
 
 /* Handle on hover */
-ul::-webkit-scrollbar-thumb:hover, #detail-box::-webkit-scrollbar-thumb:hover {
+ul::-webkit-scrollbar-thumb:hover,
+#detail-box::-webkit-scrollbar-thumb:hover {
   background: rgb(123, 123, 123);
 }
 /* --------SCROLL BAR STYLE END-------- */
@@ -36,15 +40,15 @@ ul .form-check-input {
   overflow: hidden;
 }
 
-ul .form-check-input[type=checkbox]:checked:after {
+ul .form-check-input[type="checkbox"]:checked:after {
   width: 0.2827rem;
   height: 0.6125rem;
   margin-top: 1px;
 }
 
 ul .form-check-input:checked {
-  background-color: #FFA900;
-  border-color: #FFA900;
+  background-color: #ffa900;
+  border-color: #ffa900;
 }
 /* --------OVERWRITE CHECKBOX STYLE END-------- */
 
@@ -84,4 +88,9 @@ ul.menu-modal {
   top: 26px;
   z-index: 5;
   width: 120px;
+}
+
+#menu-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 999;
 }
