@@ -1,6 +1,13 @@
 #calendar-table {
   table-layout: fixed;
   height: 600px;
+  background-color: #3a2e5e;
+  border-color: #5c5182;
+  color: #9d92c5;
+}
+
+#calendar-table thead tr {
+  background-color: var(--purple-dark);
 }
 
 td.hover:hover {
@@ -8,16 +15,22 @@ td.hover:hover {
   cursor: pointer;
 }
 
-.plan-item.list-group-item {
-  min-height: 27px;
-  border-color: rgba(0, 0, 0, 0.055);
+td.selected {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
+.plan-list {
+  list-style: inside;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
 .plan-list.list-group {
   display: block;
   border-radius: 0;
   max-height: 60px;
   overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -25,16 +38,23 @@ td.hover:hover {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.plan-list.list-group {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.item-count-text, .plan-item {
+.item-count-text,
+.plan-item {
   cursor: pointer;
+  color: var(--purple-lightest);
 }
 
-td.selected, td.selected ul li {
-  background-color: rgba(220, 220, 220, 0.345);
+.plan-item {
+  transition: 0.5s;
+}
+
+.plan-item:hover {
+  background-color: transparent;
+  color: var(--gray-lightest);
+  transition: 0.5s;
+}
+
+.plan-item.list-group-item {
+  min-height: 27px;
+  border-color: rgba(0, 0, 0, 0.055);
 }

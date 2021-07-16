@@ -34,6 +34,15 @@ ul {
   max-height: 100%;
 }
 
+.plans-container li {
+  background-color: var(--purple-darkest);
+  border-color: var(--purple-gray);
+}
+
+.plans-container li .progress-bar {
+  background-color: var(--purple-light);
+}
+
 /* --------OVERWRITE CHECKBOX STYLE START-------- */
 ul .form-check-input {
   border-radius: 50% !important;
@@ -47,25 +56,26 @@ ul .form-check-input[type="checkbox"]:checked:after {
 }
 
 ul .form-check-input:checked {
-  background-color: #ffa900;
-  border-color: #ffa900;
+  background-color: var(--purple-gray);
+  border-color: var(--purple-gray);
 }
 /* --------OVERWRITE CHECKBOX STYLE END-------- */
 
 #detail-box {
   overflow-x: hidden;
-  width: 35%;
+  width: var(--detail-box-width); /* DETAILBOX WIDTH */
   min-width: 300px;
-  padding: 65px 0;
+  background-color: #3b2e5f;
+  color: var(--purple-lightest);
 }
 
 #plan-category {
   width: fit-content;
 }
 
-.sub-plans-container li {
+/* .sub-plans-container li {
   background-color: rgb(247, 247, 247);
-}
+} */
 
 .sub-plans-container {
   max-height: 0;
@@ -93,4 +103,21 @@ ul.menu-modal {
 #menu-overlay {
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 999;
+}
+
+.no-plan-div {
+  background-color: var(--purple-darkest);
+}
+
+.add-plan-btn {
+  background-color: var(--purple-gray);
+  color: var(--gray-lightest);
+}
+
+.add-plan-btn:hover {
+  background-color: rgba(91, 77, 137, 0.7);
+}
+
+.priority-text {
+  font-size: 11px;
 }

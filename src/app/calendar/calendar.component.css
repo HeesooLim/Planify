@@ -1,5 +1,9 @@
 #calendar-wrapper {
   padding: 85px 55px 65px 55px;
+  background-image: url("/assets/img/dots_texture.jpg");
+  background-size: cover;
+  color: var(--purple-lightest);
+  background-attachment: fixed;
 }
 
 #calendar {
@@ -13,6 +17,6 @@
 }
 
 #calendar-wrapper.detail-opened {
-  width: 65%;
+  width: var(--detail-box-rest-width); /* DETAILBOX WIDTH */
   transition: 0.5s;
 }

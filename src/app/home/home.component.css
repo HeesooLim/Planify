@@ -1,20 +1,29 @@
-#hero-img {
+/* #hero-img {
   opacity: .3;
-}
+} */
 
 #hero-layer {
   z-index: -2;
-  background-color: lightgray;
   overflow: hidden;
 }
 
+#hero-bg-half {
+  background-color: var(--purple-dark);
+  width: var(--detail-box-width); /* DETAILBOX WIDTH */
+  min-width: 400px;
+  padding-top: 330px;
+}
+
+#hero-bg-half h1,
+#hero-bg-half h4 {
+  color: var(--purple-lightest);
+}
+
 #hero-button {
-  background-color: var(--dark-turquoise);
+  background-color: var(--purple-blue);
   color: white;
   width: fit-content;
 }
 
 #hero-content {
-  padding-top: 330px;
-  padding-left: 150px;
 }

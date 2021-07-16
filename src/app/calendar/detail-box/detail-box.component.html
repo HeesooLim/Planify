@@ -7,20 +7,18 @@
     <li class="list-group-item py-1 small rounded cursor-pointer">Delete</li>
   </ul>
 </div>
-<div class="bg-light border-end h-100 position-fixed" id="detail-box">
+<div class="h-100 position-fixed" id="detail-box">
   <!-- Display plan if there is any plan on current date -->
   <div *ngIf="planDate" class="p-4">
     <!-- Date -->
-    <h4 class="text-center pb-4 fw-light">{{dateString}}</h4>
+    <h5 class="mb-5 fw-light">
+      <img class="me-4" src="assets/img/logo-icon-with-bg-light.png" width="50" alt="image of the planify logo">
+      {{dateString}}
+    </h5>
     <div class="d-flex align-items-center mb-3">
       <p class="mb-0">{{planDate.planCount}} item(s)</p>
-      <!-- Add plan button -->
-      <a class="btn btn-info btn-sm ms-auto"
-        href="calendar/addPlan/{{planDate.year}}-{{planDate.month}}-{{planDate.date}}" mdbRipple>
-        Add plan
-      </a>
       <!-- Dropdown menu to filter plans -->
-      <select (change)="filterPlans()" class="form-select form-select-sm ms-3" id="plan-category">
+      <select (change)="filterPlans()" class="form-select form-select-sm ms-auto" id="plan-category">
         <option value="all" selected>All</option>
         <option value="done">Done</option>
         <option value="undone">Not done</option>
@@ -33,7 +31,7 @@
         <li class="list-group-item plans-container-items border-0 p-0"
           [ngClass]="plan.progress == 100 ? 'done bg-yellow-muted' : 'undone'"
           *ngFor="let plan of planDate.plans; let i = index;">
-          <div class="px-3 pt-3 pb-2 d-flex align-items-center">
+          <div class="px-3 pt-3 pb-1 d-flex align-items-center">
             <div class="me-2">
               <!-- Isdone checkbox -->
               <input mdbCheckbox class="form-check-input mt-1" type="checkbox" id="plan-checkbox-{{i}}" value=""
@@ -43,11 +41,14 @@
             <i *ngIf="plan.subPlans.length > 0" class="fas fa-chevron-left ms-auto" id="arrow-{{i}}"
               (click)="expandPlan(i)"></i>
           </div>
+          <p class="mb-1 priority-text fw-light px-3">PRIORITY:
+            <span class="fw-normal"
+              [ngClass]="['text-success', 'text-warning', 'text-danger'][plan.priority - 1]">{{['LOW', 'MID',
+              'HIGH'][plan.priority - 1]}}</span>
+          </p>
           <!-- Plan description -->
-          <div class="plan-description ps-3 pe-4 pb-3 position-relative">
-            <span class="">
-              {{plan.description}}
-            </span>
+          <div class="plan-description fw-lighter ps-3 pe-4 pb-3 position-relative">
+            {{plan.description}}
             <!-- Menu button -->
             <button id="btn-menu-{{i}}" class="small position-absolute btn-menu text-muted bg-transparent border-0"
               (click)="toggleMenu(i)">
@@ -56,15 +57,15 @@
           </div>
           <!-- Progress bar -->
           <div class="progress" id="progress-{{i}}" style="height: 20px">
-            <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width': plan.progress + '%'}"
-              aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': plan.progress + '%'}" aria-valuenow="25"
+              aria-valuemin="0" aria-valuemax="100">
               {{plan.progress}}%
             </div>
           </div>
           <!-- If the plan contains any subplan -->
           <ng-container *ngIf="plan.subPlans.length > 0">
             <ul class="list-group rounded-0 sub-plans-container" id="plan-{{i}}">
-              <li class="d-flex align-items-center list-group-item border-start-0 border-end-0"
+              <li class="d-flex align-items-center list-group-item border-start-0 border-end-0 fw-light"
                 *ngFor="let sp of plan.subPlans; let subIndex = index">
                 <input mdbCheckbox class="form-check-input mt-0 me-2" type="checkbox" id="" value=""
                   [checked]="sp.isDone" (change)="updateSubPlan($event, i, subIndex)" />
@@ -77,8 +78,16 @@
       </ul>
     </div>
     <!-- When there is no plan on current date -->
-    <div *ngIf="planDate.plans.length == 0" class="p-5 bg-white shadow-5 rounded text-center">
-      <p class="mb-0">There is no plan on this day.</p>
+    <div *ngIf="planDate.plans.length == 0" class="p-5 shadow-5 rounded text-center no-plan-div">
+      <p class="mb-0 small fw-light">There is no plan on this day.</p>
+    </div>
+
+    <div class="position-absolute bottom-0 left-0 end-0 w-100 pb-5 px-4">
+      <!-- Add plan button -->
+      <a class="add-plan-btn btn btn-sm w-100 mb-2"
+        href="calendar/addPlan/{{planDate.year}}-{{planDate.month}}-{{planDate.date}}" mdbRipple>
+        Add plan
+      </a>
     </div>
   </div>
 </div>

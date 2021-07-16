@@ -20,10 +20,12 @@ export class DetailBoxComponent implements OnInit {
   @Input('dateStringFromCal') dateString: PlanDate;
 
   selectedBtnIndex: number;
+  priorityList: string[];
 
   ngOnInit(): void {
     let menuList = <HTMLElement>document.querySelector('#menu-list');
     let menuItems = menuList.querySelectorAll('li');
+    this.priorityList = ['LOW', 'MID', 'HIGH'];
 
     // Add event listener for each item in the menu list
     menuItems[0].addEventListener('click', () => {

@@ -8,7 +8,7 @@
 <table class="table table-bordered mx-auto" id="calendar-table">
   <!-- table header -->
   <thead>
-    <tr class="table-light">
+    <tr>
       <th class="p-1 text-center">Sun</th>
       <th class="p-1 text-center">Mon</th>
       <th class="p-1 text-center">Tue</th>
@@ -42,16 +42,16 @@
               </p>
               <!-- number of items(plans) -->
               <a *ngIf="planDates[varDate - 1].plans.length > 0" (click)="openDetail(varDate)"
-                class="small item-count-text ms-auto">
+                class="small item-count-text ms-auto fw-normal">
                 {{planDates[varDate - 1].planCount}} item(s)
               </a>
             </div>
             <!-- list for the plans -->
-            <ul class="mt-3 list-group plan-list">
+            <ul class="mt-3 px-2 plan-list">
               <ng-container *ngFor="let p of planDates[varDate - 1].plans">
-                <li *ngIf="planDates[varDate - 1].plans.length > 0" (click)="openDetail(varDate)"
-                  [ngClass]="p.progress == 100 ? 'text-muted' : 'text-dark fw-normal'"
-                  class="plan-item list-group-item list-group-item-action border-start-0 border-end-0 text-truncate small rounded-0 py-1 px-2">
+                <li *ngIf="planDates[varDate - 1].plans.length > 0" (click)="openEditPage(p)"
+                  [ngClass]="p.progress == 100 ? 'text-decoration-line-through' : ''"
+                  class="plan-item text-truncate small">
                   {{p.title}}
                 </li>
               </ng-container>
