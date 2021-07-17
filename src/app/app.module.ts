@@ -20,6 +20,9 @@ import { AddPlanComponent } from './calendar/add-plan/add-plan.component';
 import { AddSubPlanModalComponent } from './calendar/add-sub-plan-modal/add-sub-plan-modal.component';
 import { EditPlanComponent } from './calendar/edit-plan/edit-plan.component';
 import { EditSubPlanModalComponent } from './calendar/edit-sub-plan-modal/edit-sub-plan-modal.component';
+import { UserComponent } from './user/user/user.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { EditSubPlanModalComponent } from './calendar/edit-sub-plan-modal/edit-s
     AddPlanComponent,
     AddSubPlanModalComponent,
     EditPlanComponent,
-    EditSubPlanModalComponent
+    EditSubPlanModalComponent,
+    UserComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,6 @@
+import { RegisterComponent } from './user/register/register.component';
+import { LoginComponent } from './user/login/login.component';
+import { UserComponent } from './user/user/user.component';
 import { EditPlanComponent } from './calendar/edit-plan/edit-plan.component';
 import { AddPlanComponent } from './calendar/add-plan/add-plan.component';
 import { NgModule } from '@angular/core';
@@ -15,7 +18,10 @@ const routes: Routes = [
       { path: 'addPlan/:date', component: AddPlanComponent },
       { path: 'editPlan/:planId', component: EditPlanComponent }
     ]
-  }
+  },
+  { path: 'user/:userId', component: UserComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
