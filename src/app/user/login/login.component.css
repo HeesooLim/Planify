@@ -1,0 +1,107 @@
+hr {
+  background-color: var(--gray-lightest);
+}
+
+/* resolve blurry image problem (happens in Chrome, not in Firefox) */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+#login-wrapper {
+  background-image: url("/assets/img/night-scenery.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 100px 0 150px 0;
+}
+
+#login-container {
+  width: 400px;
+  border-radius: 20px;
+  background-color: var(--purple-dark);
+}
+
+#welcome-heading,
+#welcome-desc {
+  color: var(--gray-lightest);
+}
+
+#welcome-desc {
+  line-height: 1.4;
+  font-size: 12px;
+}
+
+input {
+  border: none;
+  background-color: var(--purple-darkest);
+  color: var(--purple-light);
+  border-radius: 7px;
+  font-weight: 300;
+  transition: 0.3s;
+}
+
+input:focus {
+  box-shadow: 0 0 0 3px rgba(154, 139, 187, 0.3);
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Username icon */
+#username-container:after {
+  font-family: "Font Awesome 5 Free";
+  color: var(--purple-light);
+  position: absolute;
+  top: 9px;
+  left: 12px;
+  content: "\f007";
+  font-weight: 900;
+}
+
+/* Password icon */
+#password-container:after {
+  font-family: "Font Awesome 5 Free";
+  color: var(--purple-light);
+  position: absolute;
+  top: 9px;
+  left: 12px;
+  content: "\f023";
+  font-weight: 900;
+}
+
+/* Display password icon */
+#password-container:before {
+  font-family: "Font Awesome 5 Free";
+  color: var(--purple-light);
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  content: "\f06e";
+  font-weight: 900;
+}
+
+#username-container input,
+#password-container input {
+  padding-left: 37px !important;
+}
+
+#password-container input {
+  padding-right: 37px !important;
+}
+
+#forgot-password-link {
+  font-size: 12px;
+  color: var(--purple-light);
+}
+
+#forgot-password-link:hover {
+  color: rgb(183, 171, 207);
+}
+
+#login-btn {
+  background-color: var(--purple-gray);
+  color: var(--gray-lightest);
+}
+
+#register-btn {
+  background-color: var(--purple-light);
+  color: var(--gray-lightest);
+}
