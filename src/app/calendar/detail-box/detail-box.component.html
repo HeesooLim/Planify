@@ -9,7 +9,7 @@
 </div>
 <div class="h-100 position-fixed" id="detail-box">
   <!-- Display plan if there is any plan on current date -->
-  <div *ngIf="planDate" class="p-4">
+  <div *ngIf="planDate" class="p-4 h-100">
     <!-- Date -->
     <h5 class="mb-5 fw-light">
       <img class="me-4" src="assets/img/logo-icon-with-bg-light.png" width="50" alt="image of the planify logo">
@@ -25,7 +25,11 @@
       </select>
     </div>
     <!-- Plan container -->
-    <div>
+    <div class="h-100">
+      <!-- When there is no plan on current date -->
+      <div *ngIf="planDate.plans.length == 0" class="p-5 shadow-5 rounded text-center no-plan-div">
+        <p class="mb-0 small fw-light">There is no plan on this day.</p>
+      </div>
       <ul class="list-group shadow-5 plans-container">
         <!-- Different class depending on the progress -->
         <li class="list-group-item plans-container-items border-0 p-0"
@@ -76,18 +80,13 @@
           </ng-container>
         </li>
       </ul>
-    </div>
-    <!-- When there is no plan on current date -->
-    <div *ngIf="planDate.plans.length == 0" class="p-5 shadow-5 rounded text-center no-plan-div">
-      <p class="mb-0 small fw-light">There is no plan on this day.</p>
-    </div>
-
-    <div class="position-absolute bottom-0 left-0 end-0 w-100 pb-5 px-4">
-      <!-- Add plan button -->
-      <a class="add-plan-btn btn btn-sm w-100 mb-2"
-        href="calendar/addPlan/{{planDate.year}}-{{planDate.month}}-{{planDate.date}}" mdbRipple>
-        Add plan
-      </a>
+      <div class="position-absolute bottom-0 left-0 end-0 w-100 pb-5 px-4">
+        <!-- Add plan button -->
+        <a class="add-plan-btn btn btn-sm w-100 mb-2"
+          href="calendar/addPlan/{{planDate.year}}-{{planDate.month}}-{{planDate.date}}" mdbRipple>
+          Add plan
+        </a>
+      </div>
     </div>
   </div>
 </div>

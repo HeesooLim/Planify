@@ -31,6 +31,7 @@ ul {
 }
 
 .plans-container {
+  height: 68%;
   max-height: 100%;
 }
 
@@ -62,7 +63,6 @@ ul .form-check-input:checked {
 /* --------OVERWRITE CHECKBOX STYLE END-------- */
 
 #detail-box {
-  overflow-x: hidden;
   width: var(--detail-box-width); /* DETAILBOX WIDTH */
   min-width: 300px;
   background-color: #3b2e5f;

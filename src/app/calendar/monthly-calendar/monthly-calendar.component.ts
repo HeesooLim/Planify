@@ -54,27 +54,21 @@ export class MonthlyCalendarComponent implements OnInit {
       let isOpened = calendarWrapper.classList.contains('detail-opened');
       let prevCell = document.getElementById('cell-' + this.selectedDate);
       let cell = document.getElementById('cell-' + date);
-      let brandImg = <HTMLElement>document.querySelector('.navbar-brand');
       let navbar = <HTMLElement>document.querySelector('nav.navbar');
+      let footer = document.querySelector('footer');
 
       // If the detail-box is already opened and selected the same date, close the detail-box
       if (isOpened && this.selectedDate === date) {
         this.selectedDate = date;
-        // calendarWrapper.classList.add('detail-closed');
-        // calendarWrapper.classList.remove('detail-opened');
-        // cell.classList.remove('selected');
-        // navbar.classList.remove('detail-opened');
         this.closeDetail();
-        // brandImg.style.display = 'flex';
       }
       else {
         this.selectedDate = date;
         // Emit the selected PlanDate data (it will be used in the detail-box component)
         this.planEmitter.emit(this.planDates[this.selectedDate - 1]);
         calendarWrapper.classList.add('detail-opened');
-        calendarWrapper.classList.remove('detail-closed');
+        footer.classList.add('detail-opened');
         navbar.classList.add('detail-opened');
-        // brandImg.style.display = 'none';
 
         if (prevCell) { // If the previously selected cell exists, remove the selected class
           prevCell.classList.remove('selected');
@@ -94,11 +88,12 @@ export class MonthlyCalendarComponent implements OnInit {
     let isOpened = calendarWrapper.classList.contains('detail-opened');
     let cell = document.getElementById('cell-' + this.selectedDate);
     let navbar = <HTMLElement>document.querySelector('nav.navbar');
+    let footer = document.querySelector('footer');
 
     // If the detail-box was already opened, close it.
     if (isOpened) {
-      calendarWrapper.classList.add('detail-closed');
       calendarWrapper.classList.remove('detail-opened');
+      footer.classList.remove('detail-opened');
       navbar.classList.remove('detail-opened');
       if (cell) {
         cell.classList.remove('selected');

@@ -1,13 +1,14 @@
 nav {
-  transition: 0.5s;
+  transition: width 0.5s, left 0.5s;
   left: 0;
+  width: 100%;
   font-family: "Red Hat Display", sans-serif;
 }
 
 /* when the detail box is opened */
 nav.detail-opened {
-  transition: 0.5s;
-  left: var(--detail-box-width); /* DETAILBOX WIDTH */
+  left: var(--detail-box-width);
+  transition: width 0.5s, left 0.5s;
 }
 
 /* resolve blurry image problem (happens in Chrome unlike Firefox) */

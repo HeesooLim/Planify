@@ -1,1 +1,35 @@
+footer {
+  width: 100%;
+  transition: 0.5s;
+}
 
+.contact-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  margin-right: 13px;
+}
+
+.contact-icon:last-of-type {
+  margin-right: 0;
+}
+
+.contact-icon:hover {
+  /* box-shadow: 0px 0px 10px #ffffffce; */
+  box-shadow: 0 0 0 4px var(--purple-light);
+}
+
+.contact-icon i {
+  font-size: 22px;
+}
+
+footer .container {
+  padding: 60px 0;
+}
+
+p {
+  font-size: 11px;
+}
