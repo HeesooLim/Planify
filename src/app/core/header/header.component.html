@@ -8,8 +8,8 @@
     </a>
 
     <!-- Toggle button -->
-    <button class="navbar-toggler" type="button" (click)="toggleCollapse($event.target.parentElement.nextSibling)"
-      aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" (click)="onClickNavbarMenu()" aria-expanded="false"
+      aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
 
@@ -28,7 +28,7 @@
             Disabled
           </a>
         </li>
-        <li class="nav-item ms-4">
+        <li class="nav-item ms-lg-4">
           <button class="btn btn-sm btn-outline-warning" mdbRipple>Sign in</button>
         </li>
       </ul>

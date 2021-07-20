@@ -19,3 +19,9 @@ nav.detail-opened {
 .navbar-brand img {
   image-rendering: -webkit-optimize-contrast;
 }
+
+@media screen and (max-width: 992px) {
+  nav {
+    transition: background-color 0s;
+  }
+}

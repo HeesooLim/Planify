@@ -2,6 +2,14 @@
   opacity: .3;
 } */
 
+#home-wrapper {
+  background-image: url("/assets/img/rain-forest-purple.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: right;
+  padding: 0;
+}
+
 #hero-layer {
   z-index: -2;
   overflow: hidden;
@@ -9,9 +17,8 @@
 
 #hero-bg-half {
   background-color: var(--purple-dark);
-  width: var(--detail-box-width); /* DETAILBOX WIDTH */
-  min-width: 400px;
-  padding-top: 330px;
+  height: 100vh;
+  padding: 90px 0;
 }
 
 #hero-bg-half h1,
@@ -25,5 +32,12 @@
   width: fit-content;
 }
 
-#hero-content {
+@media screen and (max-width: 576px) {
+  #hero-bg-half {
+    height: 30%;
+  }
+
+  /* #home-wrapper {
+    padding: 50px 0;
+  } */
 }
