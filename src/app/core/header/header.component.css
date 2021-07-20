@@ -1,8 +1,12 @@
 nav {
-  transition: width 0.5s, left 0.5s;
+  transition: width 0.5s, left 0.5s, background-color 0.1s linear;
   left: 0;
   width: 100%;
   font-family: "Red Hat Display", sans-serif;
+}
+
+nav.bg-dark {
+  transition: background-color 0.1s linear;
 }
 
 /* when the detail box is opened */

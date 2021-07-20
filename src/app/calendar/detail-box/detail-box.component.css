@@ -2,27 +2,27 @@
 /* width */
 ul::-webkit-scrollbar,
 #detail-box::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 
 /* Track */
 ul::-webkit-scrollbar-track,
 #detail-box::-webkit-scrollbar-track {
-  background-color: lightgray;
+  background: var(--purple-darkest);
   border-radius: 10px;
 }
 
 /* Handle */
 ul::-webkit-scrollbar-thumb,
 #detail-box::-webkit-scrollbar-thumb {
-  background: rgb(157, 157, 157);
+  background-color: var(--purple-gray);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ul::-webkit-scrollbar-thumb:hover,
 #detail-box::-webkit-scrollbar-thumb:hover {
-  background: rgb(123, 123, 123);
+  background-color: var(--purple-light);
 }
 /* --------SCROLL BAR STYLE END-------- */
 
@@ -102,7 +102,7 @@ ul.menu-modal {
 
 #menu-overlay {
   background-color: rgba(0, 0, 0, 0.2);
-  z-index: 999;
+  z-index: 1040;
 }
 
 .no-plan-div {
