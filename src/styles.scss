@@ -89,3 +89,13 @@ h1, h2, h3, h4, h5, h6 {
   width: var(--detail-box-rest-width) !important;  /* DETAILBOX WIDTH */
   transition: width 0.5s;
 }
+
+.cdk-overlay-container {
+  z-index: 1100;
+}
+
+@media screen and (max-width: 1200px) {
+  .detail-opened {
+    width: 100% !important;
+  }
+}

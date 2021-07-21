@@ -25,7 +25,7 @@
       </select>
     </div>
     <!-- Plan container -->
-    <div class="h-100">
+    <div class="position-relative" id="plan-list-container">
       <!-- When there is no plan on current date -->
       <div *ngIf="planDate.plans.length == 0" class="p-5 shadow-5 rounded text-center no-plan-div">
         <p class="mb-0 small fw-light">There is no plan on this day.</p>
@@ -80,13 +80,12 @@
           </ng-container>
         </li>
       </ul>
-      <!-- <div class="position-absolute bottom-0 left-0 end-0 w-100 pb-5 px-4"> -->
+
       <!-- Add plan button -->
-      <a class="add-plan-btn btn btn-sm w-100 mb-2"
+      <a class="add-plan-btn btn btn-sm w-100 position-absolute left-0 end-0 bottom-0"
         href="calendar/addPlan/{{planDate.year}}-{{planDate.month}}-{{planDate.date}}" mdbRipple>
         Add plan
       </a>
-      <!-- </div> -->
     </div>
   </div>
 </div>

@@ -19,6 +19,10 @@ export class MonthlyCalendarComponent implements OnInit {
   targetMonth: string;
   selectedDate: number;
 
+  isOpened: boolean;
+  calendarWrapper: HTMLElement;
+  detailBox: HTMLElement;
+
   monthString: string;
 
   @Output() planEmitter = new EventEmitter<PlanDate>();
@@ -29,7 +33,11 @@ export class MonthlyCalendarComponent implements OnInit {
     // Set the month string
     this.monthString = this.today.toLocaleString('default', { month: 'long' });
 
-    let firstDayName = new Date(this.today.getFullYear(), this.today.getMonth(), 1).toLocaleString("default", { weekday: "long" })
+    let firstDayName = new Date(this.today.getFullYear(), this.today.getMonth(), 1).toLocaleString("default", { weekday: "long" });
+
+
+    this.calendarWrapper = document.getElementById('calendar-wrapper');
+    this.detailBox = document.querySelector('#detail-box');
 
     // Find the offset of the date using the month's first day name
     this.dateOffset = Utils.fullDays.indexOf(firstDayName);
@@ -39,6 +47,7 @@ export class MonthlyCalendarComponent implements OnInit {
       .subscribe(data => {
         this.planDates = this.utils.getPlanDates(data, this.today.getFullYear(), this.today.getMonth());
       });
+
   }
 
   /**
@@ -50,8 +59,7 @@ export class MonthlyCalendarComponent implements OnInit {
    */
   openDetail(date: number, isValid: boolean = true) {
     if (isValid) {
-      let calendarWrapper = document.getElementById('calendar-wrapper');
-      let isOpened = calendarWrapper.classList.contains('detail-opened');
+      let isOpened = this.calendarWrapper.classList.contains('detail-opened');
       let prevCell = document.getElementById('cell-' + this.selectedDate);
       let cell = document.getElementById('cell-' + date);
       let navbar = <HTMLElement>document.querySelector('nav.navbar');
@@ -66,7 +74,8 @@ export class MonthlyCalendarComponent implements OnInit {
         this.selectedDate = date;
         // Emit the selected PlanDate data (it will be used in the detail-box component)
         this.planEmitter.emit(this.planDates[this.selectedDate - 1]);
-        calendarWrapper.classList.add('detail-opened');
+        this.calendarWrapper.classList.add('detail-opened');
+        this.detailBox.classList.add('opened');
         footer.classList.add('detail-opened');
         navbar.classList.add('detail-opened');
 
@@ -84,15 +93,15 @@ export class MonthlyCalendarComponent implements OnInit {
    * @memberof MonthlyCalendarComponent
    */
   closeDetail() {
-    let calendarWrapper = document.getElementById('calendar-wrapper');
-    let isOpened = calendarWrapper.classList.contains('detail-opened');
+    let isOpened = this.calendarWrapper.classList.contains('detail-opened');
     let cell = document.getElementById('cell-' + this.selectedDate);
     let navbar = <HTMLElement>document.querySelector('nav.navbar');
     let footer = document.querySelector('footer');
 
     // If the detail-box was already opened, close it.
     if (isOpened) {
-      calendarWrapper.classList.remove('detail-opened');
+      this.calendarWrapper.classList.remove('detail-opened');
+      this.detailBox.classList.remove('opened');
       footer.classList.remove('detail-opened');
       navbar.classList.remove('detail-opened');
       if (cell) {

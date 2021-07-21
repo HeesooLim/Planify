@@ -31,8 +31,7 @@ ul {
 }
 
 .plans-container {
-  height: 68%;
-  max-height: 100%;
+  height: 400px;
 }
 
 .plans-container li {
@@ -42,6 +41,10 @@ ul {
 
 .plans-container li .progress-bar {
   background-color: var(--purple-light);
+}
+
+#plan-list-container {
+  height: 77vh;
 }
 
 /* --------OVERWRITE CHECKBOX STYLE START-------- */
@@ -64,7 +67,7 @@ ul .form-check-input:checked {
 
 #detail-box {
   width: var(--detail-box-width); /* DETAILBOX WIDTH */
-  min-width: 300px;
+  /* min-width: 300px; */
   background-color: #3b2e5f;
   color: var(--purple-lightest);
 }
@@ -114,10 +117,30 @@ ul.menu-modal {
   color: var(--gray-lightest);
 }
 
-.add-plan-btn:hover {
+.add-plan-btn:hover,
+.close-detail-btn:hover {
   background-color: rgba(91, 77, 137, 0.7);
+}
+
+.close-detail-btn {
+  background-color: rgb(114, 102, 155);
+  color: var(--gray-lightest);
 }
 
 .priority-text {
   font-size: 11px;
+}
+
+@media screen and (max-width: 1200px) {
+  #detail-box {
+    z-index: 1040;
+    width: 45%;
+    left: -100%;
+    transition: left 0.5s linear;
+  }
+
+  #detail-box.opened {
+    left: 0;
+    transition: left 0.5s linear;
+  }
 }
