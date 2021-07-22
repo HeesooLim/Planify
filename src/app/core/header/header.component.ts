@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     // When the user scrolls down or up
     window.onscroll = () => {
       // If current scroll bar's position is greater than or equal to the navbar's height
-      if (document.body.scrollTop >= navbar.clientHeight || document.documentElement.scrollTop >= navbar.clientHeight) {
+      if (document.body.scrollTop * 3 >= navbar.clientHeight || document.documentElement.scrollTop * 3 >= navbar.clientHeight) {
         // Set the value to make the background dark
         this.isScrollDowned = true;
       }

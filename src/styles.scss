@@ -33,6 +33,41 @@
   --detail-box-rest-width: 70%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+.main-container {
+  min-height: 100vh;
+  /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 246px;
+  /* height of your footer */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+
+
 html {
   overflow-x: hidden;
 }
@@ -66,7 +101,12 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
-.scroll-disabled {
+body.scroll-disabled {
+  height: 150%;
+  overflow: hidden;
+}
+
+html.scroll-disabled {
   height: 100%;
   overflow: hidden;
 }
@@ -81,13 +121,14 @@ h1, h2, h3, h4, h5, h6 {
   sans-serif;
 }
 
-.min-vh-100 {
-  min-height:100vh;
-}
+// .min-vh-100 {
+//   min-height:100vh;
+// }
 
 .detail-opened {
   width: var(--detail-box-rest-width) !important;  /* DETAILBOX WIDTH */
   transition: width 0.5s;
+  margin-left: var(--detail-box-width);
 }
 
 .cdk-overlay-container {
@@ -97,5 +138,6 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (max-width: 1200px) {
   .detail-opened {
     width: 100% !important;
+    margin-left: 0;
   }
 }

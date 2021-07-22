@@ -38,23 +38,19 @@ td.selected {
   display: none;
 }
 
-.item-count-text,
-.plan-item {
+.item-count-text {
   cursor: pointer;
   color: var(--purple-lightest);
-}
-
-.plan-item {
-  transition: 0.5s;
-}
-
-.plan-item:hover {
-  background-color: transparent;
-  color: var(--gray-lightest);
-  transition: 0.5s;
 }
 
 .plan-item.list-group-item {
   min-height: 27px;
   border-color: rgba(0, 0, 0, 0.055);
+}
+
+@media screen and (max-width: 768px) {
+  #calendar-table td p,
+  #calendar-table td a {
+    font-size: 11px;
+  }
 }

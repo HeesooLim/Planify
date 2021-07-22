@@ -1,18 +1,18 @@
 nav {
-  transition: width 0.5s, left 0.5s, background-color 0.1s linear;
+  transition: width 0.5s, margin 0.5s, background-color 0.1s linear;
   left: 0;
   width: 100%;
   font-family: "Red Hat Display", sans-serif;
 }
 
 nav.bg-dark {
-  transition: background-color 0.1s linear;
+  transition: width 0.5s, margin 0.5s, background-color 0.1s linear;
 }
 
 /* when the detail box is opened */
 nav.detail-opened {
-  left: var(--detail-box-width);
-  transition: width 0.5s, left 0.5s;
+  /* left: var(--detail-box-width); */
+  transition: width 0.5s, margin 0.5s;
 }
 
 /* resolve blurry image problem (happens in Chrome unlike Firefox) */

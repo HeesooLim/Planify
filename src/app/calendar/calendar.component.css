@@ -6,6 +6,7 @@
   background-attachment: fixed;
   width: 100%;
   transition: 0.5s;
+  z-index: 1;
 }
 
 #calendar {
@@ -13,7 +14,7 @@
   max-width: 1000px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   #calendar-wrapper {
     padding: 55px 10px 50px 10px;
   }
