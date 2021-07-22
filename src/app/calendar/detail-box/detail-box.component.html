@@ -1,5 +1,5 @@
 <!-- Menu overlay -->
-<div id="menu-overlay" class="w-100 h-100 position-absolute d-none" (click)="toggleOverlay()">
+<div id="menu-overlay" class="w-100 h-100 position-absolute d-none" (click)="toggleMenuOverlay()">
   <!-- Menu -->
   <ul class="list-group position-absolute" id="menu-list">
     <li class="list-group-item py-1 small rounded cursor-pointer mb-2">Add subplan</li>
@@ -7,7 +7,11 @@
     <li class="list-group-item py-1 small rounded cursor-pointer">Delete</li>
   </ul>
 </div>
+<div id="detail-box-overlay" class="position-absolute" (click)="closeDetailBox()"></div>
 <div class="h-100 position-fixed" id="detail-box">
+  <button class="position-absolute top-0 end-0 pt-2 pe-3 border-0 bg-transparent text-light"
+    (click)="closeDetailBox()">&times;
+  </button>
   <!-- Display plan if there is any plan on current date -->
   <div *ngIf="planDate" class="p-4 h-100">
     <!-- Date -->

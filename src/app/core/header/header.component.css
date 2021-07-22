@@ -20,6 +20,12 @@ nav.detail-opened {
   image-rendering: -webkit-optimize-contrast;
 }
 
+@media screen and (max-width: 1200px) {
+  nav.detail-opened {
+    left: 0;
+  }
+}
+
 @media screen and (max-width: 992px) {
   nav {
     transition: background-color 0s;

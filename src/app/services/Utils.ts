@@ -160,4 +160,67 @@ export class Utils {
     }
     return this.subPlan;
   }
+
+  /**
+   * Open or close the detail box in the Calendar page.
+   *
+   * @param {boolean} isOpen If this value is true, open the detail box. Otherwise, close it.
+   * @param {HTMLElement} prevCell The cell previously selected. (This can be null)
+   * @param {HTMLElement} cell The cell currently selected.
+   * @memberof Utils
+   */
+  changeDetailBox(isOpen: boolean, prevCell: HTMLElement, cell: HTMLElement) {
+    // Get elements
+    let calendarWrapper = document.getElementById('calendar-wrapper');
+    let detailBox = document.querySelector('#detail-box');
+    let navbar = <HTMLElement>document.querySelector('nav.navbar');
+    let footer = document.querySelector('footer');
+    let detailOverlay = document.querySelector('#detail-box-overlay');
+    let cells = document.querySelectorAll('#calendar-table td');
+
+    if (isOpen) { // If true, add opened and detil-opened classes to the elements
+      calendarWrapper.classList.add('detail-opened');
+      detailBox.classList.add('opened');
+      footer.classList.add('detail-opened');
+      navbar.classList.add('detail-opened');
+      detailOverlay.classList.add('opened');
+      this.hideScroll(true);
+
+      if (prevCell) { // If the previously selected cell exists, remove the selected class
+        prevCell.classList.remove('selected');
+      }
+      cell.classList.add('selected');
+    }
+    else { // Otherwise, remove opened and detil-opened classes from the elements
+      calendarWrapper.classList.remove('detail-opened');
+      detailBox.classList.remove('opened');
+      footer.classList.remove('detail-opened');
+      navbar.classList.remove('detail-opened');
+      detailOverlay.classList.remove('opened');
+      this.hideScroll(false);
+      // Remove selected class from all cells
+      cells.forEach(cell => cell.classList.remove('selected'));
+    }
+  }
+
+  /**
+   * Enable or disable scroll by toggling the class 'scroll-disabled' on the body.
+   * @param {boolean} isHidden This value is true if the scroll is supposed to be visible.
+   *
+   * @memberof Utils
+   */
+  hideScroll(isHidden: boolean) {
+    let body = document.querySelector('body');
+    let html = document.querySelector('html');
+    console.log('scroll toggled!');
+
+    if (isHidden) {   // Hide the scrollbar
+      body.classList.add('scroll-disabled');
+      html.classList.add('scroll-disabled');
+    }
+    else {  // Enable the scrollbar
+      body.classList.remove('scroll-disabled');
+      html.classList.remove('scroll-disabled');
+    }
+  }
 }

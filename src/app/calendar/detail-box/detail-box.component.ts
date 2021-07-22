@@ -158,7 +158,7 @@ export class DetailBoxComponent implements OnInit {
     this.selectedBtnIndex = btnIndex;
 
     // Change the visibility of the overlay and menu list
-    this.toggleOverlay();
+    this.toggleMenuOverlay();
 
     // Menu button to open the menu
     let menuButton = document.querySelector(`#btn-menu-${btnIndex} i`);
@@ -170,6 +170,17 @@ export class DetailBoxComponent implements OnInit {
     // Set the position of the menu list relative to the window
     menuList.style.left = `${clientRect.left + 15}px`;
     menuList.style.top = `${clientRect.top - 5}px`;
+  }
+
+  /**
+   * Toggle the classes for opening or closing the detail box.
+   * - Change the visibility of the menu overlay element
+   * - Disable or enable the scroll (scroll disabled when menu opened)
+   *
+   * @memberof DetailBoxComponent
+   */
+  closeDetailBox() {
+    this.utils.changeDetailBox(false, null, null);
   }
 
   /**
@@ -192,19 +203,19 @@ export class DetailBoxComponent implements OnInit {
         // To open the add subplan modal, pass the selected button's index
         this.openModal(btnIndex);
         // Change the visibility of the menu list and overlay
-        this.toggleOverlay();
+        this.toggleMenuOverlay();
         break;
       case 1:
         // Go to the selected plan's editPlan page
         window.location.href = `calendar/editPlan/${planId}`;
         // Change the visibility of the menu list and overlay
-        this.toggleOverlay();
+        this.toggleMenuOverlay();
         break;
       case 2:
         // To delete the selected plan, pass the selected button's index
         this.deletePlan(planId);
         // Change the visibility of the menu list and overlay
-        this.toggleOverlay();
+        this.toggleMenuOverlay();
         break;
 
       default:
@@ -219,15 +230,15 @@ export class DetailBoxComponent implements OnInit {
    *
    * @memberof DetailBoxComponent
    */
-  toggleOverlay() {
+  toggleMenuOverlay() {
     // Get the menu overlay element and body to toggle the class
     let menuOverlay = document.getElementById('menu-overlay');
-    let body = document.querySelector('body');
 
     // Toggle the class to change its visibility and disable or enable the scroll
     // (When the menu is opened, scroll is disabled)
     menuOverlay.classList.toggle('d-none');
-    body.classList.toggle('scroll-disabled');
+
+    this.utils.hideScroll(true);
   }
 
   /**

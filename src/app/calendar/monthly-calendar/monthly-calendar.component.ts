@@ -21,7 +21,6 @@ export class MonthlyCalendarComponent implements OnInit {
 
   isOpened: boolean;
   calendarWrapper: HTMLElement;
-  detailBox: HTMLElement;
 
   monthString: string;
 
@@ -35,9 +34,7 @@ export class MonthlyCalendarComponent implements OnInit {
 
     let firstDayName = new Date(this.today.getFullYear(), this.today.getMonth(), 1).toLocaleString("default", { weekday: "long" });
 
-
     this.calendarWrapper = document.getElementById('calendar-wrapper');
-    this.detailBox = document.querySelector('#detail-box');
 
     // Find the offset of the date using the month's first day name
     this.dateOffset = Utils.fullDays.indexOf(firstDayName);
@@ -62,8 +59,6 @@ export class MonthlyCalendarComponent implements OnInit {
       let isOpened = this.calendarWrapper.classList.contains('detail-opened');
       let prevCell = document.getElementById('cell-' + this.selectedDate);
       let cell = document.getElementById('cell-' + date);
-      let navbar = <HTMLElement>document.querySelector('nav.navbar');
-      let footer = document.querySelector('footer');
 
       // If the detail-box is already opened and selected the same date, close the detail-box
       if (isOpened && this.selectedDate === date) {
@@ -74,15 +69,7 @@ export class MonthlyCalendarComponent implements OnInit {
         this.selectedDate = date;
         // Emit the selected PlanDate data (it will be used in the detail-box component)
         this.planEmitter.emit(this.planDates[this.selectedDate - 1]);
-        this.calendarWrapper.classList.add('detail-opened');
-        this.detailBox.classList.add('opened');
-        footer.classList.add('detail-opened');
-        navbar.classList.add('detail-opened');
-
-        if (prevCell) { // If the previously selected cell exists, remove the selected class
-          prevCell.classList.remove('selected');
-        }
-        cell.classList.add('selected');
+        this.utils.changeDetailBox(true, prevCell, cell);
       }
     }
   }
@@ -94,19 +81,10 @@ export class MonthlyCalendarComponent implements OnInit {
    */
   closeDetail() {
     let isOpened = this.calendarWrapper.classList.contains('detail-opened');
-    let cell = document.getElementById('cell-' + this.selectedDate);
-    let navbar = <HTMLElement>document.querySelector('nav.navbar');
-    let footer = document.querySelector('footer');
 
     // If the detail-box was already opened, close it.
     if (isOpened) {
-      this.calendarWrapper.classList.remove('detail-opened');
-      this.detailBox.classList.remove('opened');
-      footer.classList.remove('detail-opened');
-      navbar.classList.remove('detail-opened');
-      if (cell) {
-        cell.classList.remove('selected');
-      }
+      this.utils.changeDetailBox(false, null, null);
     }
   }
 

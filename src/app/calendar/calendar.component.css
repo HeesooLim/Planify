@@ -12,3 +12,9 @@
   width: 100%;
   max-width: 1000px;
 }
+
+@media screen and (max-width: 768px) {
+  #calendar-wrapper {
+    padding: 55px 10px 50px 10px;
+  }
+}
