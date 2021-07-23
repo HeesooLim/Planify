@@ -13,10 +13,10 @@ import { Utils } from 'src/app/services/Utils';
 export class MonthlyCalendarComponent implements OnInit {
   dateOffset: number;
   today: Date = new Date();
-  plans: Plan[] = [];
   subPlans: Plan[] = [];
   planDates: PlanDate[] = [];
-  targetMonth: string;
+  numOfWeeks: number;
+  numOfDays: number;
   selectedDate: number;
 
   isOpened: boolean;
@@ -39,6 +39,12 @@ export class MonthlyCalendarComponent implements OnInit {
     // Find the offset of the date using the month's first day name
     this.dateOffset = Utils.fullDays.indexOf(firstDayName);
 
+    // Number of days in the month
+    this.numOfDays = new Date(this.today.getFullYear(), this.today.getMonth() + 1, 0).getDate();
+
+    // Number of weeks in the month
+    this.numOfWeeks = Math.ceil((this.dateOffset + this.numOfDays) / 7);
+
     // Get all PlanDate objects in the month of today
     this.planService.getDataByMonth(this.today)
       .subscribe(data => {
@@ -59,6 +65,11 @@ export class MonthlyCalendarComponent implements OnInit {
       let isOpened = this.calendarWrapper.classList.contains('detail-opened');
       let prevCell = document.getElementById('cell-' + this.selectedDate);
       let cell = document.getElementById('cell-' + date);
+
+      // If the cell does not contain hover class (invalid cell), return
+      if (!cell.classList.contains('hover')) {
+        return;
+      }
 
       // If the detail-box is already opened and selected the same date, close the detail-box
       if (isOpened && this.selectedDate === date) {

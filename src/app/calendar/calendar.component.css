@@ -1,4 +1,5 @@
 #calendar-wrapper {
+  min-height: 100vh;
   padding: 55px 55px 65px 55px;
   background-image: url("/assets/img/dots_texture.jpg");
   background-size: cover;

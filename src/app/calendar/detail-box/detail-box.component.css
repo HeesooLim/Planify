@@ -28,6 +28,7 @@ ul::-webkit-scrollbar-thumb:hover,
 
 ul {
   overflow-y: auto;
+  border-radius: 0;
 }
 
 .plans-container {

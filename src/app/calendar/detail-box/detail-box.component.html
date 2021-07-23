@@ -36,7 +36,7 @@
       </div>
       <ul class="list-group shadow-5 plans-container">
         <!-- Different class depending on the progress -->
-        <li class="list-group-item plans-container-items border-0 p-0"
+        <li class="list-group-item plans-container-items border-0 p-0 me-1 mb-2"
           [ngClass]="plan.progress == 100 ? 'done bg-yellow-muted' : 'undone'"
           *ngFor="let plan of planDate.plans; let i = index;">
           <div class="px-3 pt-3 pb-1 d-flex align-items-center">
