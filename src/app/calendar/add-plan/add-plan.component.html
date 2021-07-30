@@ -1,82 +1,74 @@
 <div class="w-100 h-100" id="add-plan-container">
   <div class="shadow-5-strong overflow-hidden d-flex" id="add-plan-card">
     <!-- add plan form -->
-    <form [formGroup]="validationForm" (ngSubmit)="submitAddPlan(validationForm)">
-      <div class="px-5 pb-5 pt-4" id="card-form">
-        <!-- date string -->
-        <h4 class="mb-4 fw-light">{{selectedDateString}}</h4>
-        <!-- change class when the form is valid or invalid -->
-        <div [class]="
-          (dueDate?.invalid && (dueDate?.dirty || dueDate?.touched)) ||
-          (priority?.invalid && (priority?.dirty || priority?.touched)) ?
-          'mb-error' : 'mb-3'" class="d-flex align-items-end">
-          <div>
-            <!-- change the label color -->
-            <label [class]="{'text-danger': (dueDate?.invalid && (dueDate?.dirty || dueDate?.touched)),
-              'text-success': (dueDate?.valid && (dueDate?.dirty || dueDate?.touched))}" class="form-label"
-              for="dueDate">
-              Due date
-            </label>
-            <!-- due date form control -->
-            <mdb-form-control>
-              <input mdbValidate mdbInput type="datetime-local" id="dueDate" class="form-control mb-0"
-                formControlName="dueDate" required />
-              <mdb-error *ngIf="dueDate?.invalid && (dueDate?.dirty || dueDate?.touched)">
-                Due Date is required
-              </mdb-error>
-            </mdb-form-control>
-          </div>
-          <div class="ms-4">
-            <!-- change the text color -->
-            <p [class]="{'text-danger': (priority?.invalid && (priority?.dirty || priority?.touched))}"
-              class="mb-2 fw-normal">
-              Priority
-            </p>
-            <!-- radio container -->
-            <div class="d-flex position-relative ms-1">
-              <!-- radio high -->
-              <div class="form-check mb-2">
-                <input mdbRadio type="radio" id="radioHigh" value="3" class="form-check-input mt-1"
-                  formControlName="priority" required />
-                <label mdbLabel class="form-check-label" for="radioHigh">High</label>
-              </div>
-              <!-- radio medium -->
-              <div class="form-check mb-2 ms-4">
-                <input mdbRadio type="radio" id="radioMid" value="2" class="form-check-input mt-1"
-                  formControlName="priority" required />
-                <label mdbLabel class="form-check-label" for="radioMid">Medium</label>
-              </div>
-              <!-- radio low -->
-              <div class="form-check mb-2 ms-4">
-                <input mdbRadio type="radio" id="radioLow" value="1" class="form-check-input mt-1"
-                  formControlName="priority" required />
-                <label mdbLabel class="form-check-label" for="radioLow">Low</label>
-              </div>
-              <!-- form control error message -->
-              <mdb-error style="top: 35px" *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)">
-                Priority is required
-              </mdb-error>
-            </div>
-          </div>
+    <form id="card-form" class="px-5 pb-5 pt-4" [formGroup]="validationForm" (ngSubmit)="submitAddPlan(validationForm)">
+      <!-- date string -->
+      <h4 class="mb-4 fw-light">{{selectedDateString}}</h4>
+      <!-- change class when the form is valid or invalid -->
+      <div class="d-flex">
+        <div>
+          <!-- change the label color -->
+          <label class="fw-normal" for="dueDate">Due date</label>
+          <!-- due date form control -->
+          <mdb-form-control>
+            <input mdbInput type="datetime-local" id="dueDate" class="my-0 dueDate" formControlName="dueDate"
+              required />
+          </mdb-form-control>
+          <span class="dueDate error-msg">Due date is required.</span>
         </div>
-        <!-- title form control -->
-        <mdb-form-control [class]="(title?.invalid && (title?.dirty || title?.touched)) ? 'mb-error' : 'mb-3'">
-          <input mdbValidate mdbInput type="text" id="inputTitle" class="form-control" formControlName="title"
-            required />
-          <label mdbLabel class="form-label" for="inputTitle">Title</label>
-          <mdb-error *ngIf="title?.invalid && (title?.dirty || title?.touched)">
-            Title is required
-          </mdb-error>
-        </mdb-form-control>
-        <!-- description form control -->
-        <mdb-form-control>
-          <textarea mdbInput type="text" id="inputDesc" rows="4" class="form-control"
-            formControlName="description"></textarea>
-          <label mdbLabel class="form-label" for="inputDesc">Description</label>
-        </mdb-form-control>
+        <div class="ms-3">
+          <!-- change the text color -->
+          <p class="mb-1 fw-normal" id="priority-label">Priority</p>
+          <!-- radio container -->
+          <div class="d-flex position-relative ms-1">
+            <!-- radio high -->
+            <!-- <div class="mb-1 d-flex">
+              <input type="radio" id="radioHigh" value="3" class="mt-1 priority" formControlName="priority" required />
+              <label class="fw-light" for="radioHigh">High</label>
+            </div> -->
+
+            <label class="priority-container fw-light me-3">High
+              <input type="radio" id="radioHigh" value="3" class="mt-1 priority" formControlName="priority" required>
+              <span class="checkmark"></span>
+            </label>
+            <!-- radio medium -->
+            <!-- <div class="mb-1 ms-4 d-flex">
+              <input type="radio" id="radioMid" value="2" class="mt-1 priority" formControlName="priority" required />
+              <label class="fw-light" for="radioMid">Medium</label>
+            </div> -->
+
+            <label class="priority-container fw-light me-3">Medium
+              <input type="radio" id="radioMid" value="2" class="mt-1 priority" formControlName="priority" required>
+              <span class="checkmark"></span>
+            </label>
+            <!-- radio low -->
+            <!-- <div class="mb-1 ms-4 d-flex">
+              <input type="radio" id="radioLow" value="1" class="mt-1 priority" formControlName="priority" required />
+              <label class="fw-light" for="radioLow">Low</label>
+            </div> -->
+
+            <label class="priority-container fw-light">Low
+              <input type="radio" id="radioLow" value="1" class="mt-1 priority" formControlName="priority" required>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <!-- form control error message -->
+          <span class="priority error-msg">Priority is required.</span>
+        </div>
       </div>
+      <!-- title form control -->
+      <mdb-form-control>
+        <input mdbInput type="text" id="inputTitle" class="title" formControlName="title" placeholder="Plan title"
+          required />
+      </mdb-form-control>
+      <span class="title error-msg">Title is required.</span>
+      <!-- description form control -->
+      <mdb-form-control>
+        <textarea mdbInput type="text" id="inputDesc" rows="4" class="" formControlName="description"
+          placeholder="Description"></textarea>
+      </mdb-form-control>
       <!-- button container -->
-      <div class="bg-warning px-5 pb-5 pt-3 text-center">
+      <div class="px-5 pb-5 pt-3 text-center">
         <button type="submit" class="btn btn-sm text-white fw-light me-4" id="btn-save" mdbRipple>Save</button>
         <button type="button" class="btn btn-sm text-white fw-light me-4" id="btn-sub-plan" (click)="openModal()"
           mdbRipple>Add sub-plan</button>

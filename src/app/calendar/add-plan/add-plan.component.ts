@@ -35,10 +35,10 @@ export class AddPlanComponent implements OnInit {
   ngOnInit(): void {
     // Create a FormGroup object (empty FormControls)
     this.validationForm = new FormGroup({
-      dueDate: new FormControl(null, { validators: Validators.required, updateOn: 'blur' }),
-      priority: new FormControl(null, { validators: Validators.required, updateOn: 'blur' }),
-      title: new FormControl(null, { validators: Validators.required, updateOn: 'blur' }),
-      description: new FormControl(null, { updateOn: 'blur' })
+      dueDate: new FormControl(null),
+      priority: new FormControl(null),
+      title: new FormControl(null),
+      description: new FormControl(null)
     });
 
     // Get the parameter from the URL

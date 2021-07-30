@@ -223,4 +223,23 @@ export class Utils {
       html.classList.remove('scroll-disabled');
     }
   }
+
+  /**
+   * Check if the the input element has any input provided.
+   * If the input is empty, display the error message.
+   *
+   * @param {HTMLInputElement} inputEl Input element to check the entered value.
+   * @param {HTMLElement} errorEl Error message element to display or hide.
+   * @memberof Utils
+   */
+  checkInputStatus(inputEl: HTMLInputElement, errorEl: HTMLElement) {
+    if (!inputEl.value || inputEl.value === "") {
+      inputEl.classList.add('invalid');
+      errorEl.classList.add('invalid');
+    }
+    else {
+      inputEl.classList.remove('invalid');
+      errorEl.classList.remove('invalid');
+    }
+  }
 }
