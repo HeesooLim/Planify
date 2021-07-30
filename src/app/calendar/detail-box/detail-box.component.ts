@@ -17,7 +17,8 @@ export class DetailBoxComponent implements OnInit {
   constructor(private planService: PlanService, private utils: Utils, private modalService: MdbModalService) { }
 
   @Input('planDateFromCal') planDate: PlanDate;
-  @Input('dateStringFromCal') dateString: PlanDate;
+  @Input('dateStringFromCal') dateString: string;
+  @Input('shortDateStringFromCal') shortDateString: string;
 
   selectedBtnIndex: number;
   priorityList: string[];

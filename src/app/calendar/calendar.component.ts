@@ -11,6 +11,7 @@ export class CalendarComponent implements OnInit {
   // planDate and dateString to pass to detail-box component
   planDate: PlanDate = null;
   dateString: string;
+  shortDateString: string;
 
   constructor(private utils: Utils) { }
 
@@ -31,6 +32,7 @@ export class CalendarComponent implements OnInit {
 
     // Set the date string using the utils class' method
     this.dateString = this.utils.getDateString(date, true);
+    this.shortDateString = this.utils.getDateString(date, false);
 
     this.ngOnInit();
   }

@@ -15,9 +15,10 @@
   <!-- Display plan if there is any plan on current date -->
   <div *ngIf="planDate" class="p-4 h-100">
     <!-- Date -->
-    <h5 class="mb-5 fw-light">
+    <h5 class="mb-4 fw-light">
       <img class="me-4" src="assets/img/logo-icon-with-bg-light.png" width="50" alt="image of the planify logo">
-      {{dateString}}
+      <span class="d-md-inline-block d-none">{{dateString}}</span>
+      <span class="d-md-none d-inline-block">{{shortDateString}}</span>
     </h5>
     <div class="d-flex align-items-center mb-3">
       <p class="mb-0">{{planDate.planCount}} item(s)</p>
