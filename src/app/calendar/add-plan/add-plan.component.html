@@ -33,7 +33,7 @@
         </div>
         <div class="mt-2 mt-lg-0">
           <!-- change the label color -->
-          <label class="fw-normal" for="dueDate">Due date</label>
+          <p class="fw-normal mb-1">Due date</p>
           <!-- due date form control -->
           <mdb-form-control>
             <input mdbInput type="datetime-local" id="dueDate" class="my-0 dueDate" formControlName="dueDate"
@@ -61,18 +61,19 @@
         <div *ngFor="let sp of selectedPlan.subPlans; let subIndex = index" (click)="openEditModal(subIndex)"
           class="sub-plan-item shadow-3 p-3 rounded mb-3 fw-light text-break">
           <!-- subplan title -->
-          <h6 class="d-flex align-items-center mb-1 fw-light">
+          <h6 class="d-flex align-items-center mb-1 fw-light text-light">
             <span [ngClass]="sp.isDone ? 'text-decoration-line-through' : ''">{{sp.title}}</span>
             <i (click)="deleteSubPlan(subIndex)" class="fas fa-times fa-xs ms-auto"></i>
           </h6>
-          <p class="priority-text fw-light mb-0">
+          <p class="priority-text fw-light mb-0 text-light">
             PRIORITY:
             <span class="fw-normal" [ngClass]="['text-success', 'text-warning', 'text-danger'][sp.priority - 1]">
               {{['LOW','MID', 'HIGH'][sp.priority - 1]}}
             </span>
           </p>
           <!-- subplan description -->
-          <p *ngIf="sp.description != ''" class="mb-0">{{sp.description}}</p>
+          <p *ngIf="sp.description != ''" class="mb-0 fw-light small text-purple-muted">{{sp.description}}
+          </p>
         </div>
       </div>
       <ng-template #emptySubplan>
@@ -94,7 +95,7 @@
     </form>
     <!-- other date plan container -->
     <div class="w-100 p-4 other-plan-container">
-      <span class="d-block text-center small fw-light mb-1">Other plans on</span>
+      <span class="d-block text-center small fw-light mb-1">Other plans on ({{otherPlan.planCount}})</span>
       <h4 class="mb-4 text-center d-flex justify-content-between align-items-center">
         <i class="fas fa-chevron-left" (click)="changeDate(false)"></i>
         <span class="shadow-sm p-1 rounded cursor-pointer" (click)="navigateToOtherDate()"
@@ -104,28 +105,26 @@
         <i class="fas fa-chevron-right" (click)="changeDate(true)"></i>
       </h4>
       <!-- other date plans -->
-      <ng-container *ngIf="otherPlan.plans.length > 0; else elseTemplate">
+      <ng-container *ngIf="otherPlan.planCount > 0; else elseTemplate">
         <div *ngFor="let plan of otherPlan.plans" class="rounded shadow overflow-hidden mb-3">
           <!-- main plan container -->
-          <div class="p-3 bg-warning">
+          <div class="p-3 other-plan-item">
             <!-- other plan title -->
-            <h6 class="mb-2">
+            <h6 class="d-flex align-items-center mb-1 fw-light text-light">
               <span [ngClass]="plan.progress == 100 ? 'text-decoration-line-through' : ''">{{plan.title}}</span>
             </h6>
-            <!-- other plan priority -->
-            <p class="mb-1 priority-text fw-light px-3">
+            <p class="priority-text fw-light mb-0 text-light">
               PRIORITY:
               <span class="fw-normal" [ngClass]="['text-success', 'text-warning', 'text-danger'][plan.priority - 1]">
-                {{['LOW', 'MID', 'HIGH'][plan.priority - 1]}}
+                {{['LOW','MID', 'HIGH'][plan.priority - 1]}}
               </span>
             </p>
             <!-- other plan description -->
-            <p class="mb-0">
-              {{plan.description}}
-            </p>
+            <p *ngIf="plan.description != ''" class="mb-0 fw-light small text-purple-muted">
+              {{plan.description}}</p>
           </div>
           <!-- subplan container -->
-          <div *ngFor="let sp of plan.subPlans" class="p-3 border-bottom">
+          <div *ngFor="let sp of plan.subPlans" class="p-3 other-sub-plan-item">
             <!-- other plan title -->
             <h6 class="mb-0"><i class="fas fa-exclamation me-2"
                 [ngClass]="['text-success', 'text-warning', 'text-danger'][sp.priority - 1]">

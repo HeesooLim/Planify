@@ -85,7 +85,7 @@ export class Utils {
     // If the PlanDate's date is the same as the Plan's due date, add the plan to the PlanDate
     planDates.map(pd => {
       plans.map(p => {
-        if (pd.date == new Date(p.dueDate).getDate() + 1) {
+        if (pd.date == new Date(p.dueDate).getDate()) {
           pd.addPlan(p);
         }
       })
@@ -212,7 +212,6 @@ export class Utils {
   hideScroll(isHidden: boolean) {
     let body = document.querySelector('body');
     let html = document.querySelector('html');
-    console.log('scroll toggled!');
 
     if (isHidden) {   // Hide the scrollbar
       body.classList.add('scroll-disabled');

@@ -10,6 +10,10 @@
   z-index: 1;
 }
 
+.text-purple-muted {
+  color: rgb(183 173 206);
+}
+
 #card-form {
   background-color: var(--purple-dark);
 }
@@ -67,9 +71,7 @@ textarea:focus {
   color: var(--purple-light);
 }
 
-label,
-p,
-.empty-subplan-container {
+label {
   color: var(--purple-light);
 }
 
@@ -171,6 +173,14 @@ p,
 .sub-plan-item,
 .other-plan-container {
   background-color: var(--purple-darkest);
+}
+
+.other-plan-item {
+  background-color: #3c3164;
+}
+
+.other-sub-plan-item {
+  background-color: #312656;
 }
 
 h4 {
