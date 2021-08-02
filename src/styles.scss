@@ -121,10 +121,6 @@ html.scroll-disabled {
   sans-serif;
 }
 
-// .min-vh-100 {
-//   min-height:100vh;
-// }
-
 .detail-opened {
   width: var(--detail-box-rest-width) !important;  /* DETAILBOX WIDTH */
   transition: width 0.5s;
@@ -133,6 +129,20 @@ html.scroll-disabled {
 
 .cdk-overlay-container {
   z-index: 1100;
+}
+
+.priority-text {
+  font-size: 11px;
+}
+
+/* disable text selection */
+.noselect, p, h1, h2, h3, h4, h5, h6, label, span, a, div {
+  -webkit-touch-callout: none;  /* iOS Safari */
+  -webkit-user-select: none;    /* Safari */
+  -khtml-user-select: none;     /* Konqueror HTML */
+  -moz-user-select: none;       /* Old versions of Firefox */
+  -ms-user-select: none;        /* Internet Explorer/Edge */
+  user-select: none;            /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 @media screen and (max-width: 1200px) {

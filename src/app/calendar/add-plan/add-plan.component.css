@@ -67,8 +67,9 @@ textarea:focus {
   color: var(--purple-light);
 }
 
-#priority-label,
-label {
+label,
+p,
+.empty-subplan-container {
   color: var(--purple-light);
 }
 
@@ -77,15 +78,15 @@ label {
 }
 
 #btn-save {
-  background-color: var(--turquoise);
+  background-color: var(--purple-gray);
 }
 
 #btn-sub-plan {
-  background-color: var(--dark-turquoise);
+  background-color: #473878;
 }
 
 #btn-cancel {
-  background-color: var(--yellow);
+  background-color: #3e3168;
 }
 
 /* Radio button container */
@@ -134,7 +135,8 @@ label {
 
 /* When the radio button is focused, add a purple shadow */
 .priority-container input:focus ~ .checkmark {
-  box-shadow: 0 0 0 4px rgb(154 139 187 / 40%);
+  box-shadow: 0 0 0 6px rgba(131, 114, 168, 0.2);
+  /* box-shadow: 0 0 0 5px rgba(33, 15, 71, 0.3); */
   transition: 0.2s;
 }
 
@@ -163,4 +165,49 @@ label {
 /* Change the calendar picker's icon color */
 ::-webkit-calendar-picker-indicator {
   filter: invert(0.8);
+}
+
+.empty-subplan-container,
+.sub-plan-item,
+.other-plan-container {
+  background-color: var(--purple-darkest);
+}
+
+h4 {
+  color: var(--gray-lightest);
+  font-weight: 200;
+}
+
+@media screen and (max-width: 1200px) {
+  #add-plan-container {
+    padding: 100px 40px;
+  }
+  #card-form {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #card-form {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #add-plan-container {
+    padding: 100px 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .other-plan-container {
+    display: none;
+  }
+  #add-plan-container {
+    padding: 100px 0;
+  }
+
+  #add-plan-card {
+    border-radius: 0;
+  }
 }

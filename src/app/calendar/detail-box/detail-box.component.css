@@ -133,10 +133,6 @@ ul.menu-modal {
   color: var(--gray-lightest);
 }
 
-.priority-text {
-  font-size: 11px;
-}
-
 @media screen and (max-width: 1200px) {
   #detail-box {
     z-index: 1040;
