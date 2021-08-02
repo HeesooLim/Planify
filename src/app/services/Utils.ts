@@ -224,21 +224,33 @@ export class Utils {
   }
 
   /**
-   * Check if the the input element has any input provided.
+   * Change the input element's status to valid or invalid.
    * If the input is empty, display the error message.
    *
    * @param {HTMLInputElement} inputEl Input element to check the entered value.
    * @param {HTMLElement} errorEl Error message element to display or hide.
+   * @param {boolean} isValid If the value is valid or not.
    * @memberof Utils
    */
-  checkInputStatus(inputEl: HTMLInputElement, errorEl: HTMLElement) {
-    if (!inputEl.value || inputEl.value === "") {
-      inputEl.classList.add('invalid');
-      errorEl.classList.add('invalid');
+  changeInputStatus(inputEl: HTMLInputElement, errorEl: HTMLElement, isValid: boolean) {
+    // If input element exist, add or remove the class
+    if (inputEl) {
+      if (!isValid) {
+        inputEl.classList.add('invalid');
+      }
+      else {
+        inputEl.classList.remove('invalid');
+      }
     }
-    else {
-      inputEl.classList.remove('invalid');
-      errorEl.classList.remove('invalid');
+
+    // If error message element exist, add or remove the class
+    if (errorEl) {
+      if (!isValid) {
+        errorEl.classList.add('invalid');
+      }
+      else {
+        errorEl.classList.remove('invalid');
+      }
     }
   }
 }

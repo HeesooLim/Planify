@@ -34,13 +34,13 @@ textarea {
 
 input[type="text"].invalid,
 input[type="datetime-local"].invalid {
-  box-shadow: 0 0 0 3px rgba(124, 51, 51, 0.5);
+  box-shadow: 0 0 0 3px rgba(165, 48, 48, 0.7);
 }
 
 .error-msg {
   font-size: 12px;
   display: none;
-  color: var(--purple-gray);
+  color: rgb(165, 48, 48);
 }
 
 .error-msg.invalid {

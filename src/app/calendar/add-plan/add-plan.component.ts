@@ -112,11 +112,13 @@ export class AddPlanComponent implements OnInit {
    * @memberof AddPlanComponent
    */
   submitAddPlan(form) {
-    // Validate the form
-    this.validationForm.markAllAsTouched();
-
     // Get the data and set the value
     let data = form.value;
+
+    // Validate inputs and return if any data is invalid
+    if (!this.validateInputs(data))
+      return;
+
     this.selectedPlan.title = data.title;
     this.selectedPlan.description = data.description;
     this.selectedPlan.dueDate = data.dueDate;
@@ -219,6 +221,40 @@ export class AddPlanComponent implements OnInit {
     // Navigate only when currently selected date and other plan date are different
     if (this.selectedDate != this.otherPlanDate)
       window.location.href = `calendar/addPlan/${this.otherPlanDate.getFullYear()}-${this.otherPlanDate.getMonth()}-${this.otherPlanDate.getDate()}`;
+  }
+
+  /**
+   * Check if the required inputs are filled and display error message for the empty inputs.
+   *
+   * @param {*} formData Form data to check for the empty input.
+   * @return {*}  {boolean} Return true if all required inputs are valid.
+   * @memberof AddPlanComponent
+   */
+  validateInputs(formData: any): boolean {
+    // Get input elements
+    let titleInput = <HTMLInputElement>document.querySelector('#inputTitle');
+    let dueDateInput = <HTMLInputElement>document.querySelector('#dueDate');
+
+    // Get error message elements
+    let titleError = <HTMLElement>document.querySelector('.title.error-msg');
+    let dueDateError = <HTMLElement>document.querySelector('.dueDate.error-msg');
+    let priorityError = <HTMLElement>document.querySelector('.priority.error-msg');
+
+    // If data's property is null or empty, store false
+    let isTitleValid = formData.title != null && formData.title !== '';
+    let isDueDateValid = formData.dueDate != null && formData.dueDate !== '';
+    let isPriorityValid = formData.priority != null && formData.priority !== '';
+
+    // Check whether the input is valid and add or remove the class 'invalid'
+    this.utils.changeInputStatus(titleInput, titleError, isTitleValid);
+    this.utils.changeInputStatus(dueDateInput, dueDateError, isDueDateValid);
+    this.utils.changeInputStatus(null, priorityError, isPriorityValid);
+
+    // If any of input is invalid, return false
+    if (!isTitleValid || !isDueDateValid || !isPriorityValid)
+      return false;
+    // Otherwise, return true
+    return true;
   }
 
 }
