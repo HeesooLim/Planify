@@ -7,14 +7,14 @@ import { Plan, SubPlan } from 'src/app/models/plan.model';
 @Component({
   selector: 'app-edit-sub-plan-modal',
   templateUrl: './edit-sub-plan-modal.component.html',
-  styleUrls: ['./edit-sub-plan-modal.component.css']
+  styleUrls: ['../add-plan/add-plan.component.css', './edit-sub-plan-modal.component.css']
 })
 export class EditSubPlanModalComponent implements OnInit {
   plan: Plan;
   validationForm: FormGroup;
   subPlan: SubPlan;
 
-  constructor(public modalRef: MdbModalRef<EditSubPlanModalComponent>) { }
+  constructor(public modalRef: MdbModalRef<EditSubPlanModalComponent>, private utils: Utils) { }
 
   ngOnInit(): void {
     // Get current subplan using the Utils' static method
@@ -22,28 +22,58 @@ export class EditSubPlanModalComponent implements OnInit {
     if (this.subPlan) {
       // Create a new object of FormGroup using the subplan data
       this.validationForm = new FormGroup({
-        priority: new FormControl(this.subPlan.priority, { validators: Validators.required, updateOn: 'blur' }),
-        title: new FormControl(this.subPlan.title, { validators: Validators.required, updateOn: 'blur' }),
-        description: new FormControl(this.subPlan.description, { updateOn: 'blur' }),
-        isDone: new FormControl(this.subPlan.isDone)
+        modalPriority: new FormControl(this.subPlan.priority.toString()),
+        modalTitle: new FormControl(this.subPlan.title),
+        modalDescription: new FormControl(this.subPlan.description),
+        modalIsDone: new FormControl(this.subPlan.isDone)
       });
     }
   }
 
-  get priority(): AbstractControl {
-    return this.validationForm.get('priority');
+  get modalPriority(): AbstractControl {
+    return this.validationForm.get('modalPriority');
   }
 
-  get title(): AbstractControl {
-    return this.validationForm.get('title');
+  get modalTitle(): AbstractControl {
+    return this.validationForm.get('modalTitle');
   }
 
-  get description(): AbstractControl {
-    return this.validationForm.get('description');
+  get modalDescription(): AbstractControl {
+    return this.validationForm.get('modalDescription');
   }
 
-  get isDone(): AbstractControl {
-    return this.validationForm.get('isDone');
+  get modalIsDone(): AbstractControl {
+    return this.validationForm.get('modalIsDone');
+  }
+
+  /**
+   * Check if the required inputs are filled and display error message for the empty inputs.
+   *
+   * @param {*} formData Form data to check for the empty input.
+   * @return {*}  {boolean} Return true if all required inputs are valid.
+   * @memberof AddPlanComponent
+   */
+  validateInputs(formData: any): boolean {
+    // Get input elements
+    let titleInput = <HTMLInputElement>document.querySelector('#modal-inputTitle');
+
+    // Get error message elements
+    let titleError = <HTMLElement>document.querySelector('.title.modal-error-msg');
+    let priorityError = <HTMLElement>document.querySelector('.priority.modal-error-msg');
+
+    // If data's property is null or empty, store false
+    let isTitleValid = formData.modalTitle != null && formData.modalTitle !== '';
+    let isPriorityValid = formData.modalPriority != null && formData.modalPriority !== '' && !isNaN(formData.modalPriority);
+
+    // Check whether the input is valid and add or remove the class 'invalid'
+    this.utils.changeInputStatus(titleInput, titleError, isTitleValid);
+    this.utils.changeInputStatus(null, priorityError, isPriorityValid);
+
+    // If any of input is invalid, return false
+    if (!isTitleValid || !isPriorityValid)
+      return false;
+    // Otherwise, return true
+    return true;
   }
 
   /**
@@ -55,10 +85,9 @@ export class EditSubPlanModalComponent implements OnInit {
   submitEditSubPlan(data) {
     // Store the priority as an integer
     data.value.priority = parseInt(data.value.priority);
-    this.validationForm.markAllAsTouched();
 
     // If the form is valid, close the modal sending the data
-    if (this.validationForm.valid) {
+    if (this.validateInputs(data.value)) {
       this.close(data.value);
     }
   }

@@ -84,10 +84,10 @@ export class EditPlanComponent implements OnInit {
 
       // Create a FormGroup object passing the initial values
       this.validationForm = new FormGroup({
-        dueDate: new FormControl(this.dateInputString, { validators: Validators.required, updateOn: 'blur' }),
-        priority: new FormControl(this.selectedPlan.priority.toString(), { validators: Validators.required, updateOn: 'blur' }),
-        title: new FormControl(this.selectedPlan.title, { validators: Validators.required, updateOn: 'blur' }),
-        description: new FormControl(this.selectedPlan.description, { updateOn: 'blur' })
+        dueDate: new FormControl(this.dateInputString),
+        priority: new FormControl(this.selectedPlan.priority.toString()),
+        title: new FormControl(this.selectedPlan.title),
+        description: new FormControl(this.selectedPlan.description)
       });
     });
   }
@@ -170,7 +170,7 @@ export class EditPlanComponent implements OnInit {
         let subPlanFromJson = JSON.parse(JSON.stringify(data));
 
         // Using the data, create a new subplan
-        let subplan = new SubPlan(subPlanFromJson.title, subPlanFromJson.description, subPlanFromJson.priority, subPlanFromJson.isDone);
+        let subplan = new SubPlan(subPlanFromJson.modalTitle, subPlanFromJson.modalDescription, subPlanFromJson.modalPriority, subPlanFromJson.modalIsDone);
 
         // Push the subplan to the list
         this.selectedPlan.subPlans.push(subplan);
@@ -198,6 +198,7 @@ export class EditPlanComponent implements OnInit {
 
     // When close the modal, get the data on the modal
     this.editModalRef.onClose.subscribe((data: any) => {
+
       if (data == 0) {
         this.selectedPlan.subPlans.splice(index, 1);
       }
@@ -205,7 +206,7 @@ export class EditPlanComponent implements OnInit {
         let subPlanFromJson = JSON.parse(JSON.stringify(data));
 
         // Create a subplan object using the json data
-        let subplan = new SubPlan(subPlanFromJson.title, subPlanFromJson.description, subPlanFromJson.priority, subPlanFromJson.isDone);
+        let subplan = new SubPlan(subPlanFromJson.modalTitle, subPlanFromJson.modalDescription, subPlanFromJson.modalPriority, subPlanFromJson.modalIsDone);
 
         // Push the subplan to the list
         this.selectedPlan.subPlans[index] = subplan;

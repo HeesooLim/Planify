@@ -9,24 +9,24 @@
         <div class="ms-lg-3">
           <p class="mb-1 fw-normal">Priority</p>
           <!-- radio container -->
-          <div class="d-flex position-relative ms-1">
+          <div class="d-flex position-relative ms-1 mt-2">
 
-            <label class="priority-container fw-light me-3">High
+            <label class="radio-container fw-light me-3">High
               <input [checked]="selectedPlan.priority == 3" type="radio" id="radioHigh" value="3" class="mt-1 priority"
                 formControlName="priority" required>
-              <span class="checkmark"></span>
+              <span class="radio-checkmark"></span>
             </label>
 
-            <label class="priority-container fw-light me-3">Medium
+            <label class="radio-container fw-light me-3">Medium
               <input [checked]="selectedPlan.priority == 2" type="radio" id="radioMid" value="2" class="mt-1 priority"
                 formControlName="priority" required>
-              <span class="checkmark"></span>
+              <span class="radio-checkmark"></span>
             </label>
 
-            <label class="priority-container fw-light">Low
+            <label class="radio-container fw-light">Low
               <input [checked]="selectedPlan.priority == 1" type="radio" id="radioLow" value="1" class="mt-1 priority"
                 formControlName="priority" required>
-              <span class="checkmark"></span>
+              <span class="radio-checkmark"></span>
             </label>
           </div>
           <!-- form control error message -->
@@ -86,7 +86,7 @@
 
       <!-- button container -->
       <div class="pt-5 d-lg-flex">
-        <button type="submit" class="btn btn-sm text-white fw-light w-100 py-2 mt-2 me-3" id="btn-save"
+        <button type="submit" class="btn btn-sm text-white fw-light w-100 py-2 mt-2 me-3 btn-save"
           mdbRipple>Save</button>
         <button type="button" class="btn btn-sm text-white fw-light w-100 py-2 mt-2 me-3" id="btn-sub-plan"
           (click)="openAddModal()" mdbRipple>Add sub-plan</button>

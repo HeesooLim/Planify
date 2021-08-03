@@ -1,80 +1,60 @@
-<div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Edit a sub-plan</h5>
-  <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+<div class="modal-header justify-content-center pt-0 px-0">
+  <h4 class="modal-title" id="exampleModalLabel">Edit a Sub-plan</h4>
 </div>
 <!-- edit subplan form -->
-<form class="modal-body" id="sub-plan-form" [formGroup]="validationForm" (ngSubmit)="submitEditSubPlan(validationForm)">
+<form class="modal-body px-0" id="sub-plan-form" [formGroup]="validationForm"
+  (ngSubmit)="submitEditSubPlan(validationForm)">
   <!-- radios -->
-  <div class="">
-    <p class="mb-1 fw-normal">Priority</p>
-    <div [class]="(priority?.invalid && (priority?.dirty || priority?.touched)) ? 'mb-4' : ''"
-      class="d-flex ms-2 mb-2 position-relative">
-      <!-- radio high -->
-      <div class="form-check mb-2">
-        <input mdbRadio type="radio" id="radioHigh" value="3" class="form-check-input mt-1" formControlName="priority"
-          [checked]="subPlan.priority == 3" required />
-        <label mdbLabel class="form-check-label" for="radioHigh">High</label>
+  <div>
+    <p class="mb-1 fw-normal text-purple-muted">Priority</p>
+    <div class="d-flex mb-2 position-relative">
+      <!-- radio container -->
+      <label class="radio-container fw-light me-3">High
+        <input type="radio" id="modal-radioHigh" value="3" [checked]="subPlan.priority == 3" class="mt-1 priority"
+          formControlName="modalPriority" required>
+        <span class="radio-checkmark"></span>
+      </label>
 
-        <!-- <mdb-success *ngIf="priority?.valid && (priority?.dirty || priority?.touched)">
-          Looks good!
-        </mdb-success> -->
-      </div>
-      <!-- radio medium -->
-      <div class="form-check mb-2 ms-4">
-        <input mdbRadio type="radio" id="radioMid" value="2" class="form-check-input mt-1" formControlName="priority"
-          [checked]="subPlan.priority == 2" required />
-        <label mdbLabel class="form-check-label" for="radioMid">Medium</label>
-        <!-- <mdb-error *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)">
-          Priority is required
-        </mdb-error> -->
-        <!-- <mdb-success *ngIf="priority?.valid && (priority?.dirty || priority?.touched)">
-          Looks good!
-        </mdb-success> -->
-      </div>
-      <!-- radio low -->
-      <div class="form-check mb-2 ms-4">
-        <input mdbRadio type="radio" id="radioLow" value="1" class="form-check-input mt-1" formControlName="priority"
-          [checked]="subPlan.priority == 1" required />
-        <label mdbLabel class="form-check-label" for="radioLow">Low</label>
-        <!-- <mdb-error *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)">
-          Priority is required
-        </mdb-error> -->
-        <!-- <mdb-success *ngIf="priority?.valid && (priority?.dirty || priority?.touched)">
-          Looks good!
-        </mdb-success> -->
-      </div>
-      <!-- radio error -->
-      <mdb-error style="top: 30px;left: -5px;" *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)">
-        Priority is required
-      </mdb-error>
+      <label class="radio-container fw-light me-3">Medium
+        <input type="radio" id="modal-radioMid" value="2" [checked]="subPlan.priority == 2" class="mt-1 priority"
+          formControlName="modalPriority" required>
+        <span class="radio-checkmark"></span>
+      </label>
 
-      <div class="form-check ms-auto">
-        <input mdbCheckbox class="form-check-input float-end" formControlName="isDone" type="checkbox" value="true"
-          id="flexCheckDefault" [checked]="subPlan.isDone" mdbTooltip="Mark as done" placement="top" />
+      <label class="radio-container fw-light">Low
+        <input type="radio" id="modal-radioLow" value="1" [checked]="subPlan.priority == 1" class="mt-1 priority"
+          formControlName="modalPriority" required>
+        <span class="radio-checkmark"></span>
+      </label>
+
+      <!-- checkbox for isDone -->
+      <div class="ms-auto">
+        <label class="checkbox-container" mdbTooltip="Mark as done" placement="top">
+          <input type="checkbox" value="true" formControlName="modalIsDone">
+          <span class="checkbox-checkmark"></span>
+        </label>
       </div>
+      <!-- form control error message -->
+      <span class="priority modal-error-msg mt-1">Priority is required.</span>
     </div>
   </div>
   <!-- title -->
-  <mdb-form-control [class]="(title?.invalid && (title?.dirty || title?.touched)) ? 'mb-error' : 'mb-3'">
-    <input mdbValidate mdbInput type="text" id="inputTitle" class="form-control" formControlName="title" required />
-    <label mdbLabel class="form-label" for="inputTitle">Title</label>
-    <!-- title error -->
-    <mdb-error *ngIf="title?.invalid && (title?.dirty || title?.touched)">
-      Title is required
-    </mdb-error>
+  <mdb-form-control>
+    <input mdbInput type="text" id="modal-inputTitle" class="title" formControlName="modalTitle"
+      placeholder="Plan title" required />
   </mdb-form-control>
+  <span class="title modal-error-msg mt-1">Title is required.</span>
   <!-- description -->
   <mdb-form-control>
-    <textarea mdbInput type="text" id="inputDesc" rows="4" value="3" class="form-control"
-      formControlName="description"></textarea>
-    <label mdbLabel class="form-label" for="inputDesc">Description</label>
+    <textarea mdbInput type="text" id="modal-inputDesc" rows="4" class="" formControlName="modalDescription"
+      placeholder="Description"></textarea>
   </mdb-form-control>
 </form>
 <!-- button container -->
 <div class="modal-footer">
-  <button type="submit" class="btn btn-primary" form="sub-plan-form">Edit</button>
-  <button class="btn btn-danger" form="sub-plan-form" (click)="deleteAndClose()">Delete</button>
-  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+  <button mdbRipple class="btn text-light btn-save" form="sub-plan-form" type="submit">Edit</button>
+  <button mdbRipple class="btn text-light btn-delete" form="sub-plan-form" (click)="deleteAndClose()">Delete</button>
+  <button mdbRipple class="btn text-light btn-cancel" type="button" (click)="modalRef.close()">
     Cancel
   </button>
 </div>

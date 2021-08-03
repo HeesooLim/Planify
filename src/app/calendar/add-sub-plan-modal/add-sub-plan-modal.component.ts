@@ -1,41 +1,71 @@
+import { Utils } from 'src/app/services/Utils';
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-sub-plan-modal',
   templateUrl: './add-sub-plan-modal.component.html',
-  styleUrls: ['./add-sub-plan-modal.component.css']
+  styleUrls: ['../add-plan/add-plan.component.css', './add-sub-plan-modal.component.css']
 })
 
 export class AddSubPlanModalComponent implements OnInit {
   validationForm: FormGroup;
 
-  constructor(public modalRef: MdbModalRef<AddSubPlanModalComponent>) { }
+  constructor(public modalRef: MdbModalRef<AddSubPlanModalComponent>, private utils: Utils) { }
 
   ngOnInit(): void {
-    // Validation form with null FormControls
     this.validationForm = new FormGroup({
-      priority: new FormControl(null, { validators: Validators.required, updateOn: 'blur' }),
-      title: new FormControl(null, { validators: Validators.required, updateOn: 'blur' }),
-      description: new FormControl(null, { updateOn: 'blur' }),   // Description doesn't need a validator
-      isDone: new FormControl(null)                               // Isdone doesn't need a validator
+      modalPriority: new FormControl(null),
+      modalTitle: new FormControl(null),
+      modalDescription: new FormControl(null),
+      modalIsDone: new FormControl(null)
     });
   }
 
-  get priority(): AbstractControl {
-    return this.validationForm.get('priority');
+  get modalPriority(): AbstractControl {
+    return this.validationForm.get('modalPriority');
   }
 
-  get title(): AbstractControl {
-    return this.validationForm.get('title');
+  get modalTitle(): AbstractControl {
+    return this.validationForm.get('modalTitle');
   }
 
-  get description(): AbstractControl {
-    return this.validationForm.get('description');
+  get modalDescription(): AbstractControl {
+    return this.validationForm.get('modalDescription');
   }
 
-  get isDone(): AbstractControl {
-    return this.validationForm.get('isDone');
+  get modalIsDone(): AbstractControl {
+    return this.validationForm.get('modalIsDone');
+  }
+
+  /**
+   * Check if the required inputs are filled and display error message for the empty inputs.
+   *
+   * @param {*} formData Form data to check for the empty input.
+   * @return {*}  {boolean} Return true if all required inputs are valid.
+   * @memberof AddPlanComponent
+   */
+  validateInputs(formData: any): boolean {
+    // Get input elements
+    let titleInput = <HTMLInputElement>document.querySelector('#modal-inputTitle');
+
+    // Get error message elements
+    let titleError = <HTMLElement>document.querySelector('.title.modal-error-msg');
+    let priorityError = <HTMLElement>document.querySelector('.priority.modal-error-msg');
+
+    // If data's property is null or empty, store false
+    let isTitleValid = formData.modalTitle != null && formData.modalTitle !== '';
+    let isPriorityValid = formData.modalPriority != null && formData.modalPriority !== '' && !isNaN(formData.modalPriority);
+
+    // Check whether the input is valid and add or remove the class 'invalid'
+    this.utils.changeInputStatus(titleInput, titleError, isTitleValid);
+    this.utils.changeInputStatus(null, priorityError, isPriorityValid);
+
+    // If any of input is invalid, return false
+    if (!isTitleValid || !isPriorityValid)
+      return false;
+    // Otherwise, return true
+    return true;
   }
 
   /**
@@ -47,13 +77,10 @@ export class AddSubPlanModalComponent implements OnInit {
    */
   submitAddSubPlan(data) {
     // Store priority as an integer
-    data.value.priority = parseInt(data.value.priority);
-
-    // Mark the controls as touched (validate form)
-    this.validationForm.markAllAsTouched();
+    data.value.priority = parseInt(data.value.titlePriority);
 
     // If the form is valid, call the close function passing the data
-    if (this.validationForm.valid) {
+    if (this.validateInputs(data.value)) {
       this.close(data.value);
     }
   }

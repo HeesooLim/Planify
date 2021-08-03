@@ -48,6 +48,32 @@ body {
   position: relative;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+body a {
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  text-decoration: none;
+}
+
 .main-container {
   min-height: 100vh;
   /* will cover the 100% of viewport */
@@ -64,30 +90,42 @@ footer {
   width: 100%;
 }
 
-
-
-
-
-html {
-  overflow-x: hidden;
+/* Modal styles start */
+.modal-content {
+  background-color: var(--purple-dark);
+  border-radius: 15px;
+  padding: 20px;
 }
 
-body {
-  margin: 0;
+/* disable text selection */
+.noselect,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+span,
+a,
+div {
+  -webkit-touch-callout: none;      /* iOS Safari */
+  -webkit-user-select: none;        /* Safari */
+  -khtml-user-select: none;         /* Konqueror HTML */
+  -moz-user-select: none;           /* Old versions of Firefox */
+  -ms-user-select: none;            /* Internet Explorer/Edge */
+  user-select: none;                /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
-body a {
-  transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
-  -ms-transition: 0.5s all;
-  text-decoration: none;
+.modal-header, .modal-footer {
+  border-color: var(--purple-gray);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
+.modal-open {
+  padding-right: 0 !important;
 }
+/* Modal styles end */
 
 .bg-yellow-muted {
   background-color: rgba(242, 174, 92, 0.2);
@@ -135,14 +173,85 @@ html.scroll-disabled {
   font-size: 11px;
 }
 
-/* disable text selection */
-.noselect, p, h1, h2, h3, h4, h5, h6, label, span, a, div {
-  -webkit-touch-callout: none;  /* iOS Safari */
-  -webkit-user-select: none;    /* Safari */
-  -khtml-user-select: none;     /* Konqueror HTML */
-  -moz-user-select: none;       /* Old versions of Firefox */
-  -ms-user-select: none;        /* Internet Explorer/Edge */
-  user-select: none;            /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+/* CHECKBOX STYLE STARTS */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: var(--purple-darkest);
+  border: solid 2px var(--purple-gray);
+  border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input~.checkbox-checkmark {
+  background-color: var(--purple-dark);
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked~.checkbox-checkmark {
+  background-color: var(--purple-light);
+}
+
+/* Create the checkbox-checkmark/indicator (hidden when not checked) */
+.checkbox-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkbox-checkmark when checked */
+.checkbox-container input:checked~.checkbox-checkmark:after {
+  display: block;
+}
+
+/* Style the checkbox-checkmark/indicator */
+.checkbox-container .checkbox-checkmark:after {
+  left: 4px;
+  top: 0px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* When the checkbox is focused, add a purple shadow */
+.checkbox-container input:focus~.checkbox-checkmark {
+  box-shadow: 0 0 0 6px rgba(131, 114, 168, 0.3);
+  transition: 0.2s;
+}
+/* CHECKBOX STYLE ENDS */
+
+.text-purple-muted {
+  color: rgb(183, 173, 206);
 }
 
 @media screen and (max-width: 1200px) {

@@ -1,64 +1,62 @@
 <!-- header of the modal -->
-<div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">New Sub-plan</h5>
-  <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+<div class="modal-header justify-content-center pt-0 px-0">
+  <h4 class="modal-title" id="exampleModalLabel">New Sub-plan</h4>
 </div>
 <!-- add subplan form -->
-<form class="modal-body" id="sub-plan-form" [formGroup]="validationForm" (ngSubmit)="submitAddSubPlan(validationForm)">
+<form class="modal-body px-0" id="sub-plan-form" [formGroup]="validationForm"
+  (ngSubmit)="submitAddSubPlan(validationForm)">
   <!-- radios -->
-  <div class="">
-    <p class="mb-1 fw-normal">Priority</p>
-    <div [class]="(priority?.invalid && (priority?.dirty || priority?.touched)) ? 'mb-4' : ''"
-      class="d-flex ms-2 mb-2 position-relative">
-      <!-- radio high -->
-      <div class="form-check mb-2">
-        <input mdbRadio type="radio" id="radioHigh" value="3" class="form-check-input mt-1" formControlName="priority"
-          required />
-        <label mdbLabel class="form-check-label" for="radioHigh">High</label>
-      </div>
-      <!-- radio medium -->
-      <div class="form-check mb-2 ms-4">
-        <input mdbRadio type="radio" id="radioMid" value="2" class="form-check-input mt-1" formControlName="priority"
-          required />
-        <label mdbLabel class="form-check-label" for="radioMid">Medium</label>
-      </div>
-      <!-- radio low -->
-      <div class="form-check mb-2 ms-4">
-        <input mdbRadio type="radio" id="radioLow" value="1" class="form-check-input mt-1" formControlName="priority"
-          required />
-        <label mdbLabel class="form-check-label" for="radioLow">Low</label>
-      </div>
-      <!-- radio error message -->
-      <mdb-error style="top: 30px;left: -5px;" *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)">
-        Priority is required
-      </mdb-error>
+  <div>
+    <p class="mb-1 fw-normal text-purple-muted">Priority</p>
+    <!-- radio container -->
+    <div class="d-flex position-relative ms-1">
+      <label class="radio-container fw-light me-3">High
+        <input type="radio" id="modal-radioHigh" value="3" class="mt-1 priority" formControlName="modalPriority"
+          required>
+        <span class="radio-checkmark"></span>
+      </label>
+
+      <label class="radio-container fw-light me-3">Medium
+        <input type="radio" id="modal-radioMid" value="2" class="mt-1 priority" formControlName="modalPriority"
+          required>
+        <span class="radio-checkmark"></span>
+      </label>
+
+      <label class="radio-container fw-light">Low
+        <input type="radio" id="modal-radioLow" value="1" class="mt-1 priority" formControlName="modalPriority"
+          required>
+        <span class="radio-checkmark"></span>
+      </label>
+
       <!-- checkbox for isDone -->
-      <div class="form-check ms-auto">
-        <input mdbCheckbox class="form-check-input float-end" formControlName="isDone" type="checkbox" value="true"
-          id="flexCheckDefault" mdbTooltip="Mark as done" placement="top" />
+      <div class="ms-auto">
+        <!-- <input class="float-end" formControlName="modalIsDone" type="checkbox" value="true" mdbTooltip="Mark as done"
+          placement="top" /> -->
+        <label class="checkbox-container" mdbTooltip="Mark as done" placement="top">
+          <input type="checkbox" value="true" formControlName="modalIsDone">
+          <span class="checkbox-checkmark"></span>
+        </label>
       </div>
     </div>
+    <!-- form control error message -->
+    <span class="priority modal-error-msg mt-1">Priority is required.</span>
   </div>
-  <!-- plan title -->
-  <mdb-form-control [class]="(title?.invalid && (title?.dirty || title?.touched)) ? 'mb-error' : 'mb-3'">
-    <input mdbValidate mdbInput type="text" id="inputTitle" class="form-control" formControlName="title" required />
-    <label mdbLabel class="form-label" for="inputTitle">Title</label>
-    <!-- plan title error -->
-    <mdb-error *ngIf="title?.invalid && (title?.dirty || title?.touched)">
-      Title is required
-    </mdb-error>
-  </mdb-form-control>
-  <!-- description -->
+  <!-- title form control -->
   <mdb-form-control>
-    <textarea mdbInput type="text" id="inputDesc" rows="4" value="3" class="form-control"
-      formControlName="description"></textarea>
-    <label mdbLabel class="form-label" for="inputDesc">Description</label>
+    <input mdbInput type="text" id="modal-inputTitle" class="title" formControlName="modalTitle"
+      placeholder="Plan title" required />
+  </mdb-form-control>
+  <span class="title modal-error-msg mt-1">Title is required.</span>
+  <!-- description form control -->
+  <mdb-form-control>
+    <textarea mdbInput type="text" id="modal-inputDesc" rows="4" class="" formControlName="modalDescription"
+      placeholder="Description"></textarea>
   </mdb-form-control>
 </form>
 <!-- modal footer -->
-<div class="modal-footer">
-  <button type="submit" class="btn btn-primary" form="sub-plan-form">Add</button>
-  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+<div class="modal-footer pb-0 px-0">
+  <button mdbRipple type="submit" class="btn text-light btn-save" form="sub-plan-form">Add</button>
+  <button mdbRipple type="button" class="btn text-light btn-save" (click)="modalRef.close()">
     Cancel
   </button>
 </div>

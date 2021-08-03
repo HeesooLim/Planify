@@ -168,9 +168,17 @@ export class DetailBoxComponent implements OnInit {
     let menuList = <HTMLElement>document.querySelector('#menu-list');
     let clientRect = menuButton.getBoundingClientRect();
 
-    // Set the position of the menu list relative to the window
-    menuList.style.left = `${clientRect.left + 15}px`;
-    menuList.style.top = `${clientRect.top - 5}px`;
+    // Locate menu list in the screen larger than xs
+    if (screen.width > 576) {
+      // Set the position of the menu list relative to the window
+      menuList.style.left = `${clientRect.left + 15}px`;
+      menuList.style.top = `${clientRect.top - 5}px`;
+    }
+    else {
+      // Set the position of the menu list relative to the window
+      menuList.style.left = `${clientRect.left - 120}px`;
+      menuList.style.top = `${clientRect.top - 78}px`;
+    }
   }
 
   /**
@@ -314,7 +322,7 @@ export class DetailBoxComponent implements OnInit {
         let subPlanFromJson = JSON.parse(JSON.stringify(data));
 
         // Create a new subplan object using the json data string
-        let subplan = new SubPlan(subPlanFromJson.title, subPlanFromJson.description, subPlanFromJson.priorityRadio, subPlanFromJson.isDone);
+        let subplan = new SubPlan(subPlanFromJson.modalTitle, subPlanFromJson.modalDescription, subPlanFromJson.modalPriority, subPlanFromJson.modalIsDone);
 
         // Add the new subplan item to the list
         plan.subPlans.push(subplan);

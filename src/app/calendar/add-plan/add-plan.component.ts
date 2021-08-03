@@ -157,7 +157,7 @@ export class AddPlanComponent implements OnInit {
         let subPlanFromJson = JSON.parse(JSON.stringify(data));
 
         // Create a SubPlan object using the JSON
-        let subplan = new SubPlan(subPlanFromJson.title, subPlanFromJson.description, subPlanFromJson.priority, subPlanFromJson.isDone);
+        let subplan = new SubPlan(subPlanFromJson.modalTitle, subPlanFromJson.modalDescription, subPlanFromJson.modalPriority, subPlanFromJson.modalIsDone);
 
         // Add the subplan to the array
         this.selectedPlan.subPlans.push(subplan);

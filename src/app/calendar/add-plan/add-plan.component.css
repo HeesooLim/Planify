@@ -10,10 +10,6 @@
   z-index: 1;
 }
 
-.text-purple-muted {
-  color: rgb(183 173 206);
-}
-
 #card-form {
   background-color: var(--purple-dark);
 }
@@ -37,13 +33,15 @@ input[type="datetime-local"].invalid {
   box-shadow: 0 0 0 3px rgba(165, 48, 48, 0.7);
 }
 
-.error-msg {
+.error-msg,
+.modal-error-msg {
   font-size: 12px;
   display: none;
   color: rgb(165, 48, 48);
 }
 
-.error-msg.invalid {
+.error-msg.invalid,
+.modal-error-msg.invalid {
   display: block;
 }
 
@@ -79,7 +77,7 @@ label {
   border-radius: 10px;
 }
 
-#btn-save {
+.btn-save {
   background-color: var(--purple-gray);
 }
 
@@ -91,8 +89,8 @@ label {
   background-color: #3e3168;
 }
 
-/* Radio button container */
-.priority-container {
+/* RADIO BUTTON STYLE STARTS */
+.radio-container {
   display: block;
   position: relative;
   padding-left: 30px;
@@ -105,14 +103,14 @@ label {
 }
 
 /* Hide the browser's default radio button */
-.priority-container input {
+.radio-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
 /* Create a custom radio button */
-.checkmark {
+.radio-checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -124,38 +122,37 @@ label {
 }
 
 /* On mouse-over, add a grey background color */
-.priority-container:hover input ~ .checkmark {
+.radio-container:hover input ~ .radio-checkmark {
   background-color: rgba(161, 156, 156, 0.2);
 }
 
 /* When the radio button is checked, add purple background */
-.priority-container input:checked ~ .checkmark {
+.radio-container input:checked ~ .radio-checkmark {
   background-color: transparent;
   border: solid 2px var(--purple-light);
   transition: 0.2s;
 }
 
 /* When the radio button is focused, add a purple shadow */
-.priority-container input:focus ~ .checkmark {
-  box-shadow: 0 0 0 6px rgba(131, 114, 168, 0.2);
-  /* box-shadow: 0 0 0 5px rgba(33, 15, 71, 0.3); */
+.radio-container input:focus ~ .radio-checkmark {
+  box-shadow: 0 0 0 6px rgba(131, 114, 168, 0.3);
   transition: 0.2s;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
+.radio-checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
 /* Show the indicator (dot/circle) when checked */
-.priority-container input:checked ~ .checkmark:after {
+.radio-container input:checked ~ .radio-checkmark:after {
   display: block;
 }
 
 /* Style the indicator (dot/circle) */
-.priority-container .checkmark:after {
+.radio-container .radio-checkmark:after {
   top: 3px;
   left: 3px;
   width: 10px;
@@ -163,6 +160,7 @@ label {
   border-radius: 50%;
   background: var(--purple-lightest);
 }
+/* RADIO BUTTON STYLE ENDS */
 
 /* Change the calendar picker's icon color */
 ::-webkit-calendar-picker-indicator {
