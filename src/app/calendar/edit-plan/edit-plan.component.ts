@@ -12,7 +12,7 @@ import { EditSubPlanModalComponent } from '../edit-sub-plan-modal/edit-sub-plan-
 @Component({
   selector: 'app-edit-plan',
   templateUrl: './edit-plan.component.html',
-  styleUrls: ['./edit-plan.component.css']
+  styleUrls: ['../add-plan/add-plan.component.css']
 })
 export class EditPlanComponent implements OnInit {
   // Using a modal to add and edit subplans
@@ -22,7 +22,7 @@ export class EditPlanComponent implements OnInit {
   // Formgroup object to validate the input
   validationForm: FormGroup;
 
-  // Fixed date (chosen at first)
+  // Currently selected date in string
   selectedDateString: string;
 
   // Current plan object that the user is looking at
@@ -53,7 +53,7 @@ export class EditPlanComponent implements OnInit {
       let dueDate = new Date(planData.dueDate);
 
       // Add a day to the dueDate since the date starts from 0
-      dueDate.setDate(dueDate.getDate() + 1);
+      dueDate.setDate(dueDate.getDate());
 
       // Create a plan object using the data
       this.selectedPlan = new Plan(planData._id, planData.userId, planData.title, planData.description, dueDate, planData.progress, planData.priority);
@@ -71,7 +71,7 @@ export class EditPlanComponent implements OnInit {
 
       // If there is no other selected date to display, set it same as currently selected date
       if (this.otherPlanDate == null) {
-        this.otherPlanDate = this.selectedPlan.dueDate;
+        this.otherPlanDate = dueDate;
       }
 
       // Get the plan on the selected other date

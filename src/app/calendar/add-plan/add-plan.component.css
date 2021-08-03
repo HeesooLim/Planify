@@ -207,12 +207,17 @@ h4 {
   #add-plan-container {
     padding: 100px 10px;
   }
+
+  h4 {
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .other-plan-container {
     display: none;
   }
+
   #add-plan-container {
     padding: 100px 0;
   }

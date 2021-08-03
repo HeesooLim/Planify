@@ -5,10 +5,8 @@
       (ngSubmit)="submitAddPlan(validationForm)">
       <!-- date string -->
       <h4 class="mb-4">{{selectedDateString}}</h4>
-      <!-- change class when the form is valid or invalid -->
       <div class="d-lg-flex flex-row-reverse">
         <div class="ms-lg-3">
-          <!-- change the text color -->
           <p class="mb-1 fw-normal">Priority</p>
           <!-- radio container -->
           <div class="d-flex position-relative ms-1">
@@ -42,6 +40,7 @@
           <span class="dueDate error-msg mt-1">Due date is required.</span>
         </div>
       </div>
+
       <!-- title form control -->
       <mdb-form-control>
         <input mdbInput type="text" id="inputTitle" class="title" formControlName="title" placeholder="Plan title"
