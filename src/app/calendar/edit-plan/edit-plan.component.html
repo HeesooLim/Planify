@@ -46,13 +46,13 @@
 
       <!-- title form control -->
       <mdb-form-control>
-        <input mdbInput type="text" id="inputTitle" class="title" formControlName="title" placeholder="Plan title"
+        <input mdbInput type="text" id="inputTitle" class="title mt-2" formControlName="title" placeholder="Plan title"
           required />
       </mdb-form-control>
       <span class="title error-msg mt-1">Title is required.</span>
       <!-- description form control -->
       <mdb-form-control>
-        <textarea mdbInput type="text" id="inputDesc" rows="4" class="" formControlName="description"
+        <textarea mdbInput type="text" id="inputDesc" rows="4" class="mt-2" formControlName="description"
           placeholder="Description"></textarea>
       </mdb-form-control>
       <!-- subplan container -->
@@ -61,7 +61,7 @@
       <div *ngIf="selectedPlan.subPlans.length > 0; else emptySubplan">
         <!-- for loop of subplan -->
         <div *ngFor="let sp of selectedPlan.subPlans; let subIndex = index" (click)="openEditModal(subIndex)"
-          class="sub-plan-item shadow-3 p-3 rounded mb-3 fw-light text-break">
+          class="sub-plan-item shadow-3 p-3 rounded mb-2 fw-light text-break">
           <!-- subplan title -->
           <h6 class="d-flex align-items-center mb-1 fw-light text-light">
             <span [ngClass]="sp.isDone ? 'text-decoration-line-through' : ''">{{sp.title}}</span>

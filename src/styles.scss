@@ -90,6 +90,49 @@ footer {
   width: 100%;
 }
 
+input[type="text"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="password"],
+textarea {
+  background-color: var(--purple-darkest);
+  border-radius: 5px;
+  padding: 6px 10px;
+  border: none;
+  width: 100%;
+  color: var(--purple-light);
+  transition: box-shadow 0.3s, display 0.3s;
+  font-weight: 300;
+}
+
+input[type="text"].invalid,
+input[type="password"].invalid,
+input[type="email"].invalid,
+input[type="datetime-local"].invalid {
+  box-shadow: 0 0 0 3px rgba(165, 48, 48, 0.7);
+}
+
+.error-msg,
+.modal-error-msg {
+  font-size: 12px;
+  display: none;
+  color: rgb(165, 48, 48);
+}
+
+.error-msg.invalid,
+.modal-error-msg.invalid {
+  display: block;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="datetime-local"]:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(154, 139, 187, 0.3);
+}
+
 /* Modal styles start */
 .modal-content {
   background-color: var(--purple-dark);

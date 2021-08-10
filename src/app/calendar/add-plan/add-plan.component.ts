@@ -108,10 +108,10 @@ export class AddPlanComponent implements OnInit {
   /**
    * Insert the Add Plan form value into the database.
    *
-   * @param {*} form Form value to insert.
+   * @param {FormGroup} form Form value to insert.
    * @memberof AddPlanComponent
    */
-  submitAddPlan(form) {
+  submitAddPlan(form: FormGroup) {
     // Get the data and set the value
     let data = form.value;
 

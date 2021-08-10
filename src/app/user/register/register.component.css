@@ -1,0 +1,9 @@
+/* Password icon */
+#password-container:after,
+#password-container:before {
+  color: transparent;
+}
+
+#password-container input {
+  padding-left: 16px !important;
+}

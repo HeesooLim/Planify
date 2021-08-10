@@ -30,23 +30,8 @@ img {
   font-size: 12px;
 }
 
-input {
-  border: none;
-  background-color: var(--purple-darkest);
-  color: var(--purple-light);
-  border-radius: 7px;
-  font-weight: 300;
-  transition: 0.3s;
-}
-
-input:focus {
-  box-shadow: 0 0 0 3px rgba(154, 139, 187, 0.3);
-  outline: none;
-  transition: 0.3s;
-}
-
-/* Username icon */
-#username-container:after {
+/* Email icon */
+#email-container:after {
   font-family: "Font Awesome 5 Free";
   color: var(--purple-light);
   position: absolute;
@@ -67,24 +52,15 @@ input:focus {
   font-weight: 900;
 }
 
-/* Display password icon */
-#password-container:before {
-  font-family: "Font Awesome 5 Free";
-  color: var(--purple-light);
-  position: absolute;
-  top: 9px;
-  right: 12px;
-  content: "\f06e";
-  font-weight: 900;
-}
-
-#username-container input,
+#email-container input,
 #password-container input {
   padding-left: 37px !important;
 }
 
-#password-container input {
-  padding-right: 37px !important;
+.password-eye {
+  right: 12px;
+  top: 12px;
+  color: var(--purple-light);
 }
 
 #forgot-password-link {
