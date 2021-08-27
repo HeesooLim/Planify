@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit {
   loginName: string;
   isUserLoggedIn: boolean;
 
+  todayYear: number;
+  todayMonth: number;
 
   constructor(private utils: Utils, private userService: UserService, private router: Router) {
     // Subscribe to the BehaviorSubject to check if the user is currently logged in
@@ -24,6 +26,8 @@ export class HeaderComponent implements OnInit {
       this.isUserLoggedIn = value.loggedIn;
       this.loginName = value.user;
     });
+    this.todayYear = new Date().getFullYear();
+    this.todayMonth = new Date().getMonth() + 1;
   }
 
   ngOnInit() {

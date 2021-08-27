@@ -105,6 +105,4 @@ export class UserService {
       });
     return;
   }
-
-  //TODO: create auth service
 }

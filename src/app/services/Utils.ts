@@ -3,6 +3,7 @@ import { PlanDate } from "../models/plan-date.model";
 import { Plan } from "../models/plan.model";
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class Utils {
   public static readonly days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   public static subPlan: SubPlan = null;
 
-  constructor(private flashMessage: FlashMessagesService) {}
+  constructor(private flashMessage: FlashMessagesService, private router: Router) { }
 
   /**
    * A method to toggle the collapse class.
@@ -301,5 +302,16 @@ export class Utils {
       if (str1.includes(substring))
         return true;
     }
+  }
+
+  /**
+   * Redirect to the uri and refresh the components.
+   *
+   * @param {string} uri URI to redirect to.
+   * @memberof Utils
+   */
+  redirectTo(uri: string) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this.router.navigate([uri]));
   }
 }

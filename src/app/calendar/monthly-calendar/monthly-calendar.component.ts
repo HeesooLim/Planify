@@ -1,9 +1,10 @@
 import { UserService } from 'src/app/services/user/user.service';
 import { PlanService } from './../../services/plan/plan.service';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Plan } from 'src/app/models/plan.model';
 import { PlanDate } from 'src/app/models/plan-date.model';
 import { Utils } from 'src/app/services/Utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-monthly-calendar',
@@ -13,7 +14,7 @@ import { Utils } from 'src/app/services/Utils';
 
 export class MonthlyCalendarComponent implements OnInit {
   dateOffset: number;
-  today: Date = new Date();
+  today: Date;
   subPlans: Plan[] = [];
   planDates: PlanDate[] = [];
   numOfWeeks: number;
@@ -26,12 +27,17 @@ export class MonthlyCalendarComponent implements OnInit {
   monthString: string;
 
   @Output() planEmitter = new EventEmitter<PlanDate>();
+  @Output() changeMonthEmitter = new EventEmitter<Date>();
+  @Input() paramYear: number;
+  @Input() paramMonth: number;
 
-  constructor(private planService: PlanService, private userService: UserService, private utils: Utils) { }
+  constructor(private planService: PlanService, private userService: UserService, private utils: Utils, private router: Router) { }
 
   ngOnInit(): void {
     // Check if the user is logged in
     this.userService.isAuthenticated();
+
+    this.today = new Date(this.paramYear, this.paramMonth - 1, 1);
 
     // Set the month string
     this.monthString = this.today.toLocaleString('default', { month: 'long' });
@@ -54,7 +60,6 @@ export class MonthlyCalendarComponent implements OnInit {
       .subscribe(data => {
         this.planDates = this.utils.getPlanDates(data.body, this.today.getFullYear(), this.today.getMonth());
       });
-
   }
 
   /**
@@ -119,11 +124,12 @@ export class MonthlyCalendarComponent implements OnInit {
       monthToAdd *= -1;
     }
 
-    // Create the Date object using the updated value
-    this.today = new Date(this.today.getFullYear(), this.today.getMonth() + monthToAdd, this.today.getDate());
+    let month = this.today.getMonth() + monthToAdd + 1;
 
-    // Refresh the view
-    this.ngOnInit();
+    let date = new Date(this.today.getFullYear(), month, 1);
+    this.changeMonthEmitter.emit(date);
+
+    this.utils.redirectTo(`calendar/date/${this.today.getFullYear()}/${month}`);
   }
 
   /**

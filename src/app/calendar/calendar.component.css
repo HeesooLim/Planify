@@ -15,6 +15,43 @@
   max-width: 1000px;
 }
 
+#change-date-btn {
+  background-color: rgb(15, 7, 42);
+  transition: 0.5s;
+  bottom: 4%;
+  right: 4%;
+  width: auto;
+}
+
+#change-date-btn.selected {
+  transition: 0.5s;
+  width: 90%;
+  max-width: 700px;
+}
+
+#change-date-btn.selected #change-month-text,
+#change-date-btn #change-month-list {
+  display: none;
+}
+
+#change-date-btn.selected #change-month-list,
+#change-date-btn #change-month-text {
+  display: flex;
+}
+
+#change-date-btn:hover {
+  background-color: rgb(24, 14, 58);
+  transition: 0.5s;
+}
+
+#change-month-list a {
+  color: var(--purple-lightest);
+}
+
+#change-month-list li.selected-month {
+  background-color: var(--purple-gray);
+}
+
 @media screen and (max-width: 992px) {
   #calendar-wrapper {
     padding: 55px 10px 50px 10px;

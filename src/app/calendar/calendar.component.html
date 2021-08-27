@@ -5,7 +5,15 @@
   <div class="d-flex justify-content-center" id="calendar-wrapper">
     <div id="calendar">
       <!-- Emit the event -->
-      <app-monthly-calendar (planEmitter)="getPlanDate($event)"></app-monthly-calendar>
+      <app-monthly-calendar [paramYear]="paramYear" [paramMonth]="paramMonth" (changeMonthEmitter)="getChangedMonth($event)" (planEmitter)="getPlanDate($event)"></app-monthly-calendar>
+      <div class="position-fixed px-4 py-2 rounded-pill small fw-light d-md-block d-none" id="change-date-btn" (click)="toggleChageMonthBtnSelected()">
+        <span id="change-month-text">Change Month</span>
+        <ul class="mb-0 ps-0 justify-content-between" id="change-month-list">
+          <li *ngFor="let month of months" class="d-inline-block w-100 text-center" [ngClass]="month.isSelected ? 'selected-month rounded-pill' : 'fw-light'">
+            <a href="{{month.link}}">{{month.name}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
