@@ -19,12 +19,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "allowedCommonJsDependencies": ["lodash"],
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": [
-            ]
+            "styles": ["src/styles.scss"],
+            "scripts": []
           },
           "configurations": {
             "production": {

@@ -1,11 +1,18 @@
 import { SubPlan } from './../models/plan.model';
 import { PlanDate } from "../models/plan-date.model";
 import { Plan } from "../models/plan.model";
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class Utils {
   public static readonly fullDays: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   public static readonly days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   public static subPlan: SubPlan = null;
+
+  constructor(private flashMessage: FlashMessagesService) {}
 
   /**
    * A method to toggle the collapse class.
@@ -251,6 +258,48 @@ export class Utils {
       else {
         errorEl.classList.remove('invalid');
       }
+    }
+  }
+
+  /**
+   * Display a flash message.
+   *
+   * @param {string} message Message to display.
+   * @param {string} cssClass CSS style to apply.
+   * @memberof Utils
+   */
+  showFlash(message: string, cssClass: string) {
+    // 2nd param (optional) - object with options.
+    this.flashMessage.show(message, { cssClass: cssClass, timeout: 2000 });
+  }
+
+  /**
+   * Check if str1 includes any substring of str2.
+   * Example usage: check whether password includes email or name.
+   *
+   * @param {string} str1 String to check if substring of str2 is included.
+   * @param {string} str2 String to compare to str1.
+   * @param {number} substrLen Length of substring which will be applid to str2.
+   * @return {*}  {boolean}
+   * @memberof Utils
+   */
+  strIncludesStr(str1: string, str2: string, substrLen: number): boolean {
+    // Both strings to lowercase
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+
+    // If the second string's length is less than or equal to the substring length(invalid), return false
+    if (str2.length <= substrLen)
+      return false;
+
+    // For loop
+    for (let i = 0; i < str2.length - substrLen; i++) {
+      // Substring the second string from (i) to (i + length)
+      let substring = str2.substring(i, i + substrLen);
+
+      // If the first string includes the substring of the second string, return true
+      if (str1.includes(substring))
+        return true;
     }
   }
 }

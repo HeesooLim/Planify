@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/user/user.service';
 import { SubPlan } from './../../models/plan.model';
 import { PlanDate } from 'src/app/models/plan-date.model';
 import { PlanService } from './../../services/plan/plan.service';
@@ -23,16 +24,19 @@ export class AddPlanComponent implements OnInit {
   // Fixed date (chosen at first)
   selectedDate: Date;
   selectedDateString: string;
-  selectedPlan = new Plan(null, '60904c59720b3a6b29c3d932', null, null, null, 0, 0);
+  selectedPlan = new Plan(null, null, null, null, null, 0, 0);
 
   // Date for the plans on another day (the section on the right side)
   otherPlanDate: Date;
   otherDateString: string;
   otherPlan: PlanDate;
 
-  constructor(private route: ActivatedRoute, private planService: PlanService, private utils: Utils, private modalService: MdbModalService) { }
+  constructor(private route: ActivatedRoute, private userService: UserService, private planService: PlanService, private utils: Utils, private modalService: MdbModalService) { }
 
   ngOnInit(): void {
+    // Check if the user is logged in
+    this.userService.isAuthenticated();
+
     // Create a FormGroup object (empty FormControls)
     this.validationForm = new FormGroup({
       dueDate: new FormControl(null),
@@ -63,8 +67,8 @@ export class AddPlanComponent implements OnInit {
     this.otherPlan = new PlanDate(this.otherPlanDate.getFullYear(), this.otherPlanDate.getMonth(), this.otherPlanDate.getDate());
 
     // Get the plan on the day using the value of the otherPlanDate
-    this.planService.getDataByDate(this.otherPlanDate).subscribe(data => {
-      this.otherPlan = this.utils.getPlanDate(data, this.otherPlanDate);
+    this.planService.getDataByDate(this.otherPlanDate).subscribe(res => {
+      this.otherPlan = this.utils.getPlanDate(res.body, this.otherPlanDate);
     });
 
     // Set the string of the date

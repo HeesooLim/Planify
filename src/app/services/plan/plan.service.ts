@@ -1,63 +1,103 @@
 import { Plan } from './../../models/plan.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanService {
-  userId: string = "60904c59720b3a6b29c3d932";
   year: string = '2021';
   month: string = '5';
-  private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    withCredentials: true,
+    observe: 'response' as 'response'
+  };
 
-  /* HttpClient begins its request only when the observable is subscribed */
   constructor(private http: HttpClient) { }
 
-  getData() {
-    console.log(`[get]http://localhost:3000/plan/${this.userId}`);
-
-    /* response type: Plan[] */
-    return this.http.get<Plan[]>(`http://localhost:3000/plan/${this.userId}/${this.year}/${this.month.padStart(2, '0')}`);
+  /**
+   * Get all plans in the given month.
+   *
+   * @return {*}  {Observable<Plan[]>} Return the Observable of Plan array.
+   * @memberof PlanService
+   */
+  getData(): Observable<Plan[]> {
+    return this.http.get<Plan[]>(`http://localhost:3000/plan/${this.year}/${this.month.padStart(2, '0')}`);
   }
 
-  getDataByMonth(date: Date) {
+  /**
+   * Get all plans belong to the user in the given month.
+   *
+   * @param {Date} date Date that contains the month to search.
+   * @return {*}  {Observable<HttpResponse<Plan[]>>} Return the Observable of full HttpResponse of the Plan array.
+   * @memberof PlanService
+   */
+  getDataByMonth(date: Date): Observable<HttpResponse<Plan[]>> {
     let month = (date.getMonth() + 1).toString().padStart(2, '0');
-    /* response type: Plan[] */
-    console.log(`http://localhost:3000/plan/${this.userId}/${date.getFullYear()}/${month}`);
+    console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}`);
 
-    return this.http.get<Plan[]>(`http://localhost:3000/plan/${this.userId}/${date.getFullYear()}/${month}`);
+    return this.http.get<Plan[]>(`http://localhost:3000/plan/${date.getFullYear()}/${month}`, this.httpOptions);
   }
 
-  getDataByDate(date: Date) {
+  /**
+   * Get the plans belong to the user in the given date.
+   *
+   * @param {Date} date Date that contains the date to search.
+   * @return {*} {Observable<HttpResponse<Plan[]>>} Return the Observable of full HttpResponse of the Plan array.
+   * @memberof PlanService
+   */
+  getDataByDate(date: Date): Observable<HttpResponse<Plan[]>> {
     let month = (date.getMonth() + 1).toString().padStart(2, '0');
-    /* response type: Plan[] */
-    console.log(`http://localhost:3000/plan/${this.userId}/${date.getFullYear()}/${month}/${date.getDate()}`);
+    console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}`);
 
-    return this.http.get<Plan[]>(`http://localhost:3000/plan/${this.userId}/${date.getFullYear()}/${month}/${date.getDate()}`);
+    return this.http.get<Plan[]>(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}`, this.httpOptions);
   }
 
-  getDataById(id: string) {
-    return this.http.get<Plan>(`http://localhost:3000/plan/edit/${id}`);
+  /**
+   * Get a plan by the planId.
+   *
+   * @param {string} id Plan ID to get.
+   * @return {*} {Observable<HttpResponse<Plan>>} Return the Observable of full HttpResponse of the Plan.
+   * @memberof PlanService
+   */
+  getDataById(id: string): Observable<HttpResponse<Plan>> {
+    return this.http.get<Plan>(`http://localhost:3000/plan/edit/${id}`, this.httpOptions);
   }
 
-  updatePlan(plan: Plan) {
+  /**
+   * Update a plan sending the PUT request.
+   *
+   * @param {Plan} plan Plan object to update.
+   * @return {*} {Observable<HttpResponse<Plan>>} Return the Observable of full HttpResponse of the Plan.
+   * @memberof PlanService
+   */
+  updatePlan(plan: Plan): Observable<HttpResponse<Plan>> {
     /* put(baseUrl, data) */
     /* response type: Plan */
-    return this.http.put<Plan>(`http://localhost:3000/plan/${plan._id}`, JSON.stringify(plan), this.options);
+    return this.http.put<Plan>(`http://localhost:3000/plan/${plan._id}`, JSON.stringify(plan), this.httpOptions);
   }
 
-  addPlan(data) {
-    console.log(JSON.stringify(data));
-
-    return this.http.post<Plan>('http://localhost:3000/plan', JSON.stringify(data), this.options);
+  /**
+   * Add a plan to the database sending the POST request.
+   *
+   * @param {*} data Plan object to add.
+   * @return {*} {Observable<HttpResponse<Plan>>} Return the Observable of full HttpResponse of the added plan.
+   * @memberof PlanService
+   */
+  addPlan(plan): Observable<HttpResponse<Plan>> {
+    return this.http.post<Plan>('http://localhost:3000/plan', JSON.stringify(plan), this.httpOptions);
   }
 
+  /**
+   * Add a plan to the database sending the POST request.
+   *
+   * @param {*} id ID of the plan to delete.
+   * @return {*} {Observable<HttpResponse<Plan>>} Return the Observable of full HttpResponse of the deleted plan.
+   * @memberof PlanService
+   */
   deletePlan(id: string) {
-    /* put(baseUrl, data) */
-    /* response type: Plan */
-    console.log(`http://localhost:3000/plan/${id}`);
-
-    return this.http.delete<Plan>(`http://localhost:3000/plan/${id}`);
+    return this.http.delete<Plan>(`http://localhost:3000/plan/${id}`, this.httpOptions);
   }
 }

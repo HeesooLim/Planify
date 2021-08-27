@@ -297,8 +297,8 @@ export class DetailBoxComponent implements OnInit {
     // Create a Date object using the current date value
     let date = new Date(this.planDate.year, this.planDate.month, this.planDate.date);
     // Get a PlanDate and make the value of planDate variable up to date
-    this.planService.getDataByDate(date).subscribe(data => {
-      this.planDate = this.utils.getPlanDate(data, date);
+    this.planService.getDataByDate(date).subscribe(res => {
+      this.planDate = this.utils.getPlanDate(res.body, date);
     });
   }
 

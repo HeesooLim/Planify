@@ -258,7 +258,7 @@ html.scroll-disabled {
 
 /* When the checkbox is checked, add a blue background */
 .checkbox-container input:checked~.checkbox-checkmark {
-  background-color: var(--purple-light);
+  background-color: var(--purple-gray);
 }
 
 /* Create the checkbox-checkmark/indicator (hidden when not checked) */
@@ -295,6 +295,17 @@ html.scroll-disabled {
 
 .text-purple-muted {
   color: rgb(183, 173, 206);
+}
+
+.flash-login {
+  background-color: var(--purple-darkest);
+    border-radius: 5px;
+    border: solid 1px var(--purple-gray);
+    color: var(--gray-lightest);
+    padding: 8px 20px;
+    font-weight: 300;
+    font-size: 13px;
+    text-align: center;
 }
 
 @media screen and (max-width: 1200px) {

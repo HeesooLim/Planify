@@ -1,7 +1,7 @@
 import { Utils } from 'src/app/services/Utils';
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Plan, SubPlan } from 'src/app/models/plan.model';
 
 @Component({

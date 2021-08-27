@@ -1,7 +1,5 @@
 <div id="login-wrapper" class="">
   <!-- Register container -->
-  <!--  [formGroup]="validationForm"
-    (ngSubmit)="registerUser(validationForm)" -->
   <form id="login-container" class="mx-auto p-4 shadow-lg" [formGroup]="validationForm"
     (ngSubmit)="registerUser(validationForm)">
     <!-- Logo symbol image -->
@@ -13,12 +11,20 @@
       <img src="assets/img/logo.png" alt="logo of planify" width="110" class="mb-2" id="logo-text-img">
     </h2>
     <!-- Some description -->
-    <p class="text-center text-roboto fw-light mt-4" id="welcome-desc">Lorem Ipsum is simply dummy text of the printing
+    <p class="text-center text-roboto fw-light mt-4 welcome-desc">
+      Lorem Ipsum is simply dummy text of the printing
       and
       typesetting industry.
       Lorem Ipsum has been the industry's standard
       dummy text when an unknown printer.
     </p>
+    <ul class="text-roboto mt-4 p-3 pw-rules rounded d-none">
+      <li id="item-email"><i class="far fa-times-circle"></i> Not contain your name or email</li>
+      <li id="item-more-char"><i class="far fa-times-circle"></i> Contain 8-15 characters</li>
+      <li id="item-case-number"><i class="far fa-times-circle"></i> Contain uppercase, lowercase and number</li>
+      <li id="item-special"><i class="far fa-times-circle"></i> Contain more than one special character (! @ # ?)</li>
+    </ul>
+    <flash-messages></flash-messages>
     <!-- Email input container -->
     <div id="email-container" class="mt-2 position-relative">
       <input type="email" id="elEmail" placeholder="Email" class="w-100 py-2 px-3" formControlName="email" />
@@ -27,7 +33,6 @@
     <div id="password-container" class="mt-2 position-relative">
       <input type="password" id="pwPassword" placeholder="Password" class="w-100 py-2 px-3"
         formControlName="password" />
-      <i class="fas fa-eye position-absolute password-eye"></i>
     </div>
     <!-- First Name input container -->
     <div id="first-name-container" class="mt-2 position-relative">
@@ -38,6 +43,12 @@
     <div id="last-name-container" class="mt-2 position-relative">
       <input type="text" id="txtLastName" placeholder="Last name" class="w-100 py-2 px-3" formControlName="lastname" />
     </div>
+    <!-- Show password checkbox -->
+    <label class="checkbox-container d-inline-block mt-3">
+      Show password
+      <input type="checkbox" value="true" id="cbShowPassword">
+      <span class="checkbox-checkmark"></span>
+    </label>
     <!-- Login link -->
     <!-- TODO: retrieve password page -->
     <a href="/login" class="d-block mt-2" id="forgot-password-link">Already have an account?</a>

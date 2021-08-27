@@ -6,7 +6,7 @@
 <form class="modal-body px-0" id="sub-plan-form" [formGroup]="validationForm"
   (ngSubmit)="submitAddSubPlan(validationForm)">
   <!-- radios -->
-  <div>
+  <div class="mb-3">
     <p class="mb-1 fw-normal text-purple-muted">Priority</p>
     <!-- radio container -->
     <div class="d-flex position-relative ms-1">
@@ -42,7 +42,7 @@
     <span class="priority modal-error-msg mt-1">Priority is required.</span>
   </div>
   <!-- title form control -->
-  <mdb-form-control>
+  <mdb-form-control class="mb-2">
     <input mdbInput type="text" id="modal-inputTitle" class="title" formControlName="modalTitle"
       placeholder="Plan title" required />
   </mdb-form-control>

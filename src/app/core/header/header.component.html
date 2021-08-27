@@ -25,11 +25,14 @@
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
-            Disabled
+            {{loginName}}
           </a>
         </li>
         <li class="nav-item ms-lg-4">
-          <a class="btn btn-sm btn-outline-warning" aria-current="page" href="login" mdbRipple>Sign in</a>
+          <a *ngIf="!isUserLoggedIn" class="btn btn-sm btn-outline-warning"
+            href="login" aria-current="page" mdbRipple>Login</a>
+          <button *ngIf="isUserLoggedIn" class="btn btn-sm btn-outline-warning"
+            (click)="logout()" aria-current="page" mdbRipple>Logout</button>
         </li>
       </ul>
     </div>

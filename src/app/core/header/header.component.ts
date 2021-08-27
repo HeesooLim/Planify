@@ -1,5 +1,7 @@
+import { UserService } from 'src/app/services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Utils } from 'src/app/services/Utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +9,21 @@ import { Utils } from 'src/app/services/Utils';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  // Variables that determines the navigation bar's colour
+  // Variables that determines the navigation bar's background colour
   isMenuVisible: boolean;
   isScrollDowned: boolean;
 
-  constructor(private utils: Utils) {
+  // user's first name
+  loginName: string;
+  isUserLoggedIn: boolean;
+
+
+  constructor(private utils: Utils, private userService: UserService, private router: Router) {
+    // Subscribe to the BehaviorSubject to check if the user is currently logged in
+    this.userService.isUserLoggedIn.subscribe(value => {
+      this.isUserLoggedIn = value.loggedIn;
+      this.loginName = value.user;
+    });
   }
 
   ngOnInit() {
@@ -74,5 +86,9 @@ export class HeaderComponent implements OnInit {
       navbar.classList.remove("bg-dark");
       navbar.classList.add("bg-transparent");
     }
+  }
+
+  logout() {
+    this.userService.tryLogout();
   }
 }

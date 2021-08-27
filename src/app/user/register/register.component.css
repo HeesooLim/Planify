@@ -1,9 +1,15 @@
 /* Password icon */
+#email-container:after,
 #password-container:after,
 #password-container:before {
   color: transparent;
 }
 
-#password-container input {
+#password-container input,
+#email-container input {
   padding-left: 16px !important;
+}
+
+input.invalid {
+  margin-bottom: 5px;
 }

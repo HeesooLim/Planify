@@ -1,8 +1,8 @@
 import { UserService } from './../../services/user/user.service';
-import { PlanService } from './../../services/plan/plan.service';
 import { Utils } from './../../services/Utils';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,10 +11,23 @@ import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   validationForm: FormGroup;
+  passwordInput: HTMLInputElement;
+  firstNameInput: HTMLInputElement;
+  lastNameInput: HTMLInputElement;
+  emailInput: HTMLInputElement;
 
-  constructor(private utils: Utils, private userService: UserService) { }
+  constructor(private utils: Utils, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    // Check whether the user is already logged in
+    this.userService.isAuthenticated().then((authenticated) => {
+      if (authenticated) {
+        // Navigate to the home page if already logged in
+        this.router.navigate(['']);
+      }
+    });
+
+    // Register form
     this.validationForm = new FormGroup({
       password: new FormControl(null),
       firstname: new FormControl(null),
@@ -22,13 +35,49 @@ export class RegisterComponent implements OnInit {
       email: new FormControl(null)
     });
 
-    let pwContainer = <HTMLInputElement>document.querySelector('#pwPassword');
-    let eyeIcon = document.querySelector('.password-eye');
-    eyeIcon.addEventListener('mousedown', () => {
-      pwContainer.type = 'text';
+    // Get all input elements and password rule ul
+    this.passwordInput = <HTMLInputElement>document.querySelector('#pwPassword');
+    this.firstNameInput = <HTMLInputElement>document.querySelector('#txtFirstName');
+    this.lastNameInput = <HTMLInputElement>document.querySelector('#txtLastName');
+    this.emailInput = <HTMLInputElement>document.querySelector('#elEmail');
+    let pwRulesUl = <HTMLElement>document.querySelector('ul.pw-rules');
+
+    // Checkbox to show or hide the password
+    let showPwCheckbox = <HTMLInputElement>document.querySelector('#cbShowPassword');
+
+    // EventListener on click (Show or hide password)
+    showPwCheckbox.addEventListener('click', () => {
+      if (showPwCheckbox.checked) this.passwordInput.type = 'text';
+      else this.passwordInput.type = 'password';
     });
-    eyeIcon.addEventListener('mouseup', () => {
-      pwContainer.type = 'password';
+
+    // Display the password rules ul
+    let showPwGuide = () => {
+      if (!pwRulesUl.classList.contains('d-block')) {
+        pwRulesUl.classList.add('d-block');
+      }
+      pwRulesUl.classList.remove('d-none');
+    };
+
+    // Hide the password rules ul
+    let hidePwGuide = () => {
+      if (!pwRulesUl.classList.contains('d-none')) {
+        pwRulesUl.classList.add('d-none');
+      }
+      pwRulesUl.classList.remove('d-block');
+    };
+
+    // Add onfocus event listener to each input to show or hide the password guide ul
+    this.passwordInput.addEventListener('focus', showPwGuide, this.validatePassword());
+
+    // password guide ul gets hidden when the input other than password is focused
+    this.firstNameInput.addEventListener('focus', hidePwGuide);
+    this.lastNameInput.addEventListener('focus', hidePwGuide);
+    this.emailInput.addEventListener('focus', hidePwGuide);
+
+    // When anything is input to the password input, validate it to update the password guide ul
+    this.passwordInput.addEventListener('input', () => {
+      this.validatePassword();
     });
   }
 
@@ -56,36 +105,23 @@ export class RegisterComponent implements OnInit {
    * @memberof AddPlanComponent
    */
   validateInputs(formData: any): boolean {
-    let passwordInput = <HTMLInputElement>document.querySelector('#pwPassword');
-    let firstNameInput = <HTMLInputElement>document.querySelector('#txtFirstName');
-    let lastNameInput = <HTMLInputElement>document.querySelector('#txtLastName');
-    let emailInput = <HTMLInputElement>document.querySelector('#elEmail');
-
-    // Get error message elements
-    let passwordError = <HTMLElement>document.querySelector('.password.error-msg');
-    let firstNameError = <HTMLElement>document.querySelector('.firstname.error-msg');
-    let lastNameError = <HTMLElement>document.querySelector('.lastname.error-msg');
-    let emailError = <HTMLElement>document.querySelector('.email.error-msg');
+    let emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
     // If data's property is null or empty, store false
     let isFirstNameValid = formData.firstname != null && formData.firstname !== '';
     let isLastNameValid = formData.lastname != null && formData.lastname !== '';
-    /**
-     * IMPORTANT:
-     * Need Username & Password & Email validation
-     */
-    let isPasswordValid = formData.password != null && formData.password !== '';
-    let isEmailValid = formData.email != null && formData.email !== '';
+    let isPasswordValid = formData.password != null && formData.password != '' && this.validatePassword();
+    let isEmailValid = formData.email != null && formData.email != '' && formData.email.match(emailRegex);
 
+    this.utils.showFlash('Plese complete the form.', 'flash-login');
     // Check whether the input is valid and add or remove the class 'invalid'
-    this.utils.changeInputStatus(passwordInput, passwordError, isPasswordValid);
-    this.utils.changeInputStatus(firstNameInput, firstNameError, isFirstNameValid);
-    this.utils.changeInputStatus(lastNameInput, lastNameError, isLastNameValid);
-    this.utils.changeInputStatus(emailInput, emailError, isEmailValid);
+    this.utils.changeInputStatus(this.passwordInput, null, isPasswordValid);
+    this.utils.changeInputStatus(this.firstNameInput, null, isFirstNameValid);
+    this.utils.changeInputStatus(this.lastNameInput, null, isLastNameValid);
+    this.utils.changeInputStatus(this.emailInput, null, isEmailValid);
 
     // If any of input is invalid, return false
-    if (!isPasswordValid || !isFirstNameValid || !isLastNameValid || !isEmailValid)
-      return false;
+    if (!isPasswordValid || !isFirstNameValid || !isLastNameValid || !isEmailValid) return false;
     // Otherwise, return true
     return true;
   }
@@ -97,24 +133,91 @@ export class RegisterComponent implements OnInit {
    * @memberof AddPlanComponent
    */
   registerUser(form: FormGroup) {
-    console.log('trying to register the user!');
-
     // Get the data and set the value
     let data = form.value;
-
     // Validate inputs and return if any data is invalid
     if (!this.validateInputs(data))
       return;
 
     // Create a Plan object using JSON
     let newUser = JSON.parse(JSON.stringify(data));
-
     // Add the plan using the Plan service
     this.userService.addUser(newUser).subscribe(data => {
-      this.ngOnInit();
-
-      // Reset the form
-      form.reset();
+      // Navigate to login page
+      this.router.navigate([`verify/${newUser.email}`]);
     });
+  }
+
+  /**
+   * Validate if below conditions are satisfied.
+   * - Not contain email, first name or last name.
+   * - Length should be between 8 and 15.
+   * - Contain uppercase, lowercase and number.
+   * - Contains at least 1 special character.
+   *
+   * @return {*}  {boolean} Return true only if all the conditions are satisfied.
+   * @memberof RegisterComponent
+   */
+  validatePassword(): boolean {
+    // Get values from the input
+    let password = this.passwordInput.value;
+    let firstname = this.firstNameInput.value;
+    let lastname = this.lastNameInput.value;
+    let email = this.emailInput.value;
+
+    // Get all li elements
+    let pwRuleItems = <NodeListOf<HTMLElement>>document.querySelectorAll('.pw-rules li');
+
+    // Password does not contain email, first name or last name
+    let rule1 = !this.utils.strIncludesStr(password, email, 4) &&
+      !this.utils.strIncludesStr(password, firstname, 4) &&
+      !this.utils.strIncludesStr(password, lastname, 4);
+    // Password length is between 8 and 15
+    let rule2 = password.length >= 8 && password.length <= 15;
+    // Password contains uppercase, lowercase and number
+    let rule3 = password.match(/(?=.{8,15}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$/g) != null;
+    // Password contains at least 1 special character
+    let rule4 = password.match(/(?=.*[!@#$%^&*]).*$/g) != null;
+
+    // If the password satisfies the condition, change the status of list item (fail -> success or vice versa)
+    this.changeLiStatus(pwRuleItems[0], rule1);
+    this.changeLiStatus(pwRuleItems[1], rule2);
+    this.changeLiStatus(pwRuleItems[2], rule3);
+    this.changeLiStatus(pwRuleItems[3], rule4);
+
+    // If all conditions are satisfied, return true
+    if (rule1 && rule2 && rule3 && rule4) {
+      return true;
+    }
+    // Otherwise, return false
+    return false;
+  }
+
+  /**
+   * Change the status of the ul>li element's status to
+   * (success -> fail) or (fail -> success)
+   *
+   * @param {HTMLElement} listEl li element in the ul to change the status.
+   * @param {boolean} isValid If true, icon changed from times to checkmark and text colour changed red to green.
+   * @memberof RegisterComponent
+   */
+  changeLiStatus(listEl: HTMLElement, isValid: boolean) {
+    // Get the icon in the list
+    let icon = listEl.querySelector('i');
+    if (isValid) {  // If valid
+      if (!listEl.classList.contains('text-success'))
+        // Add the class only when the li does not contain it
+        listEl.classList.add('text-success');
+      // change the icon from times to checkmark
+      icon.classList.remove('fa-times-circle');
+      icon.classList.add('fa-check-circle');
+    }
+    else {
+      // Change the text color to red
+      listEl.classList.remove('text-success');
+      // change the icon from checkmark to times
+      icon.classList.add('fa-times-circle');
+      icon.classList.remove('fa-check-circle');
+    }
   }
 }

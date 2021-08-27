@@ -1,13 +1,14 @@
+import { AuthIntercepterService } from './services/auth/auth-intercepter.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { faGithub, faInstagram, faLinkedin, faSkype, faStrava, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBriefcase, faBusinessTime, faClock, faEnvelope, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { HomeComponent, SafeHtmlPipe } from './home/home.component';
+import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Utils } from './services/Utils';
@@ -23,12 +24,15 @@ import { EditSubPlanModalComponent } from './calendar/edit-sub-plan-modal/edit-s
 import { UserComponent } from './user/user/user.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { ErrorComponent } from './error/error.component';
+import { ErrorInterceptorService } from './services/error-interceptor';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { EmailVerificationComponent } from './user/email-verification/email-verification.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SafeHtmlPipe,
     CalendarComponent,
     MonthlyCalendarComponent,
     VarDirective,
@@ -39,7 +43,9 @@ import { RegisterComponent } from './user/register/register.component';
     EditSubPlanModalComponent,
     UserComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ErrorComponent,
+    EmailVerificationComponent
   ],
   imports: [
     BrowserModule,
@@ -60,9 +66,22 @@ import { RegisterComponent } from './user/register/register.component';
     FormsModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlashMessagesModule.forRoot()
   ],
-  providers: [Utils, MdbModalConfig],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthIntercepterService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,           // Multi-provider token that represents the array of registered HttpInterceptor objects
+      useClass: ErrorInterceptorService,    // Out intercepter class
+      multi: true                           // Provide multiple dependencies for a single token
+    },
+    Utils,
+    MdbModalConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule {

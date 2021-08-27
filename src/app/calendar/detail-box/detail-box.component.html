@@ -40,8 +40,8 @@
         <li class="list-group-item plans-container-items border-0 p-0 me-1 mb-2"
           [ngClass]="plan.progress == 100 ? 'done bg-yellow-muted' : 'undone'"
           *ngFor="let plan of planDate.plans; let i = index;">
-          <div class="px-3 pt-3 pb-1 d-flex align-items-center">
-            <div class="me-2">
+          <div class="px-3 pt-3 pb-2 d-flex align-items-center">
+            <div class="me-3">
               <!-- Isdone checkbox -->
               <label class="checkbox-container">
                 <input type="checkbox" id="plan-checkbox-{{i}}" [checked]="plan.progress == 100"
@@ -77,12 +77,12 @@
           <!-- If the plan contains any subplan -->
           <ng-container *ngIf="plan.subPlans.length > 0">
             <ul class="list-group rounded-0 sub-plans-container" id="plan-{{i}}">
-              <li class="d-flex align-items-center list-group-item border-start-0 border-end-0 border-bottom-0 fw-light"
+              <li class="d-flex align-items-center list-group-item border-start-0 border-end-0 border-bottom-0 fw-light py-3"
                 *ngFor="let sp of plan.subPlans; let subIndex = index">
                 <!-- <input mdbCheckbox class="form-check-input mt-0 me-2" type="checkbox" id="" value=""
                   [checked]="sp.isDone" (change)="updateSubPlan($event, i, subIndex)" /> -->
 
-                <label class="checkbox-container me-2">
+                <label class="checkbox-container me-3">
                   <input type="checkbox" [checked]="sp.isDone" (change)="updateSubPlan($event, i, subIndex)">
                   <span class="checkbox-checkmark"></span>
                 </label>

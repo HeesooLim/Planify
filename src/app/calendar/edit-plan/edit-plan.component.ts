@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/user/user.service';
 import { PlanService } from './../../services/plan/plan.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -38,16 +39,19 @@ export class EditPlanComponent implements OnInit {
   // The plan on the selected date
   otherPlan = new PlanDate(null, null, null);
 
-  constructor(private route: ActivatedRoute, private planService: PlanService, private utils: Utils, private modalService: MdbModalService) { }
+  constructor(private route: ActivatedRoute, private userService: UserService, private planService: PlanService, private utils: Utils, private modalService: MdbModalService) { }
 
   ngOnInit(): void {
+    // Check if the user is logged in
+    this.userService.isAuthenticated();
+
     const routeParams = this.route.snapshot.paramMap;   // Get params
     const planId = routeParams.get('planId');           // Plan ID to get the chosen plan data
 
     // Get the plan using the plan ID
     this.planService.getDataById(planId).subscribe(data => {
       // Get the first plan found
-      let planData = data[0];
+      let planData = data.body[0];
 
       // Get the dueDate as the Date object
       let dueDate = new Date(planData.dueDate);
@@ -59,8 +63,8 @@ export class EditPlanComponent implements OnInit {
       this.selectedPlan = new Plan(planData._id, planData.userId, planData.title, planData.description, dueDate, planData.progress, planData.priority);
 
       // Add subplans to the plan
-      for (let index = 0; index < data[0].subPlans.length; index++) {
-        this.selectedPlan.addSubplan(new SubPlan(data[0].subPlans[index].title, data[0].subPlans[index].description, data[0].subPlans[index].priority, data[0].subPlans[index].isDone))
+      for (let index = 0; index < planData.subPlans.length; index++) {
+        this.selectedPlan.addSubplan(new SubPlan(planData.subPlans[index].title, planData.subPlans[index].description, planData.subPlans[index].priority, planData.subPlans[index].isDone))
       }
 
       // Get the original date string
@@ -75,8 +79,8 @@ export class EditPlanComponent implements OnInit {
       }
 
       // Get the plan on the selected other date
-      this.planService.getDataByDate(this.otherPlanDate).subscribe(data => {
-        this.otherPlan = this.utils.getPlanDate(data, this.otherPlanDate);
+      this.planService.getDataByDate(this.otherPlanDate).subscribe(res => {
+        this.otherPlan = this.utils.getPlanDate(res.body, this.otherPlanDate);
       });
 
       // Get the date string to display

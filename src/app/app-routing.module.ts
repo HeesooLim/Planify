@@ -1,3 +1,5 @@
+import { EmailVerificationComponent } from './user/email-verification/email-verification.component';
+import { ErrorComponent } from './error/error.component';
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { UserComponent } from './user/user/user.component';
@@ -21,7 +23,10 @@ const routes: Routes = [
   },
   { path: 'user/:userId', component: UserComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'verify/:email', component: EmailVerificationComponent},
+  { path: 'verify/:email/:uuid', component: EmailVerificationComponent},
+  { path: 'register', component: RegisterComponent },
+  { path: '**', component: ErrorComponent}
 ];
 
 @NgModule({

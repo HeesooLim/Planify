@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/user/user.service';
 import { PlanService } from './../../services/plan/plan.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Plan } from 'src/app/models/plan.model';
@@ -26,9 +27,12 @@ export class MonthlyCalendarComponent implements OnInit {
 
   @Output() planEmitter = new EventEmitter<PlanDate>();
 
-  constructor(private planService: PlanService, private utils: Utils) { }
+  constructor(private planService: PlanService, private userService: UserService, private utils: Utils) { }
 
   ngOnInit(): void {
+    // Check if the user is logged in
+    this.userService.isAuthenticated();
+
     // Set the month string
     this.monthString = this.today.toLocaleString('default', { month: 'long' });
 
@@ -48,7 +52,7 @@ export class MonthlyCalendarComponent implements OnInit {
     // Get all PlanDate objects in the month of today
     this.planService.getDataByMonth(this.today)
       .subscribe(data => {
-        this.planDates = this.utils.getPlanDates(data, this.today.getFullYear(), this.today.getMonth());
+        this.planDates = this.utils.getPlanDates(data.body, this.today.getFullYear(), this.today.getMonth());
       });
 
   }
