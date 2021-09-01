@@ -61,45 +61,48 @@ export class Utils {
    * @return {PlanDate[]} Return every PlanDate in the selected month.
    * @memberof Utils
    */
-  getPlanDates(data: Plan[], year: number, month: number) {
-    let plans = [];
-    let planDates = [];
-
+  getPlanDatesInMonth(data: Plan[], year: number, month: number) {
+    let startDate = new Date(year, month, 1);
     // Passing 0 as the last parameter will return the last of day in the last month, so 1 is added to the chosen month
     let numOfDays = new Date(year, month + 1, 0).getDate();
 
-    // For loop for the Plans
-    for (const d of data) {
-      let dueDate = new Date(d.dueDate);
+    let planDates = this.getNumOfPlanDates(data, startDate, numOfDays);
 
-      // Create a Plan object using the passed data
-      let plan = new Plan(d._id, d.userId, d.title, d.description, d.dueDate, d.progress, d.priority);
+    return planDates;
+  }
 
-      if (d.subPlans.length > 0) {
-        // Add subplans to the plan
-        for (const sp of d.subPlans) {
-          plan.subPlans.push(new SubPlan(sp.title, sp.description, sp.priority, sp.isDone));
-        }
-      }
-      // Add the plan to the array of plans
-      plans.push(plan);
-    }
+  /**
+   * Get the specified number of plandate objects starting from the date.
+   *
+   * @param {Plan[]} data Plan objects to use for the PlanDate object.
+   * @param {Date} date Date to start the PlanDate object.
+   * @param {number} numOfDays Number of PlanDate objects to create from the starting date.
+   * @return {*}
+   * @memberof Utils
+   */
+  getNumOfPlanDates(data: Plan[], date: Date, numOfDays: number) {
+    let currDate = new Date(date.getTime());
 
-    // Generate empty PlanDate objects
+    let planDates = [];
     for (let i = 0; i < numOfDays; i++) {
-      planDates.push(new PlanDate(year, month, i + 1));
+      let plans = [];
+
+      data.forEach(plan => {
+        let dueDate = new Date(plan.dueDate);
+
+        if (dueDate.getFullYear() === currDate.getFullYear() &&
+          dueDate.getMonth() === currDate.getMonth() &&
+          dueDate.getDate() === currDate.getDate()) {
+          plans.push(plan);
+        }
+      });
+
+      planDates[i] = new PlanDate(currDate.getFullYear(), currDate.getMonth(), currDate.getDate(), plans);
+      currDate.setDate(currDate.getDate() + 1);
     }
 
-    // If the PlanDate's date is the same as the Plan's due date, add the plan to the PlanDate
-    planDates.map(pd => {
-      plans.map(p => {
-        if (pd.date == new Date(p.dueDate).getDate()) {
-          pd.addPlan(p);
-        }
-      })
-    });
+    console.log(planDates);
 
-    // return all PlanDates in the month
     return planDates;
   }
 
@@ -112,11 +115,15 @@ export class Utils {
    * @memberof Utils
    */
   getPlanDate(data: Plan[], date: Date) {
-    // Get all the PlanDates in the month
-    let planDates = this.getPlanDates(data, date.getFullYear(), date.getMonth());
+    console.log(data);
 
-    // Return one PlanDate using the index
-    return planDates[date.getDate() - 1];
+    // Get the PlanDate
+    let planDates = this.getNumOfPlanDates(data, date, 20);
+    console.log(planDates);
+
+
+    // Return the first PlanDate
+    return planDates[0];
   }
 
   /**

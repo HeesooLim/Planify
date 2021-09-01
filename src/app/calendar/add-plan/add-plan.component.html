@@ -33,11 +33,13 @@
           <!-- change the label color -->
           <p class="fw-normal mb-1">Due date</p>
           <!-- due date form control -->
-          <mdb-form-control>
-            <input mdbInput type="datetime-local" id="dueDate" class="my-0 dueDate" formControlName="dueDate"
-              required />
-          </mdb-form-control>
-          <span class="dueDate error-msg mt-1">Due date is required.</span>
+          <div>
+            <mdb-form-control>
+              <input mdbInput type="datetime-local" id="dueDate" class="my-0 dueDate light-calendar-icon"
+                formControlName="dueDate" required />
+            </mdb-form-control>
+            <span class="dueDate error-msg mt-1">Due date is required.</span>
+          </div>
         </div>
       </div>
 
@@ -103,7 +105,8 @@
       </h4>
       <!-- other date plans -->
       <ng-container *ngIf="otherPlan.planCount > 0; else elseTemplate">
-        <div *ngFor="let plan of otherPlan.plans" class="rounded shadow overflow-hidden mb-3">
+        <div *ngFor="let plan of otherPlan.plans; let i = index" class="rounded shadow overflow-hidden mb-3 cursor-pointer"
+          (click)="navigateToOtherPlan(i)">
           <!-- main plan container -->
           <div class="p-3 other-plan-item">
             <!-- other plan title -->

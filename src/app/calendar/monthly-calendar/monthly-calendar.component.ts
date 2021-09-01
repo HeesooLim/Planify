@@ -58,7 +58,7 @@ export class MonthlyCalendarComponent implements OnInit {
     // Get all PlanDate objects in the month of today
     this.planService.getDataByMonth(this.today)
       .subscribe(data => {
-        this.planDates = this.utils.getPlanDates(data.body, this.today.getFullYear(), this.today.getMonth());
+        this.planDates = this.utils.getPlanDatesInMonth(data.body, this.today.getFullYear(), this.today.getMonth());
       });
   }
 

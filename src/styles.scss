@@ -92,6 +92,7 @@ footer {
 
 input[type="text"],
 input[type="datetime-local"],
+input[type="date"],
 input[type="email"],
 input[type="password"],
 textarea {
@@ -295,6 +296,17 @@ html.scroll-disabled {
 
 .text-purple-muted {
   color: rgb(183, 173, 206);
+}
+
+/* Change the calendar picker's icon color */
+.light-calendar-icon::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  /* display: none;
+  -webkit-appearance: none; */
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
 
 .flash-login {

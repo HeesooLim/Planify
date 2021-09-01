@@ -124,11 +124,6 @@ label {
 }
 /* RADIO BUTTON STYLE ENDS */
 
-/* Change the calendar picker's icon color */
-::-webkit-calendar-picker-indicator {
-  filter: invert(0.8);
-}
-
 .empty-subplan-container,
 .sub-plan-item,
 .other-plan-container {

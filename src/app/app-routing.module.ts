@@ -1,3 +1,4 @@
+import { TodoComponent } from './todo/todo.component';
 import { EmailVerificationComponent } from './user/email-verification/email-verification.component';
 import { ErrorComponent } from './error/error.component';
 import { RegisterComponent } from './user/register/register.component';
@@ -16,17 +17,18 @@ const routes: Routes = [
   {
     path: 'calendar',
     children: [
-      { path: '', component: CalendarComponent },
-      { path: 'addPlan/:date', component: AddPlanComponent },
+      { path: 'date/:year/:month', component: CalendarComponent },
+      { path: 'addPlan/:year/:month/:date', component: AddPlanComponent },
       { path: 'editPlan/:planId', component: EditPlanComponent }
     ]
   },
+  { path: 'todo/:year/:month/:date', component: TodoComponent },
   { path: 'user/:userId', component: UserComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'verify/:email', component: EmailVerificationComponent},
-  { path: 'verify/:email/:uuid', component: EmailVerificationComponent},
+  { path: 'verify/:email', component: EmailVerificationComponent },
+  { path: 'verify/:email/:uuid', component: EmailVerificationComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '**', component: ErrorComponent}
+  { path: '**', component: ErrorComponent }
 ];
 
 @NgModule({

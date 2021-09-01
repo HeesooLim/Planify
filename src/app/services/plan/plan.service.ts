@@ -35,7 +35,7 @@ export class PlanService {
    * @memberof PlanService
    */
   getDataByMonth(date: Date): Observable<HttpResponse<Plan[]>> {
-    let month = (date.getMonth() + 1).toString().padStart(2, '0');
+    let month = date.getMonth() + 1;
     console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}`);
 
     return this.http.get<Plan[]>(`http://localhost:3000/plan/${date.getFullYear()}/${month}`, this.httpOptions);
@@ -49,7 +49,7 @@ export class PlanService {
    * @memberof PlanService
    */
   getDataByDate(date: Date): Observable<HttpResponse<Plan[]>> {
-    let month = (date.getMonth() + 1).toString().padStart(2, '0');
+    let month = date.getMonth() + 1;
     console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}`);
 
     return this.http.get<Plan[]>(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}`, this.httpOptions);
@@ -64,6 +64,23 @@ export class PlanService {
    */
   getDataById(id: string): Observable<HttpResponse<Plan>> {
     return this.http.get<Plan>(`http://localhost:3000/plan/edit/${id}`, this.httpOptions);
+  }
+
+  /**
+   * Get plans between two dates.
+   *
+   * @param {Date} date Starting date to display.
+   * @param {number} days number of days to display from the starting date
+   * @return {*}  {Observable<HttpResponse<Plan>>}
+   * @memberof PlanService
+   */
+  getDataByDateAndDays(date: Date, days: number): Observable<HttpResponse<Plan[]>> {
+    //router.get("/:year/:month/:date/:day", auth.required, planController.getDataByDateandDays);
+    let month = date.getMonth() + 1;
+
+    console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}/${days}`);
+
+    return this.http.get<Plan[]>(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}/${days}`, this.httpOptions);
   }
 
   /**

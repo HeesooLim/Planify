@@ -28,6 +28,7 @@ import { ErrorComponent } from './error/error.component';
 import { ErrorInterceptorService } from './services/error-interceptor';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { EmailVerificationComponent } from './user/email-verification/email-verification.component';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { EmailVerificationComponent } from './user/email-verification/email-veri
     LoginComponent,
     RegisterComponent,
     ErrorComponent,
-    EmailVerificationComponent
+    EmailVerificationComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,

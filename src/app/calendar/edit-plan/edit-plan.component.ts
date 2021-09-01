@@ -240,7 +240,7 @@ export class EditPlanComponent implements OnInit {
    *
    * @memberof AddPlanComponent
    */
-  navigateToOtherDate(index: number) {
+  navigateToOtherPlan(index: number) {
     let otherPlanToEdit = this.otherPlan.plans[index];
 
     // If the IDs of the plans to edit are different, navigate to the chosen plan's edit page

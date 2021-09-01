@@ -1,0 +1,53 @@
+<div class="todo-col-wrapper">
+  <div class="todo-col-container row w-100 ms-0 px-sm-3 px-1">
+    <div *ngFor="let pd of planDatesWithDateString; let i = index"
+      [ngClass]="['d-flex', 'd-none d-md-flex', 'd-none d-lg-flex', 'd-none d-xl-flex'][i]"
+      class="me-3 px-3 todo-column col flex-column">
+      <h5 *ngIf="pd" class="text-center py-4 text-red-hat text-light fw-light">
+        Due on {{pd.dateString}}
+      </h5>
+      <ng-container *ngIf="pd.plans.length > 4">
+        <div *ngFor="let j of [0,1,2]" class="plan-card mb-3 text-light">
+          <div class="plan-title px-3 py-2">{{pd.plans[j + (3 * planPager[i])].title}}</div>
+          <div class="d-block px-3 py-2">
+            <div class="d-block plan-priority">PRIORITY:
+              <span [ngClass]="['text-success', 'text-warning', 'text-danger'][pd.plans[j].priority - 1]">
+                {{['LOW', 'MID', 'HIGH'][pd.plans[j].priority - 1]}}
+              </span>
+            </div>
+            <div class="plan-desc mt-1 small">{{pd.plans[j].description}}</div>
+          </div>
+        </div>
+      </ng-container>
+      <div *ngIf="pd.maxPage > 1" class="mt-auto d-flex justify-content-between mb-3">
+        <div class="cursor-pointer p-2" (click)="changePlanPage(i, false)">
+          <i class="fas fa-chevron-left text-light"></i>
+        </div>
+        <div class="text-light p-2 small">{{planPager[i] + 1}}/{{pd.maxPage}} page</div>
+        <div class="cursor-pointer p-2" (click)="changePlanPage(i, true)">
+          <i class="fas fa-chevron-right text-light"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-items-center py-3" id="btn-wrapper">
+    <div id="btn-prev-date" (click)="changeDate(false, -1)"
+      class="d-flex align-items-center rounded-circle position-relative cursor-pointer">
+      <i class="fas fa-chevron-left position-absolute top-50 start-50 translate-middle"></i>
+    </div>
+    <div class="d-flex rounded-pill ps-3 mx-3" id="change-date-input-wrapper">
+      <input type="date" name="" value="{{dateInputString}}" class="light-calendar-icon " id="change-date-input">
+      <button mdbRipple class="border-0 small fw-light d-flex align-items-center px-3"
+        (click)="changeDate(true)">Confirm</button>
+    </div>
+    <!-- w-auto rounded-pill ps-4 pe-3 mx-3 -->
+
+    <div id="btn-next-date" (click)="changeDate(false, 1)"
+      class="d-flex align-items-center rounded-circle position-relative cursor-pointer">
+      <i class="fas fa-chevron-right position-absolute top-50 start-50 translate-middle"></i>
+    </div>
+  </div>
+  <!-- <div mdbRipple class="text-dark small fw-light  bg-light align-self-center rounded-pill px-2">confirm</div> -->
+
+</div>

@@ -24,23 +24,7 @@ export class DetailBoxComponent implements OnInit {
   priorityList: string[];
 
   ngOnInit(): void {
-    let menuList = <HTMLElement>document.querySelector('#menu-list');
-    let menuItems = menuList.querySelectorAll('li');
     this.priorityList = ['LOW', 'MID', 'HIGH'];
-
-    // Add event listener for each item in the menu list
-    menuItems[0].addEventListener('click', () => {
-      // call the method to add a new subplan
-      this.menuItemAction(0);
-    });
-    menuItems[1].addEventListener('click', () => {
-      // call the method to edit the plan
-      this.menuItemAction(1);
-    });
-    menuItems[2].addEventListener('click', () => {
-      // call the method to delete the plan
-      this.menuItemAction(2);
-    });
   }
 
   /**

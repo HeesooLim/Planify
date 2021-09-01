@@ -20,15 +20,20 @@ export class ErrorInterceptorService implements HttpInterceptor {
 
   handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
+      console.log('error ' + error.message);
+
       this.router.navigate(['**']);
     }
     // Handle the anauthorized error
     else if (error.status == 401) {
+      console.log('error ' + error.message);
+
       this.router.navigate(['login']);
     }
     else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong.
+      console.log('error ' + error.message);
       console.error(
         `Backend error ${error.status}\n body: `, error.error);
       this.router.navigate(['**']);

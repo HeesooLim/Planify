@@ -49,11 +49,13 @@ export class AddPlanComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
 
     // Get the date from the parameter
-    const dateString = routeParams.get('date');
+    const yearString = parseInt(routeParams.get('year'));
+    const monthString = parseInt(routeParams.get('month'));
+    const dateString = parseInt(routeParams.get('date'));
 
     // Split the date by '-' and create a new Date with it
-    let dates = dateString.split('-');
-    this.selectedDate = new Date(Number(dates[0]), Number(dates[1]), Number(dates[2]));
+    // let dates = dateString.split('-');
+    this.selectedDate = new Date(yearString, monthString - 1, dateString);
 
     // Set the selected date string
     this.selectedDateString = this.utils.getDateString(this.selectedDate, false);
@@ -224,7 +226,23 @@ export class AddPlanComponent implements OnInit {
   navigateToOtherDate() {
     // Navigate only when currently selected date and other plan date are different
     if (this.selectedDate != this.otherPlanDate)
-      window.location.href = `calendar/addPlan/${this.otherPlanDate.getFullYear()}-${this.otherPlanDate.getMonth()}-${this.otherPlanDate.getDate()}`;
+      window.location.href = `calendar/addPlan/${this.otherPlanDate.getFullYear()}/${this.otherPlanDate.getMonth() + 1}/${this.otherPlanDate.getDate()}`;
+  }
+
+  /**
+   * Navigate to the selected other date's edit plan page when the text is clicked.
+   *
+   * @param {number} index Index of the plan to edit.
+   *
+   * @memberof AddPlanComponent
+   */
+   navigateToOtherPlan(index: number) {
+    let otherPlanToEdit = this.otherPlan.plans[index];
+
+    // If the IDs of the plans to edit are different, navigate to the chosen plan's edit page
+    if (otherPlanToEdit._id !== this.selectedPlan._id) {
+      window.location.href = `calendar/editPlan/${otherPlanToEdit._id}`;
+    }
   }
 
   /**
