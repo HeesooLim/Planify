@@ -79,7 +79,7 @@ app.run = function () {
   // Start the server
   this.server.use(this.router);
   this.server.use("/", express.static(app.clientDir));
-  const port = configVars.PORT || 3000; // set our port
+  const port = configVars.PORT || 8080; // set our port
   this.server.listen(port, () => logger.info("Server started on port " + port));
 };
 
