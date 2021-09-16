@@ -1,0 +1,6 @@
+INFO [2021-05-26T18:46:12.767Z] [server\app.js] : Server started on port 3000
+INFO [2021-05-26T18:46:13.722Z] [server\app.js] : DB connection succesful
+INFO [2021-05-26T18:51:46.592Z] [server\app.js] : Server started on port 3000
+INFO [2021-05-26T18:51:47.579Z] [server\app.js] : DB connection succesful
+INFO [2021-05-26T18:53:49.806Z] [server\app.js] : Server started on port 3000
+INFO [2021-05-26T18:53:50.587Z] [server\app.js] : DB connection succesful

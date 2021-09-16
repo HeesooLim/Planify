@@ -1,0 +1,2 @@
+INFO [2021-07-13T12:44:00.144Z] [server\app.js] : Server started on port 3000
+INFO [2021-07-13T12:44:01.190Z] [server\app.js] : DB connection succesful

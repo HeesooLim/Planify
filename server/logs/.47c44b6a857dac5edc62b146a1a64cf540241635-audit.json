@@ -1,0 +1,69 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\.47c44b6a857dac5edc62b146a1a64cf540241635-audit.json",
+    "files": [
+        {
+            "date": 1625839294097,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-09-10.log",
+            "hash": "b55f40bab60e106d3ea9f722153eb494"
+        },
+        {
+            "date": 1626180240136,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-13-08.log",
+            "hash": "c60a43156a665195327b1f6cf31be9ff"
+        },
+        {
+            "date": 1626268594645,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-14-09.log",
+            "hash": "d43cd6e3a2191dbba63032ab61518bc5"
+        },
+        {
+            "date": 1626342511738,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-15-05.log",
+            "hash": "7b8e34be9295d71cf0fe8c6166c35114"
+        },
+        {
+            "date": 1626437880118,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-16-08.log",
+            "hash": "e8fb216b1f1402f09838f520cb20ad7a"
+        },
+        {
+            "date": 1626531823368,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-17-10.log",
+            "hash": "c2ca555451eb236d5c8e47c72f96f835"
+        },
+        {
+            "date": 1626556817779,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-17-17.log",
+            "hash": "c62f82a686badb213ee53277debc331e"
+        },
+        {
+            "date": 1626608601254,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-18-07.log",
+            "hash": "c9be8b24984887c77a0ad4155479d798"
+        },
+        {
+            "date": 1626787029992,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-20-09.log",
+            "hash": "61e158eee511dbd548a2b90a71f71e2a"
+        },
+        {
+            "date": 1626871152580,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-21-08.log",
+            "hash": "80bb58669f5517603a4ee9a59e007ada"
+        },
+        {
+            "date": 1626951696939,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-22-07.log",
+            "hash": "8eef5da4ae46c2e1be79855f4877058b"
+        },
+        {
+            "date": 1627044204733,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-07-23-08.log",
+            "hash": "4414982338e0da44256661b7bb077095"
+        }
+    ]
+}

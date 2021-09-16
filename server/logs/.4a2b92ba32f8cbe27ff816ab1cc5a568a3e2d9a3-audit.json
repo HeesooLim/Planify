@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\heeso\\Desktop\\Projects\\Planify\\server\\logs\\.4a2b92ba32f8cbe27ff816ab1cc5a568a3e2d9a3-audit.json",
+    "files": [
+        {
+            "date": 1631816611888,
+            "name": "C:\\Users\\heeso\\Desktop\\Projects\\Planify\\server\\logs\\application-2021-09-16-14.log",
+            "hash": "ac2eea182d96e2afbe6ae02c524cce86"
+        }
+    ]
+}

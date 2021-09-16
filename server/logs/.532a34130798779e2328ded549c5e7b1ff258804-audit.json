@@ -1,0 +1,114 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\.532a34130798779e2328ded549c5e7b1ff258804-audit.json",
+    "files": [
+        {
+            "date": 1619722847209,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-04-29-15.log",
+            "hash": "5a7295ff2487810d46a1226dd00cd783"
+        },
+        {
+            "date": 1619726516179,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-04-29-16.log",
+            "hash": "5ec6f152116c28e86269281885a0c336"
+        },
+        {
+            "date": 1619731483487,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-04-29-17.log",
+            "hash": "fc0fb7dc3e1a367a204759c9ffabc4b8"
+        },
+        {
+            "date": 1619787380596,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-04-30-08.log",
+            "hash": "835a766c681e9e59919ebffe99a3952c"
+        },
+        {
+            "date": 1620070207059,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-03-15.log",
+            "hash": "7843524a9ac51b673d85656302197ee8"
+        },
+        {
+            "date": 1620072131611,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-03-16.log",
+            "hash": "8a6eefc9896850b82891df5a9fee10a4"
+        },
+        {
+            "date": 1620131928133,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-04-08.log",
+            "hash": "c51750513c6ed349e43104683014ca8e"
+        },
+        {
+            "date": 1620136724366,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-04-09.log",
+            "hash": "01abfcae84f486339a844c170bcfc572"
+        },
+        {
+            "date": 1620136902509,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-04-10.log",
+            "hash": "a1f1d88725c90c967a62731359301af6"
+        },
+        {
+            "date": 1620145044176,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-04-12.log",
+            "hash": "99cbe6141f818c8f87a55bed60852a51"
+        },
+        {
+            "date": 1620147719564,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-04-13.log",
+            "hash": "b64fb807ebf39a9dd0dc215ccfc257e6"
+        },
+        {
+            "date": 1620294456686,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-06-05.log",
+            "hash": "a7578cdad6ebff3b80b80829c32f85d6"
+        },
+        {
+            "date": 1620295683339,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-06-06.log",
+            "hash": "fd32855e1d4937b3a49244ce0da6331b"
+        },
+        {
+            "date": 1620302407521,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-06-08.log",
+            "hash": "8b55b2c175801de167090984a49b5a43"
+        },
+        {
+            "date": 1620323847298,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-06-13.log",
+            "hash": "4793b0e05bed14682188abb8bfe38d13"
+        },
+        {
+            "date": 1620327939695,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-06-15.log",
+            "hash": "070295cebc933111eda47363a568678d"
+        },
+        {
+            "date": 1620331247856,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-06-16.log",
+            "hash": "8d340f665c1b4ac993a19ec2442b3cec"
+        },
+        {
+            "date": 1620668661537,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-10-13.log",
+            "hash": "67c364c3a8a7b0f1b33243015444f7c9"
+        },
+        {
+            "date": 1620740028849,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-11-09.log",
+            "hash": "183cdd57ceb39406871795637d1d893d"
+        },
+        {
+            "date": 1620750405393,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-11-12.log",
+            "hash": "36a4bbeb0c89998016ab2fe1d5399aa3"
+        },
+        {
+            "date": 1620762548523,
+            "name": "C:\\Users\\heeso\\OneDrive\\바탕 화면\\mean-starter-website-master\\server\\logs\\application-2021-05-11-15.log",
+            "hash": "d3b680e0059bea3cfccb86f0fd613b5c"
+        }
+    ]
+}

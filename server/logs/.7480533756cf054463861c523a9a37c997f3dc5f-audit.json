@@ -1,0 +1,29 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\heeso\\OneDrive\\Desktop\\mean-starter-website-master\\server\\logs\\.7480533756cf054463861c523a9a37c997f3dc5f-audit.json",
+    "files": [
+        {
+            "date": 1620949141755,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\mean-starter-website-master\\server\\logs\\application-2021-05-13-19.log",
+            "hash": "40e21d968796b2c597dc0b79200b3a67"
+        },
+        {
+            "date": 1621162259303,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\mean-starter-website-master\\server\\logs\\application-2021-05-16-06.log",
+            "hash": "fc87aabe21f68a6cdc647b57d60172b1"
+        },
+        {
+            "date": 1621184037303,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\mean-starter-website-master\\server\\logs\\application-2021-05-16-12.log",
+            "hash": "d3461f50860c4253f50b187514b7d558"
+        },
+        {
+            "date": 1621184524102,
+            "name": "C:\\Users\\heeso\\OneDrive\\Desktop\\mean-starter-website-master\\server\\logs\\application-2021-05-16-13.log",
+            "hash": "a58d350ec5c4aa3f77be72af7e5d9394"
+        }
+    ]
+}
