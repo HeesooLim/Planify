@@ -12,13 +12,13 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "express-jwt": "^6.0.0",
-    "express-restify-mongoose": "^6.0.0",
+    "express-jwt": "^6.1.0",
+    "express-restify-mongoose": "^6.1.2",
     "express-session": "^1.17.2",
     "fs": "0.0.2",
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.9.20",
+    "mongoose": "^5.13.9",
     "mongoose-timestamp": "^0.6.0",
     "morgan": "^1.10.0",
     "nodemailer": "^6.6.3",
@@ -26,7 +26,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "require-dir": "^1.0.0",
+    "require-dir": "^1.2.0",
     "rotating-file-stream": "^1.4.3",
     "uuid": "^8.3.2",
     "winston": "^3.2.1",
@@ -41,7 +41,7 @@
     "client-dev": "cd client; npm run start-dev"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "@angular/cli": "12.2.5"
+    "@angular/cli": "12.2.5",
+    "@types/jest": "^26.0.24"
   }
 }
