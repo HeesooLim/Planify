@@ -18,8 +18,6 @@ export class CalendarComponent implements OnInit {
   paramMonth: number;
   months: any[] = [];
 
-  changeMonthButton: HTMLElement;
-
   constructor(private utils: Utils, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -44,13 +42,14 @@ export class CalendarComponent implements OnInit {
       }
     }
 
-    this.changeMonthButton = <HTMLElement>document.querySelector('#change-date-btn');
     let changeMonthBtnText = <HTMLElement>document.querySelector('#change-month-text');
 
     // If the user clicks the element other than the change month button or the text, hide the month list and display the buttno text
     document.addEventListener('click', (e) => {
-      if (e.target !== this.changeMonthButton && e.target !== changeMonthBtnText) {
-        this.changeMonthButton.classList.remove('selected');
+      let target = <HTMLElement>e.target;
+      if (target.id !== 'change-date-btn' && target.innerText !== changeMonthBtnText.innerText) {
+        let changeMonthButton = <HTMLElement>document.querySelector('#change-date-btn');
+        changeMonthButton.classList.remove('selected');
       }
     })
   }
@@ -79,8 +78,9 @@ export class CalendarComponent implements OnInit {
     this.router.navigate([`calendar/date/${date.getFullYear()}/${date.getMonth()}`]);
   }
 
-  toggleChageMonthBtnSelected() {
-    this.changeMonthButton.classList.toggle('selected');
+  toggleChageMonthBtn() {
+    let changeMonthButton = <HTMLElement>document.querySelector('#change-date-btn');
+    changeMonthButton.classList.toggle('selected');
   }
 
 }

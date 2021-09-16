@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
 
   todayYear: number;
   todayMonth: number;
+  todayDate: number;
 
   constructor(private utils: Utils, private userService: UserService, private router: Router) {
     // Subscribe to the BehaviorSubject to check if the user is currently logged in
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
     });
     this.todayYear = new Date().getFullYear();
     this.todayMonth = new Date().getMonth() + 1;
+    this.todayDate = new Date().getDate();
   }
 
   ngOnInit() {

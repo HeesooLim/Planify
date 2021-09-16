@@ -15,6 +15,16 @@
   max-width: 1000px;
 }
 
+.month-item {
+  margin: 0 5px;
+  transition: 0.5s;
+}
+
+.month-item:hover {
+  background-color: rgb(73, 59, 117) !important;
+  transition: 0.5s;
+}
+
 #change-date-btn {
   background-color: rgb(15, 7, 42);
   transition: 0.5s;

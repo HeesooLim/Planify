@@ -106,9 +106,9 @@
         <i class="fas fa-chevron-right" (click)="changeDate(true)"></i>
       </h4>
       <!-- other date plans -->
-      <ng-container *ngIf="otherPlan.planCount > 0; else elseTemplate">
+      <div *ngIf="otherPlan.planCount > 0; else elseTemplate" id="other-plan-item-container" class="pe-1">
         <div *ngFor="let plan of otherPlan.plans; let i = index" (click)="navigateToOtherPlan(i)"
-          class="rounded shadow overflow-hidden mb-3 cursor-pointer">
+          class="rounded shadow overflow-hidden cursor-pointer" [ngClass]="i == otherPlan.plans.length - 1? '' : 'mb-3'">
           <!-- main plan container -->
           <div class="p-3 other-plan-item">
             <!-- other plan title -->
@@ -135,7 +135,7 @@
             </h6>
           </div>
         </div>
-      </ng-container>
+      </div>
       <ng-template #elseTemplate>
         <p class="mb-0 py-5 fw-light text-center">There is no plan on this day.</p>
       </ng-template>

@@ -130,6 +130,11 @@ label {
   background-color: var(--purple-darkest);
 }
 
+#other-plan-item-container {
+  overflow-y: auto;
+  height: 460px;
+}
+
 .other-plan-item {
   background-color: #3c3164;
 }
@@ -142,6 +147,30 @@ h4 {
   color: var(--gray-lightest);
   font-weight: 200;
 }
+
+/* --------SCROLL BAR STYLE START-------- */
+/* width */
+#other-plan-item-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+#other-plan-item-container::-webkit-scrollbar-track {
+  background: var(--purple-darkest);
+  border-radius: 10px;
+}
+
+/* Handle */
+#other-plan-item-container::-webkit-scrollbar-thumb {
+  background-color: var(--purple-gray);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+#other-plan-item-container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--purple-light);
+}
+/* --------SCROLL BAR STYLE END-------- */
 
 @media screen and (max-width: 1200px) {
   #add-plan-container {
