@@ -1,4 +1,0 @@
-INFO [2022-02-10T17:12:31.470Z] [server/app.js] : Server started on port 3000
-ERROR [2022-02-10T17:12:31.504Z] [server/app.js] : querySrv ENOTFOUND _mongodb._tcp.db.zon8n.mongodb.net
-INFO [2022-02-10T17:47:27.236Z] [server/app.js] : Server started on port 3000
-ERROR [2022-02-10T17:47:27.291Z] [server/app.js] : querySrv ENOTFOUND _mongodb._tcp.db.zon8n.mongodb.net
