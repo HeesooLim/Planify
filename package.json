@@ -41,7 +41,6 @@
     "client-dev": "cd client; npm run start-dev"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^13.2.5",
     "@angular/cli": "12.2.5",
     "@types/jest": "^26.0.24"
   }
