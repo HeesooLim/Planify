@@ -1,7 +1,6 @@
 import { SubPlan } from './../models/plan.model';
 import { PlanDate } from "../models/plan-date.model";
 import { Plan } from "../models/plan.model";
-import { FlashMessagesService } from 'angular2-flash-messages';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -13,7 +12,7 @@ export class Utils {
   public static readonly days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   public static subPlan: SubPlan = null;
 
-  constructor(private flashMessage: FlashMessagesService, private router: Router) { }
+  constructor(private router: Router) { }
 
   /**
    * A method to toggle the collapse class.
@@ -269,17 +268,17 @@ export class Utils {
     }
   }
 
-  /**
-   * Display a flash message.
-   *
-   * @param {string} message Message to display.
-   * @param {string} cssClass CSS style to apply.
-   * @memberof Utils
-   */
-  showFlash(message: string, cssClass: string) {
-    // 2nd param (optional) - object with options.
-    this.flashMessage.show(message, { cssClass: cssClass, timeout: 2000 });
-  }
+  // /**
+  //  * Display a flash message.
+  //  *
+  //  * @param {string} message Message to display.
+  //  * @param {string} cssClass CSS style to apply.
+  //  * @memberof Utils
+  //  */
+  // showFlash(message: string, cssClass: string) {
+  //   // 2nd param (optional) - object with options.
+  //   this.flashMessage.show(message, { cssClass: cssClass, timeout: 2000 });
+  // }
 
   /**
    * Check if str1 includes any substring of str2.

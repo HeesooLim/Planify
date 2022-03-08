@@ -6,7 +6,6 @@
   },
   "dependencies": {
     "@angular-devkit/build-angular": "^13.2.5",
-    "angular2-flash-messages": "^3.0.1",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",

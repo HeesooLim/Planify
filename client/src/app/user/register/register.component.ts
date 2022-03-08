@@ -113,7 +113,7 @@ export class RegisterComponent implements OnInit {
     let isPasswordValid = formData.password != null && formData.password != '' && this.validatePassword();
     let isEmailValid = formData.email != null && formData.email != '' && formData.email.match(emailRegex);
 
-    this.utils.showFlash('Plese complete the form.', 'flash-login');
+    // this.utils.showFlash('Plese complete the form.', 'flash-login');
     // Check whether the input is valid and add or remove the class 'invalid'
     this.utils.changeInputStatus(this.passwordInput, null, isPasswordValid);
     this.utils.changeInputStatus(this.firstNameInput, null, isFirstNameValid);
