@@ -1,8 +1,8 @@
 import { Utils } from 'src/app/services/Utils';
 import { Component, OnInit } from '@angular/core';
-import { MdbModalRef } from 'mdb-angular-ui-kit';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Plan, SubPlan } from 'src/app/models/plan.model';
+import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-edit-sub-plan-modal',

@@ -5,11 +5,11 @@ import { PlanService } from './../../services/plan/plan.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Utils } from 'src/app/services/Utils';
-import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit';
 import { AddSubPlanModalComponent } from '../add-sub-plan-modal/add-sub-plan-modal.component';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Plan } from 'src/app/models/plan.model';
 import { EditSubPlanModalComponent } from '../edit-sub-plan-modal/edit-sub-plan-modal.component';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-add-plan',

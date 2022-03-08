@@ -50,17 +50,17 @@
                 <span class="checkbox-checkmark"></span>
               </label>
             </div>
-            <span>{{plan.title}}</span>
+            <span class="text-light">{{plan.title}}</span>
             <i *ngIf="plan.subPlans.length > 0" class="fas fa-chevron-left ms-auto" id="arrow-{{i}}"
               (click)="expandPlan(i)"></i>
           </div>
-          <p class="mb-1 priority-text fw-light px-3">PRIORITY:
+          <p class="mb-1 priority-text fw-light px-3 text-light">PRIORITY:
             <span class="fw-normal"
               [ngClass]="['text-success', 'text-warning', 'text-danger'][plan.priority - 1]">{{['LOW', 'MID',
               'HIGH'][plan.priority - 1]}}</span>
           </p>
           <!-- Plan description -->
-          <div class="plan-description fw-lighter ps-3 pe-4 pb-3 position-relative">
+          <div class="plan-description text-light fw-lighter ps-3 pe-4 pb-3 position-relative">
             {{plan.description}}
             <!-- Menu button -->
             <button id="btn-menu-{{i}}" class="small position-absolute btn-menu text-muted bg-transparent border-0"

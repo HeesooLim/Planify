@@ -2,7 +2,7 @@
   "name": "mean-starter-website",
   "main": "server.js",
   "engines": {
-    "node": "14.12.0"
+    "node": "14.15.0"
   },
   "dependencies": {
     "angular2-flash-messages": "^3.0.1",

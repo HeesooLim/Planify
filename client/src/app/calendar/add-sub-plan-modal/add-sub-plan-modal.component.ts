@@ -1,7 +1,7 @@
 import { Utils } from 'src/app/services/Utils';
 import { Component, OnInit } from '@angular/core';
-import { MdbModalRef } from 'mdb-angular-ui-kit';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 @Component({
   selector: 'app-add-sub-plan-modal',
   templateUrl: './add-sub-plan-modal.component.html',

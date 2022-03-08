@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Plan, SubPlan } from 'src/app/models/plan.model';
 import { Utils } from 'src/app/services/Utils';
 import { AddSubPlanModalComponent } from '../add-sub-plan-modal/add-sub-plan-modal.component';
-import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-detail-box',

@@ -12,6 +12,7 @@
 
 #calendar-table thead tr {
   background-color: var(--purple-dark);
+  height: 20px;
 }
 
 #calendar-table td {
@@ -105,10 +106,6 @@ td.selected {
   #calendar-table td {
     border: none;
     height: 55px;
-  }
-
-  #calendar-table th {
-    border: none;
   }
 
   #month-title {

@@ -3,12 +3,12 @@ import { PlanService } from './../../services/plan/plan.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AddSubPlanModalComponent } from '../add-sub-plan-modal/add-sub-plan-modal.component';
-import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit';
 import { Plan, SubPlan } from 'src/app/models/plan.model';
 import { PlanDate } from 'src/app/models/plan-date.model';
 import { Utils } from 'src/app/services/Utils';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { EditSubPlanModalComponent } from '../edit-sub-plan-modal/edit-sub-plan-modal.component';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-edit-plan',

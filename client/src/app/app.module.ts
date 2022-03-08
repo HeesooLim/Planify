@@ -16,7 +16,18 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { MonthlyCalendarComponent } from './calendar/monthly-calendar/monthly-calendar.component';
 import { VarDirective } from './services/ng-var.directive';
 import { DetailBoxComponent } from './calendar/detail-box/detail-box.component';
-import { MdbCheckboxModule, MdbCollapseModule, MdbFormsModule, MdbModalConfig, MdbModalModule, MdbModule, MdbPopoverModule, MdbRadioModule, MdbRangeModule, MdbRippleModule, MdbTooltipModule, MdbValidationModule } from 'mdb-angular-ui-kit';
+import { MdbRippleModule } from 'mdb-angular-ui-kit/ripple';
+import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
+import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { MdbModalConfig, MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { MdbPopoverModule } from 'mdb-angular-ui-kit/popover';
+import { MdbRadioModule } from 'mdb-angular-ui-kit/radio';
+import { MdbRangeModule } from 'mdb-angular-ui-kit/range';
+import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
+import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+// import {MdbModule} from 'mdb-angular-ui-kit';
+// import {MdbModalConfig} from 'mdb-angular-ui-kit/forms';
 import { AddPlanComponent } from './calendar/add-plan/add-plan.component';
 import { AddSubPlanModalComponent } from './calendar/add-sub-plan-modal/add-sub-plan-modal.component';
 import { EditPlanComponent } from './calendar/edit-plan/edit-plan.component';
@@ -54,7 +65,7 @@ import { TodoComponent } from './todo/todo.component';
     HttpClientModule,
     AppRoutingModule,
     CoreModule,
-    MdbModule,
+    // MdbModule,
     MdbFormsModule,
     MdbRippleModule,
     MdbCheckboxModule,
@@ -83,7 +94,8 @@ import { TodoComponent } from './todo/todo.component';
       multi: true                           // Provide multiple dependencies for a single token
     },
     Utils,
-    MdbModalConfig],
+    // MdbModalConfig
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
