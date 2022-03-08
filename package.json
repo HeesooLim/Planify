@@ -29,6 +29,7 @@
     "path": "^0.12.7",
     "require-dir": "^1.2.0",
     "rotating-file-stream": "^1.4.3",
+    "typescript": "^4.5.5",
     "uuid": "^8.3.2",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^3.10.0"
