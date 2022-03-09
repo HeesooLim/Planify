@@ -31,7 +31,7 @@ const app = {
   logger: logger,
 };
 
-app.server.use(cors({credentials: true, origin: 'http://localhost:4200'}));
+app.server.use(cors({credentials: true, origin: 'https://fast-shore-66820.herokuapp.com'}));
 
 // Load app modules and controllers
 app.m = app.models = requireDir(app.dir + "/models", { recurse: true });
