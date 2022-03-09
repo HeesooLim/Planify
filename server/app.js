@@ -31,6 +31,8 @@ const app = {
   logger: logger,
 };
 
+app.server.use(cors({credentials: true, origin: 'http://localhost:4200'}));
+
 // Load app modules and controllers
 app.m = app.models = requireDir(app.dir + "/models", { recurse: true });
 app.c = app.controllers = requireDir(app.dir + "/controllers", {
@@ -40,7 +42,6 @@ app.c = app.controllers = requireDir(app.dir + "/controllers", {
 // Configure middleware
 app.server.use(cookieParser());
 app.server.set("view engine", "pug");
-app.server.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.server.use(methodOverride());
 app.server.use(express.json());
 app.server.use(bodyParser.urlencoded({ extended: true }));
