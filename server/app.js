@@ -31,7 +31,15 @@ const app = {
   logger: logger,
 };
 
-app.server.use(cors({credentials: true, origin: 'https://fast-shore-66820.herokuapp.com'}));
+app.server.use(cors({ credentials: true, origin: 'https://fast-shore-66820.herokuapp.com' }));
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+// app.server.use(cors({credentials: true, origin: 'http://localhost:4200'}));
 
 // Load app modules and controllers
 app.m = app.models = requireDir(app.dir + "/models", { recurse: true });
@@ -66,7 +74,7 @@ app.server.use(morgan("dev"));
 
 // Configure routes
 app.router.use("/user", require("./routes/userRouter"));
-app.router.use("/plan", passport.authenticate('jwt', {session: false}), require("./routes/planRouter"));
+app.router.use("/plan", passport.authenticate('jwt', { session: false }), require("./routes/planRouter"));
 
 // App entrypoint
 app.run = function () {
