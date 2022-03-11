@@ -31,14 +31,14 @@ const app = {
   logger: logger,
 };
 
-app.server.use(cors({ credentials: true, origin: 'https://fast-shore-66820.herokuapp.com' }));
-app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-});
+app.server.use(cors({ credentials: true, origin: '/' }));
+// app.use(function (req, res, next) {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+//   res.setHeader('Access-Control-Allow-Credentials', true);
+//   next();
+// });
 // app.server.use(cors({credentials: true, origin: 'http://localhost:4200'}));
 
 // Load app modules and controllers
