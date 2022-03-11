@@ -5,7 +5,6 @@ const Utils = require("../utils/utils");
 const bcrypt = require("bcrypt");
 const { auth, isTokenValid } = require("../routes/auth");
 const http = require("http");
-const config = require("../config/config");
 require("cookie-parser");
 
 exports.isAuthenticated = function (req, res, next) {

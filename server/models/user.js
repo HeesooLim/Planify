@@ -9,7 +9,6 @@ const mongoose = require("mongoose"),
   SALT_WORK_FACTOR = 5;
 const timestamps = require("mongoose-timestamp");
 const jwt = require("jsonwebtoken");
-const config = require("../config/config");
 
 // Schema
 const UserSchema = new mongoose.Schema(
@@ -113,7 +112,7 @@ UserSchema.methods.genToken = (user) => {
       email: user.email,
       id: user._id,
     },
-    config.JWT_SECRET,
+    process.env.JWT_SECRET,
     { expiresIn: "20m" }
   );
 };

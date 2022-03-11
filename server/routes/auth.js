@@ -1,6 +1,5 @@
 const jwt = require("express-jwt");
 const jsonWebToken = require("jsonwebtoken");
-const config = require("../config/config");
 
 const getTokenFromHeaders = (req) => {
   // Get request header
@@ -28,14 +27,14 @@ function (req) {
 exports.auth = {
   // Required token
   required: jwt({
-    secret: config.JWT_SECRET,
+    secret: process.env.JWT_SECRET,
     userProperty: "payload",
     getToken: getTokenFromCookies,
     algorithms: ["HS256"],
   }),
   // Optional token
   optional: jwt({
-    secret: config.JWT_SECRET,
+    secret: process.env.JWT_SECRET,
     userProperty: "payload",
     getToken: getTokenFromCookies,
     credentialsRequired: false,
@@ -53,7 +52,7 @@ exports.isTokenValid = (req) => {
   let token = getTokenFromCookies(req);
   if (token) {
     try {
-      const decoded = jsonWebToken.verify(token, config.JWT_SECRET);
+      const decoded = jsonWebToken.verify(token, process.env.JWT_SECRET);
       if (Date.now() >= decoded.exp * 1000) {
         console.log('Token is expired');
       }

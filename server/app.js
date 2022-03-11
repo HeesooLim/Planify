@@ -12,7 +12,6 @@ const requireDir = require("require-dir");
 const rfs = require("rotating-file-stream");
 const logger = require("./logger")(__filename);
 const session = require("express-session");
-const configVars = require('./config/config');
 const passport = require('passport');
 require("./config/passport");
 
@@ -89,7 +88,7 @@ app.server.use(bodyParser.urlencoded({ extended: true }));
 app.server.disable("etag");
 app.server.use(
   session({
-    secret: configVars.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })
@@ -114,14 +113,14 @@ app.run = function () {
   // Connect to DB
   mongoose.set("useCreateIndex", true);
   mongoose
-    .connect(configVars.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => logger.info("DB connection succesful"))
     .catch((err) => logger.error(err));
 
   // Start the server
   this.server.use(this.router);
   this.server.use("/", express.static(app.clientDir));
-  const port = configVars.PORT || 8080; // set our port
+  const port = process.env.PORT || 8080; // set our port
   this.server.listen(port, () => logger.info("Server started on port " + port));
 };
 
