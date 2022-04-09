@@ -6,44 +6,9 @@
     "auditLog": "/home/heesoolim/Desktop/Projects/Planifie/Planify/server/logs/.efaf5cab35d8f15f183ef90785daf93370593fed-audit.json",
     "files": [
         {
-            "date": 1646772348318,
-            "name": "/home/heesoolim/Desktop/Projects/Planifie/Planify/server/logs/application-2022-03-08-15.log",
-            "hash": "83fb09c704cb7d7d39d5d1cdb7e604f1"
-        },
-        {
-            "date": 1646773290287,
-            "name": "/home/heesoolim/Desktop/Projects/Planifie/Planify/server/logs/application-2022-03-08-16.log",
-            "hash": "90c54b1a6384feb21b65a09e6f7ab063"
-        },
-        {
-            "date": 1646780734444,
-            "name": "/home/heesoolim/Desktop/Projects/Planifie/Planify/server/logs/application-2022-03-08-18.log",
-            "hash": "7f2b309d620c52ac69ad1318736e21c4"
-        },
-        {
-            "date": 1646787549372,
-            "name": "/home/heesoolim/Desktop/Projects/Planifie/Planify/server/logs/application-2022-03-08-19.log",
-            "hash": "d238b6de3a2d5c9c63f0d3df61810a47"
-        },
-        {
-            "date": 1646788638452,
-            "name": "/home/heesoolim/Desktop/Projects/Planifie/Planify/server/logs/application-2022-03-08-20.log",
-            "hash": "1d35cde9ca6ff971e413983f1b93aecb"
-        },
-        {
-            "date": 1647031661888,
-            "name": "/home/heesoolim/Desktop/Projects/Planifie/Planify/server/logs/application-2022-03-11-15.log",
-            "hash": "19458a34ee9970d16ce4a0689a4f6b7c"
-        },
-        {
-            "date": 1647032817212,
-            "name": "/home/heesoolim/Desktop/Projects/Planifie/Planify/server/logs/application-2022-03-11-16.log",
-            "hash": "ab5bd529ba804631750290484ec03107"
-        },
-        {
-            "date": 1647036065983,
-            "name": "/home/heesoolim/Desktop/Projects/Planifie/Planify/server/logs/application-2022-03-11-17.log",
-            "hash": "f2b6804f5c6efde56b596dad9ea4edbb"
+            "date": 1649462437920,
+            "name": "/home/heesoolim/Desktop/Projects/Planifie/Planify/server/logs/application-2022-04-08-20.log",
+            "hash": "bccf645fc1526cf35041d0a97e450e61"
         }
     ]
 }

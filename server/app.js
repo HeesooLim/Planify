@@ -67,7 +67,7 @@ app.c = app.controllers = requireDir(app.dir + "/controllers", {
     optionsSuccessStatus: 200,
     origin: ['https://fast-shore-66820.herokuapp.com', 'http://localhost:4200']
   }));
-  app.server.options('*', cors());
+  // app.server.options('*', cors());
   // app.server.use(function (req, res, next) {
   //     res.header('Access-Control-Allow-Origin', '*');
   //     res.header("Access-Control-Allow-Credentials", "true");

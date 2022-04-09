@@ -11,7 +11,14 @@ export class HomeComponent implements OnInit {
   user: User;
   userName: string;
 
+  todayYear: number;
+  todayMonth: number;
+  todayDate: number;
+
   constructor(private userService: UserService) {
+    this.todayYear = new Date().getFullYear();
+    this.todayMonth = new Date().getMonth() + 1;
+    this.todayDate = new Date().getDate();
   }
 
   ngOnInit() {
