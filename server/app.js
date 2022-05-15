@@ -13,7 +13,7 @@ const rfs = require("rotating-file-stream");
 const logger = require("./logger")(__filename);
 const session = require("express-session");
 const passport = require('passport');
-require("./config/passport");
+// require("./config/passport");
 
 // Load configuration
 const config = requireDir("./config/", { recurse: true });
