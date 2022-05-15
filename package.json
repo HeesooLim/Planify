@@ -21,6 +21,7 @@
     "mongoose-timestamp": "^0.6.0",
     "morgan": "^1.10.0",
     "nodemailer": "^6.6.3",
+    "nodemon": "^2.0.15",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
@@ -34,7 +35,7 @@
   },
   "scripts": {
     "start": "npm run server",
-    "server": "node server/index.js",
+    "server": "nodemon server/index.js",
     "server-dev": "nodemon server",
     "build": "cd client; npm install; npm run build",
     "client": "cd client; npm run start",

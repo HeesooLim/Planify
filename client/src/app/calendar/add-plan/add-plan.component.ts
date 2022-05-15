@@ -130,6 +130,7 @@ export class AddPlanComponent implements OnInit {
     this.selectedPlan.dueDate = data.dueDate;
     this.selectedPlan.priority = data.priority;
 
+    console.log('selectedPlan: ' + this.selectedPlan);
     // Create a Plan object using JSON
     let newPlan = JSON.parse(JSON.stringify(this.selectedPlan));
 
@@ -162,6 +163,7 @@ export class AddPlanComponent implements OnInit {
       if (data) {   // If the data exists
         let subPlanFromJson = JSON.parse(JSON.stringify(data));
 
+        subPlanFromJson.modalIsDone = subPlanFromJson.modalIsDone === null ? false: subPlanFromJson.modalIsDone
         // Create a SubPlan object using the JSON
         let subplan = new SubPlan(subPlanFromJson.modalTitle, subPlanFromJson.modalDescription, subPlanFromJson.modalPriority, subPlanFromJson.modalIsDone);
 

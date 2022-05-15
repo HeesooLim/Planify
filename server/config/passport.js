@@ -43,7 +43,7 @@ passport.use(
 const cookieExtractor = 
 function (req) {
   let token = null;
-  console.log('in cookie extractor!' + req.cookies.token);
+  console.log('in cookie extractor!' + JSON.stringify(req.cookies));
   if (req && req.cookies && req.cookies.token) {
     jwt.verify(req.cookies.token, config.JWT_SECRET, function(err, decoded) {
       if (!err) {

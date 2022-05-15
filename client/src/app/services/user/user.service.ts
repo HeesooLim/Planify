@@ -84,6 +84,8 @@ export class UserService {
     this.http.post<any>('http://localhost:3000/user/login', JSON.stringify(data), this.httpOptions)
       .toPromise()
       .then((a) => {
+        console.log('post done!');
+        
         this.isUserLoggedIn.next({loggedIn: true, user: a.body.firstName});
         this.router.navigate(['']);
       });

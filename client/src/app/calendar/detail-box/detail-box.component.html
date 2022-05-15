@@ -51,7 +51,7 @@
               </label>
             </div>
             <span class="text-light">{{plan.title}}</span>
-            <i *ngIf="plan.subPlans.length > 0" class="fas fa-chevron-left ms-auto" id="arrow-{{i}}"
+            <i *ngIf="plan.subPlans.length > 0" class="fas fa-chevron-left ms-auto text-light" id="arrow-{{i}}"
               (click)="expandPlan(i)"></i>
           </div>
           <p class="mb-1 priority-text fw-light px-3 text-light">PRIORITY:
@@ -88,7 +88,8 @@
                   <input type="checkbox" [checked]="sp.isDone" (change)="updateSubPlan($event, i, subIndex)">
                   <span class="checkbox-checkmark"></span>
                 </label>
-                {{sp.title}}
+                <p class="mb-0 text-light">{{sp.title}}</p>
+                
                 <i (click)="deleteSubPlan(plan, subIndex)" class="fas fa-times fa-xs ms-auto text-purple-muted"></i>
               </li>
             </ul>

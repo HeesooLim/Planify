@@ -139,6 +139,8 @@ exports.addUser = async function (req, res, next) {
 
 // Authenticate the user when trying to login
 exports.tryLoginByEmailAndPw = function (req, res, next) {
+  console.log('in tryLogin func')
+
   // if email does not exist, return response with the status 401
   if (!req.body.email) return Utils.resStatusMsg(res, 401, "email is required");
 

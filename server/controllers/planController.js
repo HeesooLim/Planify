@@ -3,7 +3,7 @@ const passport = require("passport");
 const Utils = require("../utils/utils");
 const { auth, isTokenValid } = require("../routes/auth");
 
-exports.isUserLoggedIn = function(req, res) {
+exports.isUserLoggedIn = function (req, res) {
 
 }
 
@@ -47,7 +47,7 @@ exports.getDataByMonth = function (req, res) {
   // Validate the token and get the decoded value
   let decodedToken = isTokenValid(req);
   console.log(decodedToken);
-  
+
   // Get the year and month from the parameter
   let year = parseInt(req.params.year);
   let month = parseInt(req.params.month - 1);
@@ -108,7 +108,7 @@ exports.getDataByDate = function (req, res) {
 exports.getDataByDateandDays = function (req, res) {
   // Validate the token and get the decoded value
   let decodedToken = isTokenValid(req);
-  
+
   // Get the year and month from the parameter
   let year = parseInt(req.params.year);
   let month = parseInt(req.params.month - 1);
@@ -142,6 +142,7 @@ exports.getDataByDateandDays = function (req, res) {
 };
 
 exports.updatePlan = function (req, res) {
+  console.log('hi heesoo!');
   // Validate the token and get the decoded value
   let decodedToken = isTokenValid(req);
   console.log("subPlans: ", req.body.subPlans);
@@ -172,6 +173,8 @@ exports.updatePlan = function (req, res) {
 exports.addPlan = function (req, res) {
   // Validate the token and get the decoded value
   let decodedToken = isTokenValid(req);
+
+
   // Create a plan using the body
   let plan = {
     userId: decodedToken.id,
@@ -183,11 +186,13 @@ exports.addPlan = function (req, res) {
     subPlans: req.body.subPlans,
   };
 
-  console.log("plan to add: ", plan);
-
   // Insert the plan into the database
   Plan.create(plan, (err, data) => {
-    if (err) return Utils.resStatusMsg(res, 500, "Cannot insert the data");
+
+    if (err) {
+      console.log(err)
+      return Utils.resStatusMsg(res, 500, err.msg)
+    }
     else return res.send(data);
   });
 };

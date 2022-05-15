@@ -63,7 +63,7 @@ app.c = app.controllers = requireDir(app.dir + "/controllers", {
   // app.server.options('*', cors())
   app.server.use(cors({
     credentials: true,
-    methods: 'GET,POST,PATCH,DELETE,OPTIONS',
+    methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
     optionsSuccessStatus: 200,
     origin: ['https://fast-shore-66820.herokuapp.com', 'http://localhost:4200']
   }));
@@ -121,7 +121,8 @@ app.run = function () {
   this.server.use(this.router);
   this.server.use("/", express.static(app.clientDir));
   const port = process.env.PORT || 8080; // set our port
-  this.server.listen(port, () => logger.info("Server started on port " + port));
+  this.server.set('port', port);
+  this.server.listen(this.server.get('port'), () => logger.info("Server started on port " + port));
 };
 
 exports = module.exports = app;

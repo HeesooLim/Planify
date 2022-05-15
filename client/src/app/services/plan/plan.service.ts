@@ -90,9 +90,11 @@ export class PlanService {
    * @return {*} {Observable<HttpResponse<Plan>>} Return the Observable of full HttpResponse of the Plan.
    * @memberof PlanService
    */
-  updatePlan(plan: Plan): Observable<HttpResponse<Plan>> {
+  updatePlan(plan): Observable<HttpResponse<Plan>> {
     /* put(baseUrl, data) */
     /* response type: Plan */
+    console.log('trying to update the plan!' + JSON.stringify(plan));
+    
     return this.http.put<Plan>(`http://localhost:3000/plan/${plan._id}`, JSON.stringify(plan), this.httpOptions);
   }
 

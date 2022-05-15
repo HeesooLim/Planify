@@ -147,6 +147,9 @@ export class Utils {
         progress += 100 / subPlans.length;
       }
     }
+
+    console.log("calculated progress!!" + Math.round(progress));
+    
     return Math.round(progress);
   }
 

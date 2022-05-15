@@ -149,11 +149,14 @@ export class EditPlanComponent implements OnInit {
 
     // Update the plan using the plan service
     this.planService.updatePlan(this.selectedPlan).subscribe(data => {
+      console.log('done!');
+      
       // Refresh the view
-      this.ngOnInit();
+      // this.ngOnInit();
 
+      let currDate = new Date().toISOString().split('T')[0];
       // Go back to the calendar page
-      window.location.href = 'calendar';
+      window.location.href = `calendar/date/${currDate.split('-')[0]}/${currDate.split('-')[1]}`;
     });
   }
 
@@ -173,6 +176,8 @@ export class EditPlanComponent implements OnInit {
       if (data) {
         let subPlanFromJson = JSON.parse(JSON.stringify(data));
 
+        subPlanFromJson.modalIsDone = subPlanFromJson.modalIsDone === null ? false: subPlanFromJson.modalIsDone
+        
         // Using the data, create a new subplan
         let subplan = new SubPlan(subPlanFromJson.modalTitle, subPlanFromJson.modalDescription, subPlanFromJson.modalPriority, subPlanFromJson.modalIsDone);
 
@@ -208,6 +213,8 @@ export class EditPlanComponent implements OnInit {
       }
       else if (data) {
         let subPlanFromJson = JSON.parse(JSON.stringify(data));
+
+        subPlanFromJson.modalIsDone = subPlanFromJson.modalIsDone === null ? false: subPlanFromJson.modalIsDone
 
         // Create a subplan object using the json data
         let subplan = new SubPlan(subPlanFromJson.modalTitle, subPlanFromJson.modalDescription, subPlanFromJson.modalPriority, subPlanFromJson.modalIsDone);

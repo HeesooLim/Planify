@@ -92,6 +92,10 @@ export class DetailBoxComponent implements OnInit {
     let checkBox = event.target;  // clicked checkbox
     let plan = <Plan>this.planDate.plans[planIndex];  // Get the plan using the index
 
+    console.log('target: '+JSON.stringify(checkBox));
+    console.log(checkBox);
+    
+
     // As the checkbox is checked or unchecked, update its value of isDone
     if (checkBox.checked)
       plan.subPlans[subPlanIndex].isDone = true;
@@ -269,7 +273,11 @@ export class DetailBoxComponent implements OnInit {
    */
   updatePlan(plan: Plan) {
     plan.progress = this.utils.calculateProgress(plan);
-    this.planService.updatePlan(plan).subscribe(data => { });
+    
+    this.planService.updatePlan(plan).subscribe(data => {
+      console.log('done!');
+      
+    });
   }
 
   /**
