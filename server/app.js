@@ -27,7 +27,7 @@ const app = {
   server: express(),
   router: express.Router(),
   // clientDir: path.join(__dirname, "./../client/dist/client"),
-  clientDir: path.join(__dirname, "dist/client"),
+  clientDir: path.join(__dirname, "./../client/dist/client"),
   logger: logger,
 };
 

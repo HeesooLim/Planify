@@ -2,3 +2,5 @@ INFO [2022-05-15T21:03:25.045Z] [server/app.js] : Server started on port 3000
 INFO [2022-05-15T21:03:25.453Z] [server/app.js] : DB connection succesful
 INFO [2022-05-15T21:07:58.189Z] [server/app.js] : Server started on port 3000
 INFO [2022-05-15T21:07:58.678Z] [server/app.js] : DB connection succesful
+INFO [2022-05-15T21:12:26.213Z] [server/app.js] : Server started on port 3000
+INFO [2022-05-15T21:12:26.780Z] [server/app.js] : DB connection succesful
