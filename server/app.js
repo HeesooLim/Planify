@@ -137,11 +137,11 @@ mongoose
 // this.server.use(this.router);
 
 
-// this.server.use("/", express.static(app.clientDir));
-// this.server.get('/*', function (req, res) {
-//   res.sendFile('index.html', { root: app.clientDir }
-//   );
-// });
+app.use("/", express.static(app.clientDir));
+app.get('/*', function (req, res) {
+  res.sendFile('index.html', { root: app.clientDir }
+  );
+});
 
 
 // const port = process.env.PORT || 8080; // set our port
