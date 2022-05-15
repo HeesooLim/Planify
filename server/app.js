@@ -13,16 +13,17 @@ const rfs = require("rotating-file-stream");
 const logger = require("./logger")(__filename);
 const session = require("express-session");
 const passport = require('passport');
-// require("./config/passport");
+require("./config/passport");
+require('dotenv').config();
 
 // Load configuration
-const config = requireDir("./config/", { recurse: true });
+// const config = requireDir("./config/", { recurse: true });
 
 mongoose.set("useFindAndModify", false);
 
 // Create an app
 const app = {
-  config: config,
+  // config: config,
   dir: __dirname,
   server: express(),
   router: express.Router(),
@@ -59,26 +60,26 @@ app.c = app.controllers = requireDir(app.dir + "/controllers", {
   recurse: true,
 });
 
-  // handle cors error
-  // app.server.use(cors({ credentials: true, origin: 'http://localhost:3000/user/authenticated' }));
-  // app.server.options('*', cors())
-  app.server.use(cors({
-    credentials: true,
-    methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
-    optionsSuccessStatus: 200,
-    origin: ['https://planifie-heesoo.herokuapp.com', 'http://localhost:4200']
-  }));
-  // app.server.options('*', cors());
-  // app.server.use(function (req, res, next) {
-  //     res.header('Access-Control-Allow-Origin', '*');
-  //     res.header("Access-Control-Allow-Credentials", "true");
-  //     res.header(
-  //       "Access-Control-Allow-Headers",
-  //       "Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With"
-  //     );
-  //     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  //     next();
-  //   });
+// handle cors error
+// app.server.use(cors({ credentials: true, origin: 'http://localhost:3000/user/authenticated' }));
+// app.server.options('*', cors())
+app.server.use(cors({
+  credentials: true,
+  methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
+  optionsSuccessStatus: 200,
+  origin: ['https://planifie-heesoo.herokuapp.com', 'http://localhost:4200']
+}));
+// app.server.options('*', cors());
+// app.server.use(function (req, res, next) {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header("Access-Control-Allow-Credentials", "true");
+//     res.header(
+//       "Access-Control-Allow-Headers",
+//       "Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With"
+//     );
+//     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//     next();
+//   });
 
 // Configure middleware
 app.server.use(cookieParser());
@@ -121,6 +122,10 @@ app.run = function () {
   // Start the server
   this.server.use(this.router);
   this.server.use("/", express.static(app.clientDir));
+  this.server.get('/*', function (req, res) {
+    res.sendFile('index.html', { root: app.clientDir }
+    );
+  });
   // const port = process.env.PORT || 8080; // set our port
   // this.server.set('port', port);
   // this.server.listen(this.server.get('port'), () => logger.info("Server started on port " + port));

@@ -2,11 +2,12 @@ const User = require("../models/user");
 const passport = require("passport");
 // const passportJWT = require("passport-jwt");
 const passportJWT = require("passport-jwt");
-const JWTStrategy = passportJWT.Strategy;
+const JWTStrategy_ = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
 const LocalStrategy = require("passport-local");
-const config = require("./config");
+// const config = require("./config");
 const jwt = require('jsonwebtoken');
+require('dotenv').config({path:__dirname+'/./../../.env'});
 require('cookie-parser');
 
 // passport Local strategy
@@ -46,7 +47,7 @@ function (req) {
   let token = null;
   console.log('in cookie extractor!' + JSON.stringify(req.cookies));
   if (req && req.cookies && req.cookies.token) {
-    jwt.verify(req.cookies.token, config.JWT_SECRET, function(err, decoded) {
+    jwt.verify(req.cookies.token, process.env.JWT_SECRET, function(err, decoded) {
       if (!err) {
         token = req.cookies.token;
       } 
@@ -57,11 +58,11 @@ function (req) {
 
 // passport jwt strategy
 passport.use(
-  new JWTStrategy(
+  new JWTStrategy_(
     {
       // Get the token from the cookie
       jwtFromRequest: cookieExtractor,
-      secretOrKey: config.JWT_SECRET,
+      secretOrKey: process.env.JWT_SECRET,
     },
     function (jwtPayload, done) {
       console.log("looking for the user with token: " + JSON.stringify(jwtPayload));

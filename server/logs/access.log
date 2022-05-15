@@ -2140,3 +2140,7 @@
 ::1 - - [15/May/2022:21:20:37 +0000] "GET /user HTTP/1.1" 200 111 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
 ::1 - - [15/May/2022:21:20:52 +0000] "POST /user/authenticated HTTP/1.1" 200 35 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
 ::1 - - [15/May/2022:21:20:52 +0000] "GET /user HTTP/1.1" 200 111 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36"
+::ffff:127.0.0.1 - - [15/May/2022:21:23:52 +0000] "POST /user/authenticated HTTP/1.1" 200 35 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"
+::ffff:127.0.0.1 - - [15/May/2022:21:23:52 +0000] "GET /user HTTP/1.1" 200 111 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"
+::ffff:127.0.0.1 - - [15/May/2022:21:23:56 +0000] "POST /user/authenticated HTTP/1.1" 200 35 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"
+::ffff:127.0.0.1 - - [15/May/2022:21:23:59 +0000] "POST /user/authenticated HTTP/1.1" 200 35 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"

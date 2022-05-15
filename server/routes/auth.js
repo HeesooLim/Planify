@@ -1,5 +1,6 @@
 const jwt = require("express-jwt");
 const jsonWebToken = require("jsonwebtoken");
+require('dotenv').config({path:__dirname+'/./../../.env'});
 
 const getTokenFromHeaders = (req) => {
   // Get request header
@@ -27,6 +28,7 @@ function (req) {
 exports.auth = {
   // Required token
   required: jwt({
+    // secret: "We all make them, the difference is what we do after we make the mistake, how we see the mistake - a learning experience or a failure",
     secret: process.env.JWT_SECRET,
     userProperty: "payload",
     getToken: getTokenFromCookies,
@@ -34,6 +36,7 @@ exports.auth = {
   }),
   // Optional token
   optional: jwt({
+    // secret: "We all make them, the difference is what we do after we make the mistake, how we see the mistake - a learning experience or a failure",
     secret: process.env.JWT_SECRET,
     userProperty: "payload",
     getToken: getTokenFromCookies,
