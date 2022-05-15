@@ -1,4 +1,5 @@
 // Load modules
+let http = require("http");
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -31,6 +32,7 @@ const app = {
   clientDir: path.join(__dirname, "./../client/dist/client"),
   logger: logger,
 };
+let httpServer = http.createServer(app.server);
 
 
 // handle cors error
@@ -130,7 +132,10 @@ app.run = function () {
   // this.server.set('port', port);
   // this.server.listen(this.server.get('port'), () => logger.info("Server started on port " + port));
   const port = process.env.PORT || 8080; // set our port
-  this.server.listen(port, () => logger.info("Server started on port " + port));
+  // this.server.listen(port, () => logger.info("Server started on port " + port));
+  httpServer.listen(port, () => {
+    console.log(`Port listening on ${port}`)
+  })
 };
 
 exports = module.exports = app;
