@@ -120,9 +120,11 @@ app.run = function () {
   // Start the server
   this.server.use(this.router);
   this.server.use("/", express.static(app.clientDir));
+  // const port = process.env.PORT || 8080; // set our port
+  // this.server.set('port', port);
+  // this.server.listen(this.server.get('port'), () => logger.info("Server started on port " + port));
   const port = process.env.PORT || 8080; // set our port
-  this.server.set('port', port);
-  this.server.listen(this.server.get('port'), () => logger.info("Server started on port " + port));
+  this.server.listen(port, () => logger.info("Server started on port " + port));
 };
 
 exports = module.exports = app;
