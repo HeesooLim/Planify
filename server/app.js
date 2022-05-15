@@ -65,7 +65,7 @@ app.c = app.controllers = requireDir(app.dir + "/controllers", {
     credentials: true,
     methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
     optionsSuccessStatus: 200,
-    origin: ['https://fast-shore-66820.herokuapp.com', 'http://localhost:4200']
+    origin: ['https://planifie-heesoo.herokuapp.com', 'http://localhost:4200']
   }));
   // app.server.options('*', cors());
   // app.server.use(function (req, res, next) {
