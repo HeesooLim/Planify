@@ -68,23 +68,23 @@ let server = http.createServer(app);
 // handle cors error
 // app.server.use(cors({ credentials: true, origin: 'http://localhost:3000/user/authenticated' }));
 // app.server.options('*', cors())
-app.use(cors({
-  credentials: true,
-  methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
-  optionsSuccessStatus: 200,
-  origin: ['https://planifie-heesoo.herokuapp.com', 'http://localhost:4200']
-}));
+// app.use(cors({
+//   credentials: true,
+//   methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
+//   optionsSuccessStatus: 200,
+//   origin: ['https://planifie-heesoo.herokuapp.com', 'http://localhost:4200']
+// }));
 
-// app.use(function (req, res, next) {
-// 	res.header("Access-Control-Allow-Origin", "*")
-// 	res.header("Access-Control-Allow-Credentials", "true")
-// 	res.header(
-// 		"Access-Control-Allow-Headers",
-// 		"Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With"
-// 	)
-// 	res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-// 	next()
-// })
+app.use(function (req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*")
+	res.header("Access-Control-Allow-Credentials", "true")
+	res.header(
+		"Access-Control-Allow-Headers",
+		"Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With"
+	)
+	res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+	next()
+})
 // app.server.options('*', cors());
 // app.server.use(function (req, res, next) {
 //     res.header('Access-Control-Allow-Origin', '*');

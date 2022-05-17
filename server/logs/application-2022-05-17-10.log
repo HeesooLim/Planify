@@ -10,3 +10,6 @@ INFO [2022-05-17T14:17:27.397Z] [server/app.js] : DB connection succesful
 INFO [2022-05-17T14:18:00.961Z] [server/app.js] : DB connection succesful
 INFO [2022-05-17T14:18:04.754Z] [server/app.js] : DB connection succesful
 INFO [2022-05-17T14:18:13.144Z] [server/app.js] : DB connection succesful
+INFO [2022-05-17T14:50:38.573Z] [server/app.js] : DB connection succesful
+INFO [2022-05-17T14:51:45.354Z] [server/app.js] : DB connection succesful
+INFO [2022-05-17T14:51:59.086Z] [server/app.js] : DB connection succesful
