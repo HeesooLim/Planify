@@ -11,19 +11,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _todo_todo_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo/todo.component */ 3805);
-/* harmony import */ var _user_email_verification_email_verification_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user/email-verification/email-verification.component */ 7559);
-/* harmony import */ var _error_error_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./error/error.component */ 9983);
-/* harmony import */ var _user_register_register_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user/register/register.component */ 2859);
-/* harmony import */ var _user_login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user/login/login.component */ 4270);
-/* harmony import */ var _user_user_user_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user/user/user.component */ 2121);
-/* harmony import */ var _calendar_edit_plan_edit_plan_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./calendar/edit-plan/edit-plan.component */ 8903);
-/* harmony import */ var _calendar_add_plan_add_plan_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./calendar/add-plan/add-plan.component */ 6491);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ 2816);
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./home/home.component */ 5067);
-/* harmony import */ var _calendar_calendar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./calendar/calendar.component */ 6304);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ 3184);
-
+/* harmony import */ var _user_email_verification_email_verification_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user/email-verification/email-verification.component */ 7559);
+/* harmony import */ var _error_error_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error/error.component */ 9983);
+/* harmony import */ var _user_register_register_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user/register/register.component */ 2859);
+/* harmony import */ var _user_login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user/login/login.component */ 4270);
+/* harmony import */ var _user_user_user_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user/user/user.component */ 2121);
+/* harmony import */ var _calendar_edit_plan_edit_plan_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./calendar/edit-plan/edit-plan.component */ 8903);
+/* harmony import */ var _calendar_add_plan_add_plan_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./calendar/add-plan/add-plan.component */ 6491);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ 2816);
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ 5067);
+/* harmony import */ var _calendar_calendar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./calendar/calendar.component */ 6304);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 3184);
 
 
 
@@ -37,30 +35,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_8__.HomeComponent },
+    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_7__.HomeComponent },
     { path: 'home', redirectTo: '/', pathMatch: 'full' },
     {
         path: 'calendar',
         children: [
-            { path: 'date/:year/:month', component: _calendar_calendar_component__WEBPACK_IMPORTED_MODULE_9__.CalendarComponent },
-            { path: 'addPlan/:year/:month/:date', component: _calendar_add_plan_add_plan_component__WEBPACK_IMPORTED_MODULE_7__.AddPlanComponent },
-            { path: 'editPlan/:planId', component: _calendar_edit_plan_edit_plan_component__WEBPACK_IMPORTED_MODULE_6__.EditPlanComponent }
+            { path: 'date/:year/:month', component: _calendar_calendar_component__WEBPACK_IMPORTED_MODULE_8__.CalendarComponent },
+            { path: 'addPlan/:year/:month/:date', component: _calendar_add_plan_add_plan_component__WEBPACK_IMPORTED_MODULE_6__.AddPlanComponent },
+            { path: 'editPlan/:planId', component: _calendar_edit_plan_edit_plan_component__WEBPACK_IMPORTED_MODULE_5__.EditPlanComponent }
         ]
     },
-    { path: 'todo/:year/:month/:date', component: _todo_todo_component__WEBPACK_IMPORTED_MODULE_0__.TodoComponent },
-    { path: 'user/:userId', component: _user_user_user_component__WEBPACK_IMPORTED_MODULE_5__.UserComponent },
-    { path: 'login', component: _user_login_login_component__WEBPACK_IMPORTED_MODULE_4__.LoginComponent },
-    { path: 'verify/:email', component: _user_email_verification_email_verification_component__WEBPACK_IMPORTED_MODULE_1__.EmailVerificationComponent },
-    { path: 'verify/:email/:uuid', component: _user_email_verification_email_verification_component__WEBPACK_IMPORTED_MODULE_1__.EmailVerificationComponent },
-    { path: 'register', component: _user_register_register_component__WEBPACK_IMPORTED_MODULE_3__.RegisterComponent },
-    { path: '**', component: _error_error_component__WEBPACK_IMPORTED_MODULE_2__.ErrorComponent }
+    { path: 'user/:userId', component: _user_user_user_component__WEBPACK_IMPORTED_MODULE_4__.UserComponent },
+    { path: 'login', component: _user_login_login_component__WEBPACK_IMPORTED_MODULE_3__.LoginComponent },
+    { path: 'verify/:email', component: _user_email_verification_email_verification_component__WEBPACK_IMPORTED_MODULE_0__.EmailVerificationComponent },
+    { path: 'verify/:email/:uuid', component: _user_email_verification_email_verification_component__WEBPACK_IMPORTED_MODULE_0__.EmailVerificationComponent },
+    { path: 'register', component: _user_register_register_component__WEBPACK_IMPORTED_MODULE_2__.RegisterComponent },
+    { path: '**', component: _error_error_component__WEBPACK_IMPORTED_MODULE_1__.ErrorComponent }
 ];
 class AppRoutingModule {
 }
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
-AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_11__.RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })], _angular_router__WEBPACK_IMPORTED_MODULE_11__.RouterModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_11__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_11__.RouterModule] }); })();
+AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
+AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })], _angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterModule] }); })();
 
 
 /***/ }),
@@ -114,30 +111,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _services_auth_auth_intercepter_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./services/auth/auth-intercepter.service */ 901);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app-routing.module */ 158);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/common/http */ 8784);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/platform-browser */ 318);
-/* harmony import */ var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @fortawesome/angular-fontawesome */ 398);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/common/http */ 8784);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/platform-browser */ 318);
+/* harmony import */ var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @fortawesome/angular-fontawesome */ 398);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ 5041);
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./core/core.module */ 294);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home/home.component */ 5067);
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/platform-browser/animations */ 3598);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/forms */ 587);
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/platform-browser/animations */ 3598);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/forms */ 587);
 /* harmony import */ var _services_Utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/Utils */ 8880);
 /* harmony import */ var _calendar_calendar_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./calendar/calendar.component */ 6304);
 /* harmony import */ var _calendar_monthly_calendar_monthly_calendar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./calendar/monthly-calendar/monthly-calendar.component */ 2550);
 /* harmony import */ var _services_ng_var_directive__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/ng-var.directive */ 8474);
 /* harmony import */ var _calendar_detail_box_detail_box_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./calendar/detail-box/detail-box.component */ 4559);
 /* harmony import */ var _calendar_add_plan_add_plan_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./calendar/add-plan/add-plan.component */ 6491);
-/* harmony import */ var mdb_angular_ui_kit_ripple__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! mdb-angular-ui-kit/ripple */ 6118);
-/* harmony import */ var mdb_angular_ui_kit_checkbox__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! mdb-angular-ui-kit/checkbox */ 7128);
-/* harmony import */ var mdb_angular_ui_kit_collapse__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! mdb-angular-ui-kit/collapse */ 4452);
-/* harmony import */ var mdb_angular_ui_kit_forms__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! mdb-angular-ui-kit/forms */ 7616);
-/* harmony import */ var mdb_angular_ui_kit_modal__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! mdb-angular-ui-kit/modal */ 8252);
-/* harmony import */ var mdb_angular_ui_kit_popover__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! mdb-angular-ui-kit/popover */ 8091);
-/* harmony import */ var mdb_angular_ui_kit_radio__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! mdb-angular-ui-kit/radio */ 9888);
-/* harmony import */ var mdb_angular_ui_kit_range__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! mdb-angular-ui-kit/range */ 3327);
-/* harmony import */ var mdb_angular_ui_kit_tooltip__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! mdb-angular-ui-kit/tooltip */ 2488);
-/* harmony import */ var mdb_angular_ui_kit_validation__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! mdb-angular-ui-kit/validation */ 7361);
+/* harmony import */ var mdb_angular_ui_kit_ripple__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! mdb-angular-ui-kit/ripple */ 6118);
+/* harmony import */ var mdb_angular_ui_kit_checkbox__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! mdb-angular-ui-kit/checkbox */ 7128);
+/* harmony import */ var mdb_angular_ui_kit_collapse__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! mdb-angular-ui-kit/collapse */ 4452);
+/* harmony import */ var mdb_angular_ui_kit_forms__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! mdb-angular-ui-kit/forms */ 7616);
+/* harmony import */ var mdb_angular_ui_kit_modal__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! mdb-angular-ui-kit/modal */ 8252);
+/* harmony import */ var mdb_angular_ui_kit_popover__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! mdb-angular-ui-kit/popover */ 8091);
+/* harmony import */ var mdb_angular_ui_kit_radio__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! mdb-angular-ui-kit/radio */ 9888);
+/* harmony import */ var mdb_angular_ui_kit_range__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! mdb-angular-ui-kit/range */ 3327);
+/* harmony import */ var mdb_angular_ui_kit_tooltip__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! mdb-angular-ui-kit/tooltip */ 2488);
+/* harmony import */ var mdb_angular_ui_kit_validation__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! mdb-angular-ui-kit/validation */ 7361);
 /* harmony import */ var _calendar_add_sub_plan_modal_add_sub_plan_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./calendar/add-sub-plan-modal/add-sub-plan-modal.component */ 974);
 /* harmony import */ var _calendar_edit_plan_edit_plan_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./calendar/edit-plan/edit-plan.component */ 8903);
 /* harmony import */ var _calendar_edit_sub_plan_modal_edit_sub_plan_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./calendar/edit-sub-plan-modal/edit-sub-plan-modal.component */ 3282);
@@ -147,8 +144,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _error_error_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./error/error.component */ 9983);
 /* harmony import */ var _services_error_interceptor__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/error-interceptor */ 7724);
 /* harmony import */ var _user_email_verification_email_verification_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./user/email-verification/email-verification.component */ 7559);
-/* harmony import */ var _todo_todo_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./todo/todo.component */ 3805);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/core */ 3184);
 
 
 
@@ -187,46 +183,45 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_21__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent] });
-AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_21__["ɵɵdefineInjector"]({ providers: [
+AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_20__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent] });
+AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_20__["ɵɵdefineInjector"]({ providers: [
         {
-            provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_22__.HTTP_INTERCEPTORS,
+            provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_21__.HTTP_INTERCEPTORS,
             useClass: _services_auth_auth_intercepter_service__WEBPACK_IMPORTED_MODULE_0__.AuthIntercepterService,
             multi: true
         },
         {
-            provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_22__.HTTP_INTERCEPTORS,
+            provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_21__.HTTP_INTERCEPTORS,
             useClass: _services_error_interceptor__WEBPACK_IMPORTED_MODULE_18__.ErrorInterceptorService,
             multi: true // Provide multiple dependencies for a single token
         },
         _services_Utils__WEBPACK_IMPORTED_MODULE_5__.Utils,
         // MdbModalConfig
     ], imports: [[
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_23__.BrowserModule,
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_22__.HttpClientModule,
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_22__.BrowserModule,
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_21__.HttpClientModule,
             _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule,
             _core_core_module__WEBPACK_IMPORTED_MODULE_3__.CoreModule,
             // MdbModule,
-            mdb_angular_ui_kit_forms__WEBPACK_IMPORTED_MODULE_24__.MdbFormsModule,
-            mdb_angular_ui_kit_ripple__WEBPACK_IMPORTED_MODULE_25__.MdbRippleModule,
-            mdb_angular_ui_kit_checkbox__WEBPACK_IMPORTED_MODULE_26__.MdbCheckboxModule,
-            mdb_angular_ui_kit_modal__WEBPACK_IMPORTED_MODULE_27__.MdbModalModule,
-            mdb_angular_ui_kit_radio__WEBPACK_IMPORTED_MODULE_28__.MdbRadioModule,
-            mdb_angular_ui_kit_range__WEBPACK_IMPORTED_MODULE_29__.MdbRangeModule,
-            mdb_angular_ui_kit_validation__WEBPACK_IMPORTED_MODULE_30__.MdbValidationModule,
-            mdb_angular_ui_kit_collapse__WEBPACK_IMPORTED_MODULE_31__.MdbCollapseModule,
-            mdb_angular_ui_kit_popover__WEBPACK_IMPORTED_MODULE_32__.MdbPopoverModule,
-            mdb_angular_ui_kit_tooltip__WEBPACK_IMPORTED_MODULE_33__.MdbTooltipModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_34__.FormsModule,
-            _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_35__.FontAwesomeModule,
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_36__.BrowserAnimationsModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_34__.ReactiveFormsModule,
+            mdb_angular_ui_kit_forms__WEBPACK_IMPORTED_MODULE_23__.MdbFormsModule,
+            mdb_angular_ui_kit_ripple__WEBPACK_IMPORTED_MODULE_24__.MdbRippleModule,
+            mdb_angular_ui_kit_checkbox__WEBPACK_IMPORTED_MODULE_25__.MdbCheckboxModule,
+            mdb_angular_ui_kit_modal__WEBPACK_IMPORTED_MODULE_26__.MdbModalModule,
+            mdb_angular_ui_kit_radio__WEBPACK_IMPORTED_MODULE_27__.MdbRadioModule,
+            mdb_angular_ui_kit_range__WEBPACK_IMPORTED_MODULE_28__.MdbRangeModule,
+            mdb_angular_ui_kit_validation__WEBPACK_IMPORTED_MODULE_29__.MdbValidationModule,
+            mdb_angular_ui_kit_collapse__WEBPACK_IMPORTED_MODULE_30__.MdbCollapseModule,
+            mdb_angular_ui_kit_popover__WEBPACK_IMPORTED_MODULE_31__.MdbPopoverModule,
+            mdb_angular_ui_kit_tooltip__WEBPACK_IMPORTED_MODULE_32__.MdbTooltipModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_33__.FormsModule,
+            _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_34__.FontAwesomeModule,
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_35__.BrowserAnimationsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_33__.ReactiveFormsModule,
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_21__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_20__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__.AppComponent,
         _home_home_component__WEBPACK_IMPORTED_MODULE_4__.HomeComponent,
         _calendar_calendar_component__WEBPACK_IMPORTED_MODULE_6__.CalendarComponent,
         _calendar_monthly_calendar_monthly_calendar_component__WEBPACK_IMPORTED_MODULE_7__.MonthlyCalendarComponent,
@@ -240,26 +235,25 @@ AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_21__["ɵ�
         _user_login_login_component__WEBPACK_IMPORTED_MODULE_15__.LoginComponent,
         _user_register_register_component__WEBPACK_IMPORTED_MODULE_16__.RegisterComponent,
         _error_error_component__WEBPACK_IMPORTED_MODULE_17__.ErrorComponent,
-        _user_email_verification_email_verification_component__WEBPACK_IMPORTED_MODULE_19__.EmailVerificationComponent,
-        _todo_todo_component__WEBPACK_IMPORTED_MODULE_20__.TodoComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_23__.BrowserModule,
-        _angular_common_http__WEBPACK_IMPORTED_MODULE_22__.HttpClientModule,
+        _user_email_verification_email_verification_component__WEBPACK_IMPORTED_MODULE_19__.EmailVerificationComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_22__.BrowserModule,
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_21__.HttpClientModule,
         _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule,
         _core_core_module__WEBPACK_IMPORTED_MODULE_3__.CoreModule,
         // MdbModule,
-        mdb_angular_ui_kit_forms__WEBPACK_IMPORTED_MODULE_24__.MdbFormsModule,
-        mdb_angular_ui_kit_ripple__WEBPACK_IMPORTED_MODULE_25__.MdbRippleModule,
-        mdb_angular_ui_kit_checkbox__WEBPACK_IMPORTED_MODULE_26__.MdbCheckboxModule,
-        mdb_angular_ui_kit_modal__WEBPACK_IMPORTED_MODULE_27__.MdbModalModule,
-        mdb_angular_ui_kit_radio__WEBPACK_IMPORTED_MODULE_28__.MdbRadioModule,
-        mdb_angular_ui_kit_range__WEBPACK_IMPORTED_MODULE_29__.MdbRangeModule,
-        mdb_angular_ui_kit_validation__WEBPACK_IMPORTED_MODULE_30__.MdbValidationModule,
-        mdb_angular_ui_kit_collapse__WEBPACK_IMPORTED_MODULE_31__.MdbCollapseModule,
-        mdb_angular_ui_kit_popover__WEBPACK_IMPORTED_MODULE_32__.MdbPopoverModule,
-        mdb_angular_ui_kit_tooltip__WEBPACK_IMPORTED_MODULE_33__.MdbTooltipModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_34__.FormsModule,
-        _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_35__.FontAwesomeModule,
-        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_36__.BrowserAnimationsModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_34__.ReactiveFormsModule] }); })();
+        mdb_angular_ui_kit_forms__WEBPACK_IMPORTED_MODULE_23__.MdbFormsModule,
+        mdb_angular_ui_kit_ripple__WEBPACK_IMPORTED_MODULE_24__.MdbRippleModule,
+        mdb_angular_ui_kit_checkbox__WEBPACK_IMPORTED_MODULE_25__.MdbCheckboxModule,
+        mdb_angular_ui_kit_modal__WEBPACK_IMPORTED_MODULE_26__.MdbModalModule,
+        mdb_angular_ui_kit_radio__WEBPACK_IMPORTED_MODULE_27__.MdbRadioModule,
+        mdb_angular_ui_kit_range__WEBPACK_IMPORTED_MODULE_28__.MdbRangeModule,
+        mdb_angular_ui_kit_validation__WEBPACK_IMPORTED_MODULE_29__.MdbValidationModule,
+        mdb_angular_ui_kit_collapse__WEBPACK_IMPORTED_MODULE_30__.MdbCollapseModule,
+        mdb_angular_ui_kit_popover__WEBPACK_IMPORTED_MODULE_31__.MdbPopoverModule,
+        mdb_angular_ui_kit_tooltip__WEBPACK_IMPORTED_MODULE_32__.MdbTooltipModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_33__.FormsModule,
+        _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_34__.FontAwesomeModule,
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_35__.BrowserAnimationsModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_33__.ReactiveFormsModule] }); })();
 
 
 /***/ }),
@@ -2522,15 +2516,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function HeaderComponent_a_21_Template(rf, ctx) { if (rf & 1) {
+function HeaderComponent_a_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "a", 15);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "Login");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } }
-function HeaderComponent_button_22_Template(rf, ctx) { if (rf & 1) {
+function HeaderComponent_button_19_Template(rf, ctx) { if (rf & 1) {
     const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "button", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function HeaderComponent_button_22_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](); return ctx_r2.logout(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function HeaderComponent_button_19_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](); return ctx_r2.logout(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "Logout");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } }
@@ -2607,7 +2601,7 @@ class HeaderComponent {
     }
 }
 HeaderComponent.ɵfac = function HeaderComponent_Factory(t) { return new (t || HeaderComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_Utils__WEBPACK_IMPORTED_MODULE_0__.Utils), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_1__.UserService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router)); };
-HeaderComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: HeaderComponent, selectors: [["app-header"]], decls: 23, vars: 8, consts: [[1, "navbar", "navbar-expand-lg", "navbar-dark", "bg-transparent", "shadow-0", "fixed-top"], [1, "container-fluid"], ["href", "/", 1, "navbar-brand"], ["src", "assets\\img\\logo-with-bg.png", "alt", "logo of Planify", "width", "100"], ["type", "button", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler", 3, "click"], [1, "fas", "fa-bars"], ["id", "navbarSupportedContent", "mdbCollapse", "", 1, "collapse", "navbar-collapse"], [1, "navbar-nav", "ms-auto", "mb-2", "mb-lg-0", "align-items-center"], [1, "nav-item"], ["aria-current", "page", "href", "/", 1, "nav-link", "active"], [1, "nav-link", 3, "href"], ["href", "#", "tabindex", "-1", "aria-disabled", "true", 1, "nav-link", "disabled"], [1, "nav-item", "ms-lg-4"], ["class", "btn btn-sm btn-outline-warning", "href", "login", "aria-current", "page", "mdbRipple", "", 4, "ngIf"], ["class", "btn btn-sm btn-outline-warning", "aria-current", "page", "mdbRipple", "", 3, "click", 4, "ngIf"], ["href", "login", "aria-current", "page", "mdbRipple", "", 1, "btn", "btn-sm", "btn-outline-warning"], ["aria-current", "page", "mdbRipple", "", 1, "btn", "btn-sm", "btn-outline-warning", 3, "click"]], template: function HeaderComponent_Template(rf, ctx) { if (rf & 1) {
+HeaderComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: HeaderComponent, selectors: [["app-header"]], decls: 20, vars: 5, consts: [[1, "navbar", "navbar-expand-lg", "navbar-dark", "bg-transparent", "shadow-0", "fixed-top"], [1, "container-fluid"], ["href", "/", 1, "navbar-brand"], ["src", "assets\\img\\logo-with-bg.png", "alt", "logo of Planify", "width", "100"], ["type", "button", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler", 3, "click"], [1, "fas", "fa-bars"], ["id", "navbarSupportedContent", "mdbCollapse", "", 1, "collapse", "navbar-collapse"], [1, "navbar-nav", "ms-auto", "mb-2", "mb-lg-0", "align-items-center"], [1, "nav-item"], ["aria-current", "page", "href", "/", 1, "nav-link", "active"], [1, "nav-link", 3, "href"], ["href", "#", "tabindex", "-1", "aria-disabled", "true", 1, "nav-link", "disabled"], [1, "nav-item", "ms-lg-4"], ["class", "btn btn-sm btn-outline-warning", "href", "login", "aria-current", "page", "mdbRipple", "", 4, "ngIf"], ["class", "btn btn-sm btn-outline-warning", "aria-current", "page", "mdbRipple", "", 3, "click", 4, "ngIf"], ["href", "login", "aria-current", "page", "mdbRipple", "", 1, "btn", "btn-sm", "btn-outline-warning"], ["aria-current", "page", "mdbRipple", "", 1, "btn", "btn-sm", "btn-outline-warning", 3, "click"]], template: function HeaderComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "nav", 0)(1, "div", 1)(2, "a", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](3, "img", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -2619,22 +2613,17 @@ HeaderComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](10, "Home");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "li", 8)(12, "a", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](13, "Todo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](13, "Calendar");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "li", 8)(15, "a", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](16, "Calendar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "li", 8)(15, "a", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](16);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "li", 8)(18, "a", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](20, "li", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](21, HeaderComponent_a_21_Template, 2, 0, "a", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](22, HeaderComponent_button_22_Template, 2, 0, "button", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "li", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](18, HeaderComponent_a_18_Template, 2, 0, "a", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](19, HeaderComponent_button_19_Template, 2, 0, "button", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()()()();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpropertyInterpolate3"]("href", "todo/", ctx.todayYear, "/", ctx.todayMonth, "/", ctx.todayDate, "", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsanitizeUrl"]);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpropertyInterpolate2"]("href", "calendar/date/", ctx.todayYear, "/", ctx.todayMonth, "", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsanitizeUrl"]);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", ctx.loginName, " ");
@@ -3263,7 +3252,7 @@ class PlanService {
      * @memberof PlanService
      */
     getData() {
-        return this.http.get(`http://localhost:3000/plan/${this.year}/${this.month.padStart(2, '0')}`);
+        return this.http.get(`/plan/${this.year}/${this.month.padStart(2, '0')}`);
     }
     /**
      * Get all plans belong to the user in the given month.
@@ -3274,8 +3263,8 @@ class PlanService {
      */
     getDataByMonth(date) {
         let month = date.getMonth() + 1;
-        console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}`);
-        return this.http.get(`http://localhost:3000/plan/${date.getFullYear()}/${month}`, this.httpOptions);
+        console.log(`/plan/${date.getFullYear()}/${month}`);
+        return this.http.get(`/plan/${date.getFullYear()}/${month}`, this.httpOptions);
     }
     /**
      * Get the plans belong to the user in the given date.
@@ -3286,8 +3275,8 @@ class PlanService {
      */
     getDataByDate(date) {
         let month = date.getMonth() + 1;
-        console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}`);
-        return this.http.get(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}`, this.httpOptions);
+        console.log(`/plan/${date.getFullYear()}/${month}/${date.getDate()}`);
+        return this.http.get(`/plan/${date.getFullYear()}/${month}/${date.getDate()}`, this.httpOptions);
     }
     /**
      * Get a plan by the planId.
@@ -3297,7 +3286,7 @@ class PlanService {
      * @memberof PlanService
      */
     getDataById(id) {
-        return this.http.get(`http://localhost:3000/plan/edit/${id}`, this.httpOptions);
+        return this.http.get(`/plan/edit/${id}`, this.httpOptions);
     }
     /**
      * Get plans between two dates.
@@ -3310,8 +3299,8 @@ class PlanService {
     getDataByDateAndDays(date, days) {
         //router.get("/:year/:month/:date/:day", auth.required, planController.getDataByDateandDays);
         let month = date.getMonth() + 1;
-        console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}/${days}`);
-        return this.http.get(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}/${days}`, this.httpOptions);
+        console.log(`/plan/${date.getFullYear()}/${month}/${date.getDate()}/${days}`);
+        return this.http.get(`/plan/${date.getFullYear()}/${month}/${date.getDate()}/${days}`, this.httpOptions);
     }
     /**
      * Update a plan sending the PUT request.
@@ -3324,7 +3313,7 @@ class PlanService {
         /* put(baseUrl, data) */
         /* response type: Plan */
         console.log('trying to update the plan!' + JSON.stringify(plan));
-        return this.http.put(`http://localhost:3000/plan/${plan._id}`, JSON.stringify(plan), this.httpOptions);
+        return this.http.put(`/plan/${plan._id}`, JSON.stringify(plan), this.httpOptions);
     }
     /**
      * Add a plan to the database sending the POST request.
@@ -3334,7 +3323,7 @@ class PlanService {
      * @memberof PlanService
      */
     addPlan(plan) {
-        return this.http.post('http://localhost:3000/plan', JSON.stringify(plan), this.httpOptions);
+        return this.http.post('/plan', JSON.stringify(plan), this.httpOptions);
     }
     /**
      * Add a plan to the database sending the POST request.
@@ -3344,7 +3333,7 @@ class PlanService {
      * @memberof PlanService
      */
     deletePlan(id) {
-        return this.http.delete(`http://localhost:3000/plan/${id}`, this.httpOptions);
+        return this.http.delete(`/plan/${id}`, this.httpOptions);
     }
 }
 PlanService.ɵfac = function PlanService_Factory(t) { return new (t || PlanService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_0__.HttpClient)); };
@@ -3391,7 +3380,7 @@ class UserService {
      * @memberof UserService
      */
     isAuthenticated() {
-        return this.http.post('http://localhost:3000/user/authenticated', this.httpOptions).toPromise()
+        return this.http.post('/user/authenticated', this.httpOptions).toPromise()
             .then((a) => {
             console.log(a);
             if (Boolean(a.authenticated)) {
@@ -3408,7 +3397,7 @@ class UserService {
      * @memberof UserService
      */
     getData() {
-        return this.http.get('http://localhost:3000/user', this.httpOptions);
+        return this.http.get('/user', this.httpOptions);
     }
     /**
      * Add a new user to the database by sending a post request.
@@ -3419,7 +3408,7 @@ class UserService {
      */
     addUser(data) {
         console.log(JSON.stringify(data));
-        return this.http.post('http://localhost:3000/user/register', JSON.stringify(data), { headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__.HttpHeaders().set('Content-Type', 'application/json') });
+        return this.http.post('/user/register', JSON.stringify(data), { headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__.HttpHeaders().set('Content-Type', 'application/json') });
     }
     /**
      * Get a user by the email.
@@ -3430,7 +3419,7 @@ class UserService {
      */
     getUserByEmail(email) {
         console.log(JSON.stringify(email));
-        return this.http.get(`http://localhost:3000/user/${email}`);
+        return this.http.get(`/user/${email}`);
     }
     /**
      * Login and get the user logged in.
@@ -3440,7 +3429,7 @@ class UserService {
      * @memberof UserService
      */
     tryLogin(data) {
-        this.http.post('http://localhost:3000/user/login', JSON.stringify(data), this.httpOptions)
+        this.http.post('/user/login', JSON.stringify(data), this.httpOptions)
             .toPromise()
             .then((a) => {
             console.log('post done!');
@@ -3456,7 +3445,7 @@ class UserService {
      * @memberof UserService
      */
     tryLogout() {
-        this.http.post('http://localhost:3000/user/logout', this.httpOptions)
+        this.http.post('/user/logout', this.httpOptions)
             .toPromise()
             .then((a) => {
             this.isUserLoggedIn.next({ loggedIn: false, user: a.firstName });
@@ -3467,230 +3456,6 @@ class UserService {
 }
 UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__.HttpClient), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router)); };
 UserService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: UserService, factory: UserService.ɵfac, providedIn: 'root' });
-
-
-/***/ }),
-
-/***/ 3805:
-/*!****************************************!*\
-  !*** ./src/app/todo/todo.component.ts ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "TodoComponent": () => (/* binding */ TodoComponent)
-/* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 3184);
-/* harmony import */ var _services_Utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/Utils */ 8880);
-/* harmony import */ var src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/user/user.service */ 9709);
-/* harmony import */ var _services_plan_plan_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../services/plan/plan.service */ 1350);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 2816);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 6362);
-/* harmony import */ var mdb_angular_ui_kit_ripple__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! mdb-angular-ui-kit/ripple */ 6118);
-
-
-
-
-
-
-
-function TodoComponent_div_2_h5_1_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "h5", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    const pd_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]().$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" Due on ", pd_r1.dateString, " ");
-} }
-const _c0 = function () { return ["text-success", "text-warning", "text-danger"]; };
-const _c1 = function () { return ["LOW", "MID", "HIGH"]; };
-function TodoComponent_div_2_ng_container_2_div_1_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 17)(1, "div", 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "div", 19)(4, "div", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](5, "PRIORITY: ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "span", 21);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "div", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
-} if (rf & 2) {
-    const j_r8 = ctx.$implicit;
-    const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"](2);
-    const pd_r1 = ctx_r9.$implicit;
-    const i_r2 = ctx_r9.index;
-    const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate"](pd_r1.plans[j_r8 + 3 * ctx_r7.planPager[i_r2]].title);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction0"](4, _c0)[pd_r1.plans[j_r8].priority - 1]);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction0"](5, _c1)[pd_r1.plans[j_r8].priority - 1], " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate"](pd_r1.plans[j_r8].description);
-} }
-const _c2 = function () { return [0, 1, 2]; };
-function TodoComponent_div_2_ng_container_2_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, TodoComponent_div_2_ng_container_2_div_1_Template, 10, 6, "div", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementContainerEnd"]();
-} if (rf & 2) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction0"](1, _c2));
-} }
-function TodoComponent_div_2_div_3_Template(rf, ctx) { if (rf & 1) {
-    const _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 23)(1, "div", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function TodoComponent_div_2_div_3_Template_div_click_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r12); const i_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]().index; const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"](); return ctx_r10.changePlanPage(i_r2, false); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "i", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "div", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](5, "div", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function TodoComponent_div_2_div_3_Template_div_click_5_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r12); const i_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]().index; const ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"](); return ctx_r13.changePlanPage(i_r2, true); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](6, "i", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-} if (rf & 2) {
-    const ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
-    const i_r2 = ctx_r15.index;
-    const pd_r1 = ctx_r15.$implicit;
-    const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate2"]("", ctx_r5.planPager[i_r2] + 1, "/", pd_r1.maxPage, " page");
-} }
-const _c3 = function () { return ["d-flex", "d-none d-md-flex", "d-none d-lg-flex", "d-none d-xl-flex"]; };
-function TodoComponent_div_2_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, TodoComponent_div_2_h5_1_Template, 2, 1, "h5", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](2, TodoComponent_div_2_ng_container_2_Template, 2, 2, "ng-container", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](3, TodoComponent_div_2_div_3_Template, 7, 2, "div", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    const pd_r1 = ctx.$implicit;
-    const i_r2 = ctx.index;
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction0"](4, _c3)[i_r2]);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", pd_r1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", pd_r1.plans.length > 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", pd_r1.maxPage > 1);
-} }
-class TodoComponent {
-    constructor(utils, userService, planService, route, router) {
-        this.utils = utils;
-        this.userService = userService;
-        this.planService = planService;
-        this.route = route;
-        this.router = router;
-        this.currSerial = 0;
-        this.planPager = [0, 0, 0, 0];
-    }
-    ngOnInit() {
-        // Check if the user is logged in
-        this.userService.isAuthenticated();
-        // Get the parameter from the URL
-        const routeParams = this.route.snapshot.paramMap;
-        // Get the date from the parameter
-        this.paramYear = parseInt(routeParams.get('year'));
-        this.paramMonth = parseInt(routeParams.get('month'));
-        this.paramDate = parseInt(routeParams.get('date'));
-        // Create a date object using the parameter values
-        let date = new Date(this.paramYear, this.paramMonth - 1, this.paramDate);
-        // Split the ISO string to get the date in the format (yyyy-MM-dd)
-        this.dateInputString = date.toISOString().slice(0, 10);
-        // Get the plans from the date for 4 days
-        this.planService.getDataByDateAndDays(date, 4).subscribe(res => {
-            let planDates = this.utils.getNumOfPlanDates(res.body, date, 4);
-            this.planDatesWithDateString = [];
-            // Get the plans in 3 days from the paramDate
-            for (let i = 0; i < 4; i++) {
-                let maxPage = Math.max(Math.ceil(planDates[i].plans.length / 3), 1);
-                this.planDatesWithDateString.push({
-                    plans: planDates[i].plans,
-                    dateString: this.utils.getDateString(date, false),
-                    maxPage: maxPage // Value to be used for the plan pager
-                });
-                // Change the date to the next date
-                date.setDate(date.getDate() + 1);
-            }
-        });
-    }
-    /**
-     * Change the date to see plans in the todo column.
-     *
-     * @param {boolean} changeByInput True if the date is changed by the date input, false if the date is changed by the arrow buttons
-     * @param {number} [daysToAdd=0] Number of days to add (0 by default).
-     * @return {*}
-     * @memberof TodoComponent
-     */
-    changeDate(changeByInput, daysToAdd = 0) {
-        // If the arrow button was clicked
-        if (!changeByInput) {
-            // Create a date object
-            let date = new Date(this.paramYear, this.paramMonth, this.paramDate + daysToAdd);
-            // Redirect to the page with the new parameter values
-            return this.utils.redirectTo(`todo/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`);
-        }
-        else {
-            let dateInput = document.querySelector('#change-date-input');
-            if (dateInput) {
-                // Split the input value by -
-                let inputValues = dateInput.value.split('-');
-                // Redirect to the page with the new parameter values
-                return this.utils.redirectTo(`todo/${inputValues[0]}/${inputValues[1]}/${inputValues[2]}`);
-            }
-        }
-    }
-    /**
-     * Change the page of the plan in the column.
-     *
-     * @param {number} index index of the planDatesWithDateString (column).
-     * @param {boolean} isNext True if the page number should be increased.
-     * @memberof TodoComponent
-     */
-    changePlanPage(index, isNext) {
-        // If next page and current page is less than the max page, add 1 to current page
-        if (isNext && this.planPager[index] < this.planDatesWithDateString[index].maxPage - 1) {
-            this.planPager[index] += 1;
-        }
-        // If not next page and current page is greater than 0, subtract 1 from the current page
-        else if (!isNext && this.planPager[index] > 0) {
-            console.log(this.planPager[index]);
-            this.planPager[index] -= 1;
-        }
-    }
-}
-TodoComponent.ɵfac = function TodoComponent_Factory(t) { return new (t || TodoComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_services_Utils__WEBPACK_IMPORTED_MODULE_0__.Utils), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_1__.UserService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_services_plan_plan_service__WEBPACK_IMPORTED_MODULE_2__.PlanService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.Router)); };
-TodoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: TodoComponent, selectors: [["app-todo"]], decls: 12, vars: 2, consts: [[1, "todo-col-wrapper"], [1, "todo-col-container", "row", "w-100", "ms-0", "px-sm-3", "px-1"], ["class", "me-3 px-3 todo-column col flex-column", 3, "ngClass", 4, "ngFor", "ngForOf"], ["id", "btn-wrapper", 1, "d-flex", "justify-content-center", "align-items-center", "py-3"], ["id", "btn-prev-date", 1, "d-flex", "align-items-center", "rounded-circle", "position-relative", "cursor-pointer", 3, "click"], [1, "fas", "fa-chevron-left", "position-absolute", "top-50", "start-50", "translate-middle"], ["id", "change-date-input-wrapper", 1, "d-flex", "rounded-pill", "ps-3", "mx-3"], ["type", "date", "name", "", "id", "change-date-input", 1, "light-calendar-icon", 3, "value"], ["mdbRipple", "", 1, "border-0", "small", "fw-light", "d-flex", "align-items-center", "px-3", 3, "click"], ["id", "btn-next-date", 1, "d-flex", "align-items-center", "rounded-circle", "position-relative", "cursor-pointer", 3, "click"], [1, "fas", "fa-chevron-right", "position-absolute", "top-50", "start-50", "translate-middle"], [1, "me-3", "px-3", "todo-column", "col", "flex-column", 3, "ngClass"], ["class", "text-center py-4 text-red-hat text-light fw-light", 4, "ngIf"], [4, "ngIf"], ["class", "mt-auto d-flex justify-content-between mb-3", 4, "ngIf"], [1, "text-center", "py-4", "text-red-hat", "text-light", "fw-light"], ["class", "plan-card mb-3 text-light", 4, "ngFor", "ngForOf"], [1, "plan-card", "mb-3", "text-light"], [1, "plan-title", "px-3", "py-2"], [1, "d-block", "px-3", "py-2"], [1, "d-block", "plan-priority"], [3, "ngClass"], [1, "plan-desc", "mt-1", "small"], [1, "mt-auto", "d-flex", "justify-content-between", "mb-3"], [1, "cursor-pointer", "p-2", 3, "click"], [1, "fas", "fa-chevron-left", "text-light"], [1, "text-light", "p-2", "small"], [1, "fas", "fa-chevron-right", "text-light"]], template: function TodoComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0)(1, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](2, TodoComponent_div_2_Template, 4, 5, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "div", 3)(4, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function TodoComponent_Template_div_click_4_listener() { return ctx.changeDate(false, -1); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](5, "i", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "div", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](7, "input", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "button", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function TodoComponent_Template_button_click_8_listener() { return ctx.changeDate(true); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](9, "Confirm");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](10, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function TodoComponent_Template_div_click_10_listener() { return ctx.changeDate(false, 1); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](11, "i", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
-    } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngForOf", ctx.planDatesWithDateString);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpropertyInterpolate"]("value", ctx.dateInputString);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgIf, mdb_angular_ui_kit_ripple__WEBPACK_IMPORTED_MODULE_6__.MdbRippleDirective], styles: [".todo-column[_ngcontent-%COMP%] {\n  \n  background-color: var(--purple-darkest);\n}\n\n.todo-col-wrapper[_ngcontent-%COMP%] {\n  width: 100%;\n  \n  background-image: url(\"/assets/img/rain-forest-purple.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: right;\n  padding: 0;\n}\n\n.todo-col-container[_ngcontent-%COMP%] {\n  height: 90vh;\n  padding: 70px 20px 0px 20px;\n}\n\n.todo-col-container[_ngcontent-%COMP%]   .col[_ngcontent-%COMP%] {\n  margin: 0 5px !important;\n}\n\n.plan-card[_ngcontent-%COMP%] {\n  background-color: #22164a;\n  border: 1px solid var(--purple-gray);\n  border-radius: 5px;\n  transition: 0.3s;\n}\n\n.plan-card[_ngcontent-%COMP%]:hover {\n  \n  box-shadow: 0 0 0 3px var(--purple-gray);\n  outline: var(--purple-gray);\n  transition: 0.3s;\n}\n\n.plan-title[_ngcontent-%COMP%] {\n  border-bottom: solid 1px var(--purple-gray);\n  line-height: 31px;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  -webkit-line-clamp: 1;\n  -webkit-box-orient: vertical;\n}\n\n.plan-priority[_ngcontent-%COMP%] {\n  font-size: 10px;\n}\n\n#change-date-input[_ngcontent-%COMP%] {\n  width: 150px;\n}\n\n#change-date-input[_ngcontent-%COMP%]:focus {\n  outline: none;\n}\n\n#change-date-input-wrapper[_ngcontent-%COMP%] {\n  transition: 0.3s;\n}\n\n#change-date-input-wrapper[_ngcontent-%COMP%]:focus-within {\n  box-shadow: 0 0 0 2px var(--purple-light);\n  transition: 0.3s;\n}\n\n#btn-prev-date[_ngcontent-%COMP%], #btn-next-date[_ngcontent-%COMP%] {\n  background-color: var(--purple-darkest);\n  width: 32px;\n  height: 32px;\n}\n\n#btn-prev-date[_ngcontent-%COMP%]   i[_ngcontent-%COMP%], #btn-next-date[_ngcontent-%COMP%]   i[_ngcontent-%COMP%] {\n  color: var(--purple-light);\n}\n\n#change-date-input-wrapper[_ngcontent-%COMP%] {\n  background-color: var(--purple-darkest);\n}\n\n#change-date-input-wrapper[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background-color: var(--purple-dark);\n  color: var(--gray-lightest);\n  border-radius: 0 50rem 50rem 0;\n}\n\n\n\n.plan-desc[_ngcontent-%COMP%] {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRvZG8uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFrQjtFQUNsQix1Q0FBdUM7QUFDekM7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsb0JBQW9CO0VBQ3BCLDJEQUEyRDtFQUMzRCw0QkFBNEI7RUFDNUIsc0JBQXNCO0VBQ3RCLDBCQUEwQjtFQUMxQixVQUFVO0FBQ1o7O0FBRUE7RUFDRSxZQUFZO0VBQ1osMkJBQTJCO0FBQzdCOztBQUVBO0VBQ0Usd0JBQXdCO0FBQzFCOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLG9DQUFvQztFQUNwQyxrQkFBa0I7RUFDbEIsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsNkNBQTZDO0VBQzdDLHdDQUF3QztFQUN4QywyQkFBMkI7RUFDM0IsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsMkNBQTJDO0VBQzNDLGlCQUFpQjtFQUNqQixnQkFBZ0I7RUFDaEIsdUJBQXVCO0VBQ3ZCLG9CQUFvQjtFQUNwQixxQkFBcUI7RUFDckIsNEJBQTRCO0FBQzlCOztBQUVBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGFBQWE7QUFDZjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLHlDQUF5QztFQUN6QyxnQkFBZ0I7QUFDbEI7O0FBRUE7O0VBRUUsdUNBQXVDO0VBQ3ZDLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7O0FBRUE7O0VBRUUsMEJBQTBCO0FBQzVCOztBQUVBO0VBQ0UsdUNBQXVDO0FBQ3pDOztBQUVBO0VBQ0Usb0NBQW9DO0VBQ3BDLDJCQUEyQjtFQUMzQiw4QkFBOEI7QUFDaEM7O0FBRUEsZ0NBQWdDOztBQUNoQztFQUNFLGdCQUFnQjtFQUNoQix1QkFBdUI7RUFDdkIsb0JBQW9CO0VBQ3BCLHFCQUFxQjtFQUNyQiw0QkFBNEI7QUFDOUIiLCJmaWxlIjoidG9kby5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRvZG8tY29sdW1uIHtcbiAgLyogd2lkdGg6IDQ1MHB4OyAqL1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1wdXJwbGUtZGFya2VzdCk7XG59XG5cbi50b2RvLWNvbC13cmFwcGVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIC8qIG92ZXJmbG93OiBhdXRvOyAqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ltZy9yYWluLWZvcmVzdC1wdXJwbGUuanBnXCIpO1xuICBiYWNrZ3JvdW5kLWF0dGFjaG1lbnQ6IGZpeGVkO1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiByaWdodDtcbiAgcGFkZGluZzogMDtcbn1cblxuLnRvZG8tY29sLWNvbnRhaW5lciB7XG4gIGhlaWdodDogOTB2aDtcbiAgcGFkZGluZzogNzBweCAyMHB4IDBweCAyMHB4O1xufVxuXG4udG9kby1jb2wtY29udGFpbmVyIC5jb2wge1xuICBtYXJnaW46IDAgNXB4ICFpbXBvcnRhbnQ7XG59XG5cbi5wbGFuLWNhcmQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjIxNjRhO1xuICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1wdXJwbGUtZ3JheSk7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgdHJhbnNpdGlvbjogMC4zcztcbn1cblxuLnBsYW4tY2FyZDpob3ZlciB7XG4gIC8qIGJveC1zaGFkb3c6IDAgMCAxM3B4IHZhcigtLXB1cnBsZS1ncmF5KTsgKi9cbiAgYm94LXNoYWRvdzogMCAwIDAgM3B4IHZhcigtLXB1cnBsZS1ncmF5KTtcbiAgb3V0bGluZTogdmFyKC0tcHVycGxlLWdyYXkpO1xuICB0cmFuc2l0aW9uOiAwLjNzO1xufVxuXG4ucGxhbi10aXRsZSB7XG4gIGJvcmRlci1ib3R0b206IHNvbGlkIDFweCB2YXIoLS1wdXJwbGUtZ3JheSk7XG4gIGxpbmUtaGVpZ2h0OiAzMXB4O1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XG4gIC13ZWJraXQtbGluZS1jbGFtcDogMTtcbiAgLXdlYmtpdC1ib3gtb3JpZW50OiB2ZXJ0aWNhbDtcbn1cblxuLnBsYW4tcHJpb3JpdHkge1xuICBmb250LXNpemU6IDEwcHg7XG59XG5cbiNjaGFuZ2UtZGF0ZS1pbnB1dCB7XG4gIHdpZHRoOiAxNTBweDtcbn1cblxuI2NoYW5nZS1kYXRlLWlucHV0OmZvY3VzIHtcbiAgb3V0bGluZTogbm9uZTtcbn1cblxuI2NoYW5nZS1kYXRlLWlucHV0LXdyYXBwZXIge1xuICB0cmFuc2l0aW9uOiAwLjNzO1xufVxuXG4jY2hhbmdlLWRhdGUtaW5wdXQtd3JhcHBlcjpmb2N1cy13aXRoaW4ge1xuICBib3gtc2hhZG93OiAwIDAgMCAycHggdmFyKC0tcHVycGxlLWxpZ2h0KTtcbiAgdHJhbnNpdGlvbjogMC4zcztcbn1cblxuI2J0bi1wcmV2LWRhdGUsXG4jYnRuLW5leHQtZGF0ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXB1cnBsZS1kYXJrZXN0KTtcbiAgd2lkdGg6IDMycHg7XG4gIGhlaWdodDogMzJweDtcbn1cblxuI2J0bi1wcmV2LWRhdGUgaSxcbiNidG4tbmV4dC1kYXRlIGkge1xuICBjb2xvcjogdmFyKC0tcHVycGxlLWxpZ2h0KTtcbn1cblxuI2NoYW5nZS1kYXRlLWlucHV0LXdyYXBwZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1wdXJwbGUtZGFya2VzdCk7XG59XG5cbiNjaGFuZ2UtZGF0ZS1pbnB1dC13cmFwcGVyIGJ1dHRvbiB7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXB1cnBsZS1kYXJrKTtcbiAgY29sb3I6IHZhcigtLWdyYXktbGlnaHRlc3QpO1xuICBib3JkZXItcmFkaXVzOiAwIDUwcmVtIDUwcmVtIDA7XG59XG5cbi8qIGVsbGlwc2lzIG9uIHRoZSBzZWNvbmQgbGluZSAqL1xuLnBsYW4tZGVzYyB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICBkaXNwbGF5OiAtd2Via2l0LWJveDtcbiAgLXdlYmtpdC1saW5lLWNsYW1wOiAyO1xuICAtd2Via2l0LWJveC1vcmllbnQ6IHZlcnRpY2FsO1xufVxuIl19 */"] });
 
 
 /***/ }),
@@ -3862,7 +3627,7 @@ class LoginComponent {
     }
 }
 LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_services_Utils__WEBPACK_IMPORTED_MODULE_0__.Utils), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_1__.UserService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.Router)); };
-LoginComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: LoginComponent, selectors: [["app-login"]], decls: 25, vars: 1, consts: [["id", "login-wrapper", 1, ""], ["id", "login-container", 1, "mx-auto", "p-4", "shadow-lg", 3, "formGroup", "ngSubmit"], ["src", "assets/img/logo-icon-with-bg-light.png", "alt", "logo icon of planify", "id", "logo-img", "width", "150", 1, "d-block", "mx-auto", "mt-5"], ["id", "welcome-heading", 1, "text-red-hat", "text-center", "mt-4"], ["src", "assets/img/logo.png", "alt", "logo of planify", "width", "110", "id", "logo-text-img", 1, "mb-2"], [1, "text-center", "text-roboto", "fw-light", "mt-4", "welcome-desc"], ["id", "email-container", 1, "mt-4", "position-relative"], ["type", "email", "id", "elEmail", "placeholder", "Email", "formControlName", "email", 1, "w-100", "p-2"], ["id", "password-container", 1, "mt-3", "position-relative"], ["type", "password", "id", "pwPassword", "placeholder", "Password", "formControlName", "password", 1, "w-100", "p-2"], [1, "checkbox-container", "d-inline-block", "mt-3"], ["type", "checkbox", "value", "true", "id", "cbShowPassword"], [1, "checkbox-checkmark"], ["href", "#", "id", "forgot-password-link", 1, "d-block", "mt-2"], ["type", "submit", "id", "login-btn", "mdbRipple", "", 1, "btn", "w-100", "fw-light", "mt-3"], ["href", "/register", "id", "register-btn", "mdbRipple", "", 1, "btn", "w-100", "fw-light", "mt-2"], ["src", "assets/img/google-signin/2x/btn_google_signin_dark_normal_web@2x.png", "alt", "", 1, "d-block", "mx-auto", "w-50"]], template: function LoginComponent_Template(rf, ctx) { if (rf & 1) {
+LoginComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: LoginComponent, selectors: [["app-login"]], decls: 22, vars: 1, consts: [["id", "login-wrapper", 1, ""], ["id", "login-container", 1, "mx-auto", "p-4", "shadow-lg", 3, "formGroup", "ngSubmit"], ["src", "assets/img/logo-icon-with-bg-light.png", "alt", "logo icon of planify", "id", "logo-img", "width", "150", 1, "d-block", "mx-auto", "mt-5"], ["id", "welcome-heading", 1, "text-red-hat", "text-center", "mt-4"], ["src", "assets/img/logo.png", "alt", "logo of planify", "width", "110", "id", "logo-text-img", 1, "mb-2"], [1, "text-center", "text-roboto", "fw-light", "mt-4", "welcome-desc"], ["id", "email-container", 1, "mt-4", "position-relative"], ["type", "email", "id", "elEmail", "placeholder", "Email", "formControlName", "email", 1, "w-100", "p-2"], ["id", "password-container", 1, "mt-3", "position-relative"], ["type", "password", "id", "pwPassword", "placeholder", "Password", "formControlName", "password", 1, "w-100", "p-2"], [1, "checkbox-container", "d-inline-block", "mt-3"], ["type", "checkbox", "value", "true", "id", "cbShowPassword"], [1, "checkbox-checkmark"], ["href", "#", "id", "forgot-password-link", 1, "d-block", "mt-2"], ["type", "submit", "id", "login-btn", "mdbRipple", "", 1, "btn", "w-100", "fw-light", "mt-3"], ["href", "/register", "id", "register-btn", "mdbRipple", "", 1, "btn", "w-100", "fw-light", "mt-2", "mb-3"]], template: function LoginComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0)(1, "form", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngSubmit", function LoginComponent_Template_form_ngSubmit_1_listener() { return ctx.login(ctx.validationForm); });
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "img", 2);
@@ -3891,10 +3656,6 @@ LoginComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__[
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](20, "a", 15);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](21, "Sign up");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](22, "hr");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](23, "a");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](24, "img", 16);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
@@ -4115,7 +3876,7 @@ class RegisterComponent {
     }
 }
 RegisterComponent.ɵfac = function RegisterComponent_Factory(t) { return new (t || RegisterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_services_Utils__WEBPACK_IMPORTED_MODULE_0__.Utils), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_services_user_user_service__WEBPACK_IMPORTED_MODULE_1__.UserService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.Router)); };
-RegisterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: RegisterComponent, selectors: [["app-register"]], decls: 40, vars: 1, consts: [["id", "login-wrapper", 1, ""], ["id", "login-container", 1, "mx-auto", "p-4", "shadow-lg", 3, "formGroup", "ngSubmit"], ["src", "assets/img/logo-icon-with-bg-light.png", "alt", "logo icon of planify", "id", "logo-img", "width", "150", 1, "d-block", "mx-auto", "mt-5"], ["id", "welcome-heading", 1, "text-red-hat", "text-center", "mt-4"], ["src", "assets/img/logo.png", "alt", "logo of planify", "width", "110", "id", "logo-text-img", 1, "mb-2"], [1, "text-center", "text-roboto", "fw-light", "mt-4", "welcome-desc"], [1, "text-roboto", "mt-4", "p-3", "pw-rules", "rounded", "d-none"], ["id", "item-email"], [1, "far", "fa-times-circle"], ["id", "item-more-char"], ["id", "item-case-number"], ["id", "item-special"], ["id", "email-container", 1, "mt-2", "position-relative"], ["type", "email", "id", "elEmail", "placeholder", "Email", "formControlName", "email", 1, "w-100", "py-2", "px-3"], ["id", "password-container", 1, "mt-2", "position-relative"], ["type", "password", "id", "pwPassword", "placeholder", "Password", "formControlName", "password", 1, "w-100", "py-2", "px-3"], ["id", "first-name-container", 1, "mt-2", "position-relative"], ["type", "text", "id", "txtFirstName", "placeholder", "First name", "formControlName", "firstname", 1, "w-100", "py-2", "px-3"], ["id", "last-name-container", 1, "mt-2", "position-relative"], ["type", "text", "id", "txtLastName", "placeholder", "Last name", "formControlName", "lastname", 1, "w-100", "py-2", "px-3"], [1, "checkbox-container", "d-inline-block", "mt-3"], ["type", "checkbox", "value", "true", "id", "cbShowPassword"], [1, "checkbox-checkmark"], ["href", "/login", "id", "forgot-password-link", 1, "d-block", "mt-2"], ["id", "register-btn", "mdbRipple", "", "type", "submit", 1, "btn", "w-100", "fw-light", "mt-4"], ["src", "assets/img/google-signin/2x/btn_google_signin_dark_normal_web@2x.png", "alt", "", 1, "d-block", "mx-auto", "w-50"]], template: function RegisterComponent_Template(rf, ctx) { if (rf & 1) {
+RegisterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: RegisterComponent, selectors: [["app-register"]], decls: 37, vars: 1, consts: [["id", "login-wrapper", 1, ""], ["id", "login-container", 1, "mx-auto", "p-4", "shadow-lg", 3, "formGroup", "ngSubmit"], ["src", "assets/img/logo-icon-with-bg-light.png", "alt", "logo icon of planify", "id", "logo-img", "width", "150", 1, "d-block", "mx-auto", "mt-5"], ["id", "welcome-heading", 1, "text-red-hat", "text-center", "mt-4"], ["src", "assets/img/logo.png", "alt", "logo of planify", "width", "110", "id", "logo-text-img", 1, "mb-2"], [1, "text-center", "text-roboto", "fw-light", "mt-4", "welcome-desc"], [1, "text-roboto", "mt-4", "p-3", "pw-rules", "rounded", "d-none"], ["id", "item-email"], [1, "far", "fa-times-circle"], ["id", "item-more-char"], ["id", "item-case-number"], ["id", "item-special"], ["id", "email-container", 1, "mt-2", "position-relative"], ["type", "email", "id", "elEmail", "placeholder", "Email", "formControlName", "email", 1, "w-100", "py-2", "px-3"], ["id", "password-container", 1, "mt-2", "position-relative"], ["type", "password", "id", "pwPassword", "placeholder", "Password", "formControlName", "password", 1, "w-100", "py-2", "px-3"], ["id", "first-name-container", 1, "mt-2", "position-relative"], ["type", "text", "id", "txtFirstName", "placeholder", "First name", "formControlName", "firstname", 1, "w-100", "py-2", "px-3"], ["id", "last-name-container", 1, "mt-2", "position-relative"], ["type", "text", "id", "txtLastName", "placeholder", "Last name", "formControlName", "lastname", 1, "w-100", "py-2", "px-3"], [1, "checkbox-container", "d-inline-block", "mt-3"], ["type", "checkbox", "value", "true", "id", "cbShowPassword"], [1, "checkbox-checkmark"], ["href", "/login", "id", "forgot-password-link", 1, "d-block", "mt-2"], ["id", "register-btn", "mdbRipple", "", "type", "submit", 1, "btn", "w-100", "fw-light", "mt-4", "mb-3"]], template: function RegisterComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0)(1, "form", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngSubmit", function RegisterComponent_Template_form_ngSubmit_1_listener() { return ctx.registerUser(ctx.validationForm); });
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "img", 2);
@@ -4163,10 +3924,6 @@ RegisterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](35, "button", 24);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](36, "Sign up");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](37, "hr");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](38, "a");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](39, "img", 25);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
