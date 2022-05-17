@@ -15,7 +15,7 @@ require('dotenv').config();
 // Load configuration
 // const config = requireDir("./config/", { recurse: true });
 
-mongoose.set("useFindAndModify", false);
+// mongoose.set("useFindAndModify", false);
 
 // Create an app
 // const app = {
@@ -70,7 +70,9 @@ let server = http.createServer(app);
 //   origin: ['https://planifie-heesoo.herokuapp.com', 'http://localhost:4200']
 // }));
 
-app.use(cors())
+app.options('*', cors()) // include before other routes 
+app.use(cors({origin: ['https://planifie-heesoo.herokuapp.com', 'http://localhost:3000'], }));
+
 // app.use(function (req, res, next) {
 // 	res.header("Access-Control-Allow-Origin", "*")
 // 	res.header("Access-Control-Allow-Credentials", "true")
