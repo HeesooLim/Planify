@@ -24,7 +24,7 @@ export class PlanService {
    * @memberof PlanService
    */
   getData(): Observable<Plan[]> {
-    return this.http.get<Plan[]>(`http://localhost:3000/plan/${this.year}/${this.month.padStart(2, '0')}`);
+    return this.http.get<Plan[]>(`/plan/${this.year}/${this.month.padStart(2, '0')}`);
   }
 
   /**
@@ -36,9 +36,9 @@ export class PlanService {
    */
   getDataByMonth(date: Date): Observable<HttpResponse<Plan[]>> {
     let month = date.getMonth() + 1;
-    console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}`);
+    console.log(`/plan/${date.getFullYear()}/${month}`);
 
-    return this.http.get<Plan[]>(`http://localhost:3000/plan/${date.getFullYear()}/${month}`, this.httpOptions);
+    return this.http.get<Plan[]>(`/plan/${date.getFullYear()}/${month}`, this.httpOptions);
   }
 
   /**
@@ -50,9 +50,9 @@ export class PlanService {
    */
   getDataByDate(date: Date): Observable<HttpResponse<Plan[]>> {
     let month = date.getMonth() + 1;
-    console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}`);
+    console.log(`/plan/${date.getFullYear()}/${month}/${date.getDate()}`);
 
-    return this.http.get<Plan[]>(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}`, this.httpOptions);
+    return this.http.get<Plan[]>(`/plan/${date.getFullYear()}/${month}/${date.getDate()}`, this.httpOptions);
   }
 
   /**
@@ -63,7 +63,7 @@ export class PlanService {
    * @memberof PlanService
    */
   getDataById(id: string): Observable<HttpResponse<Plan>> {
-    return this.http.get<Plan>(`http://localhost:3000/plan/edit/${id}`, this.httpOptions);
+    return this.http.get<Plan>(`/plan/edit/${id}`, this.httpOptions);
   }
 
   /**
@@ -78,9 +78,9 @@ export class PlanService {
     //router.get("/:year/:month/:date/:day", auth.required, planController.getDataByDateandDays);
     let month = date.getMonth() + 1;
 
-    console.log(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}/${days}`);
+    console.log(`/plan/${date.getFullYear()}/${month}/${date.getDate()}/${days}`);
 
-    return this.http.get<Plan[]>(`http://localhost:3000/plan/${date.getFullYear()}/${month}/${date.getDate()}/${days}`, this.httpOptions);
+    return this.http.get<Plan[]>(`/plan/${date.getFullYear()}/${month}/${date.getDate()}/${days}`, this.httpOptions);
   }
 
   /**
@@ -95,7 +95,7 @@ export class PlanService {
     /* response type: Plan */
     console.log('trying to update the plan!' + JSON.stringify(plan));
     
-    return this.http.put<Plan>(`http://localhost:3000/plan/${plan._id}`, JSON.stringify(plan), this.httpOptions);
+    return this.http.put<Plan>(`/plan/${plan._id}`, JSON.stringify(plan), this.httpOptions);
   }
 
   /**
@@ -106,7 +106,7 @@ export class PlanService {
    * @memberof PlanService
    */
   addPlan(plan): Observable<HttpResponse<Plan>> {
-    return this.http.post<Plan>('http://localhost:3000/plan', JSON.stringify(plan), this.httpOptions);
+    return this.http.post<Plan>('/plan', JSON.stringify(plan), this.httpOptions);
   }
 
   /**
@@ -117,6 +117,6 @@ export class PlanService {
    * @memberof PlanService
    */
   deletePlan(id: string) {
-    return this.http.delete<Plan>(`http://localhost:3000/plan/${id}`, this.httpOptions);
+    return this.http.delete<Plan>(`/plan/${id}`, this.httpOptions);
   }
 }

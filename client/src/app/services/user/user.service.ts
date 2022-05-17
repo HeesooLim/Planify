@@ -26,7 +26,7 @@ export class UserService {
    * @memberof UserService
    */
   isAuthenticated(): Promise<boolean> {
-    return this.http.post<any>('http://localhost:3000/user/authenticated', this.httpOptions).toPromise()
+    return this.http.post<any>('/user/authenticated', this.httpOptions).toPromise()
     .then((a) => {
       console.log(a);
       if(Boolean(a.authenticated)) {
@@ -44,7 +44,7 @@ export class UserService {
    * @memberof UserService
    */
   getData() {
-    return this.http.get<User>('http://localhost:3000/user', this.httpOptions);
+    return this.http.get<User>('/user', this.httpOptions);
   }
 
   /**
@@ -57,7 +57,7 @@ export class UserService {
   addUser(data: any) {
     console.log(JSON.stringify(data));
 
-    return this.http.post<User>('http://localhost:3000/user/register', JSON.stringify(data), { headers: new HttpHeaders().set('Content-Type', 'application/json') });
+    return this.http.post<User>('/user/register', JSON.stringify(data), { headers: new HttpHeaders().set('Content-Type', 'application/json') });
   }
 
   /**
@@ -70,7 +70,7 @@ export class UserService {
   getUserByEmail(email: string) {
     console.log(JSON.stringify(email));
 
-    return this.http.get<User>(`http://localhost:3000/user/${email}`);
+    return this.http.get<User>(`/user/${email}`);
   }
 
   /**
@@ -81,7 +81,7 @@ export class UserService {
    * @memberof UserService
    */
   tryLogin(data): Observable<any> {
-    this.http.post<any>('http://localhost:3000/user/login', JSON.stringify(data), this.httpOptions)
+    this.http.post<any>('/user/login', JSON.stringify(data), this.httpOptions)
       .toPromise()
       .then((a) => {
         console.log('post done!');
@@ -99,7 +99,7 @@ export class UserService {
    * @memberof UserService
    */
   tryLogout() {
-    this.http.post<any>('http://localhost:3000/user/logout', this.httpOptions)
+    this.http.post<any>('/user/logout', this.httpOptions)
       .toPromise()
       .then((a) => {
         this.isUserLoggedIn.next({loggedIn: false, user: a.firstName});
