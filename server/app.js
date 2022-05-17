@@ -75,6 +75,7 @@ let server = http.createServer(app);
 //   origin: ['https://planifie-heesoo.herokuapp.com', 'http://localhost:4200']
 // }));
 
+app.use(cors())
 app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*")
 	res.header("Access-Control-Allow-Credentials", "true")
