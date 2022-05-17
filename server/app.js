@@ -5,12 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
-const methodOverride = require("method-override");
-const morgan = require("morgan");
-const fs = require("fs");
 const path = require("path");
-const requireDir = require("require-dir");
-const rfs = require("rotating-file-stream");
 const logger = require("./logger")(__filename);
 const session = require("express-session");
 const passport = require('passport');
@@ -76,16 +71,16 @@ let server = http.createServer(app);
 // }));
 
 app.use(cors())
-app.use(function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*")
-	res.header("Access-Control-Allow-Credentials", "true")
-	res.header(
-		"Access-Control-Allow-Headers",
-		"Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With"
-	)
-	res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-	next()
-})
+// app.use(function (req, res, next) {
+// 	res.header("Access-Control-Allow-Origin", "*")
+// 	res.header("Access-Control-Allow-Credentials", "true")
+// 	res.header(
+// 		"Access-Control-Allow-Headers",
+// 		"Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With"
+// 	)
+// 	res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+// 	next()
+// })
 // app.server.options('*', cors());
 // app.server.use(function (req, res, next) {
 //     res.header('Access-Control-Allow-Origin', '*');
