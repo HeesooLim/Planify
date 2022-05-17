@@ -38,7 +38,6 @@ import { RegisterComponent } from './user/register/register.component';
 import { ErrorComponent } from './error/error.component';
 import { ErrorInterceptorService } from './services/error-interceptor';
 import { EmailVerificationComponent } from './user/email-verification/email-verification.component';
-import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +56,6 @@ import { TodoComponent } from './todo/todo.component';
     RegisterComponent,
     ErrorComponent,
     EmailVerificationComponent,
-    TodoComponent
   ],
   imports: [
     BrowserModule,
