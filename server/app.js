@@ -32,8 +32,10 @@ mongoose.set("useFindAndModify", false);
 //   clientDir: path.join(__dirname, "./../client/dist/client"),
 //   logger: logger,
 // };
+
 let app = express();
 let server = http.createServer(app);
+
 
 
 // handle cors error
@@ -137,11 +139,41 @@ mongoose
 // this.server.use(this.router);
 
 
-app.use("/", express.static(app.clientDir));
+// app.use("/", express.static(path.join(__dirname, "./../client/dist/client")));
+// app.get('/*', function (req, res) {
+//   res.sendFile('index.html', { root: path.join(__dirname, "./../client/dist/client") }
+//   );
+// });
+
+// app.use(express.static(__dirname + "./../client/dist/client"));
+// app.get('/*', function(req, res) {
+//   console.log('hello!!!!!!');
+//   res.sendFile('index.html', { root: 'src' }
+//   );
+// });
+
+
+app.use(express.static(__dirname + "./../client/dist/client"));
+// app.use(express.static(__dirname + '/client/dist/client'));
 app.get('/*', function (req, res) {
-  res.sendFile('index.html', { root: app.clientDir }
-  );
+  res.sendFile(path.join(__dirname +
+    './../client/dist/client/index.html'));
 });
+// app.get('/*', function (req, res) {
+//   res.sendFile(path.join(__dirname +
+//     '/client/dist/client/index.html'));
+// });
+
+
+// app.listen(process.env.PORT || 8080);
+
+
+// app.all('/*', (req, res) => {
+//   console.log('hello!!!!!!');
+//   res.sendFile('index.html', { root: 'src' }
+//   );
+//   // res.status(200).sendFile(path.resolve('src/index.html'));
+// });
 
 
 // const port = process.env.PORT || 8080; // set our port

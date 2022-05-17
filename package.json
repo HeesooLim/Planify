@@ -37,12 +37,17 @@
     "start": "npm run server",
     "server": "node server/app.js",
     "server-dev": "nodemon server",
-    "build": "cd client; npm install; npm run build",
     "client": "cd client; npm run start",
-    "client-dev": "cd client; npm run start-dev"
+    "client-dev": "cd client; npm run start-dev",
+    "ng": "ng",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
   "devDependencies": {
     "@angular/cli": "12.2.5",
     "@types/jest": "^26.0.24"
   }
 }
+
